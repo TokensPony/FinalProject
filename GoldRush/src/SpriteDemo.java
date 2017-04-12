@@ -61,7 +61,9 @@ public class SpriteDemo extends SimpleFramework {
 		//Room 1 Tile 0
 		WarpTile s2 = new WarpTile(0, 0, 3f, 0, -4.2f);
 		Collectible c2 = new Collectible(0f, 0f, "Oxygen", 50);
+		Collectible c3 = new Collectible(-5f, 3f, "Gold", 100);
 		c2.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		c3.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
 		
 		rd = new RoomData[]{new RoomData("Images/Room-0.png"), new RoomData("Images/Room-1.png")};
 		rd[0].addWarpTile(s1);
@@ -69,6 +71,7 @@ public class SpriteDemo extends SimpleFramework {
 		
 		rd[1].addWarpTile(s2);
 		rd[1].addCollectible(c2);
+		rd[1].addCollectible(c3);
 		
 		
 		//for(int x = 0; x < rd[cRoom].items.size(); x++){
