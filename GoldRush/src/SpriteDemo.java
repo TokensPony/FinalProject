@@ -60,18 +60,27 @@ public class SpriteDemo extends SimpleFramework {
 		
 		//Room 1 Tile 0
 		WarpTile s2 = new WarpTile(0, 0, 3f, 0, -4.2f);
+		WarpTile s3 = new WarpTile(2, 7f, 0f, -7.8f, 0);
 		Collectible c2 = new Collectible(0f, 0f, "Oxygen", 50);
 		Collectible c3 = new Collectible(-5f, 3f, "Gold", 100);
 		c2.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
 		c3.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
 		
-		rd = new RoomData[]{new RoomData("Images/Room-0.png"), new RoomData("Images/Room-1.png")};
+		//Room 3 Tile 0
+		WarpTile s4 = new WarpTile(1, -7f, 0, 7.7f, 0f);
+		
+		
+		rd = new RoomData[]{new RoomData("Images/Room-0.png"), new RoomData("Images/Room-1.png"),
+				new RoomData("Images/Room-0.png")};
 		rd[0].addWarpTile(s1);
 		rd[0].addCollectible(c1);
 		
 		rd[1].addWarpTile(s2);
+		rd[1].addWarpTile(s3);
 		rd[1].addCollectible(c2);
 		rd[1].addCollectible(c3);
+		
+		rd[2].addWarpTile(s4);
 		
 		
 		//for(int x = 0; x < rd[cRoom].items.size(); x++){
@@ -148,8 +157,10 @@ public class SpriteDemo extends SimpleFramework {
 			mario.positions.x = 7.2f;
 		}
 		
+		rd[cRoom].updateRoomData(delta);
+		
 		for(int x = 0; x < rd[cRoom].items.size(); x++){
-			rd[cRoom].items.get(x).updateObjects(delta);
+			//rd[cRoom].items.get(x).updateObjects(delta);
 			if(mario.rRI(rd[cRoom].items.get(x).mainBox)){
 				switch(rd[cRoom].items.get(x).getType()){
 				case "Oxygen":
@@ -167,8 +178,9 @@ public class SpriteDemo extends SimpleFramework {
 			}
 		}
 		
+		//rd[cRoom].updateRoomData(delta);
 		for(int x = 0; x < rd[cRoom].wt.size(); x++){
-			rd[cRoom].wt.get(x).updateObjects(delta);
+			//rd[cRoom].wt.get(x).updateObjects(delta);
 			if(mario.rRI(rd[cRoom].wt.get(x).tile)){
 				//System.out.println("Warped");
 				mario.positions.x = rd[cRoom].wt.get(x).getWarpToX();
@@ -179,7 +191,8 @@ public class SpriteDemo extends SimpleFramework {
 				//b.setSprite("thing");
 				//b.changeSprite(rd[cRoom].getBG());
 				b.currentSprite = rd[cRoom].getBG();
-				rd[cRoom].wt.get(0).updateObjects(delta);
+				//rd[cRoom].wt.get(x).updateObjects(delta);
+				rd[cRoom].updateRoomData(delta);
 				break;
 			}
 		}

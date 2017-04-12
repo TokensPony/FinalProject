@@ -32,6 +32,16 @@ public class RoomData{
 		items.add(c);
 	}
 	
+	public void updateRoomData(float delta){
+		for(int x = 0; x < wt.size(); x++){
+			wt.get(x).updateObjects(delta);
+		}
+		
+		for(int x = 0; x < items.size(); x++){
+			items.get(x).updateObjects(delta);
+		}
+	}
+	
 	public BufferedImage getBG(){
 		return bg;
 	}
