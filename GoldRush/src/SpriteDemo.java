@@ -158,7 +158,7 @@ public class SpriteDemo extends SimpleFramework {
 		}
 		
 		rd[cRoom].updateRoomData(delta);
-		
+		//This is a test
 		for(int x = 0; x < rd[cRoom].items.size(); x++){
 			//rd[cRoom].items.get(x).updateObjects(delta);
 			if(mario.rRI(rd[cRoom].items.get(x).mainBox)){
