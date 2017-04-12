@@ -13,7 +13,6 @@ public class Background extends Sprite{
 	
 	final int spriteWidth = 1280;//why wont this work
 	final int spriteHeight = 720;
-	final int broganTest = 1;
 	
 	int pos = 0;
 	
