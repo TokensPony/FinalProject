@@ -13,7 +13,7 @@ import javagames.util.VectorObject;
 public class Background extends Sprite{
 	
 	final int spriteWidth = 1280;
-	final int spriteHeight = 720;
+	final int spriteHeight = 720;// this is a test
 	
 	int pos = 0;
 	
