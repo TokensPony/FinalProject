@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Random;
 import javagames.util.*;
 
-
+//WHat's up Brogan?!
 public class SpriteDemo extends SimpleFramework {
 	
 	Random r = new Random();
