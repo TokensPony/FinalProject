@@ -1,4 +1,3 @@
-
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -14,6 +13,7 @@ public class Background extends Sprite{
 	
 	final int spriteWidth = 1280;
 	final int spriteHeight = 720;
+	final int broganTest = 0;
 	
 	int pos = 0;
 	
