@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Random;
 import javagames.util.*;
 
-//THIS IS A CHANGEING
+//BLAH BLAH
 public class SpriteDemo extends SimpleFramework {
 	
 	Random r = new Random();
