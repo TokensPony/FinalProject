@@ -25,14 +25,14 @@ public class SpriteDemo extends SimpleFramework {
 	public SpriteDemo() {
 		appBackground = Color.BLACK;
 		appBorder = Color.LIGHT_GRAY;
-		appFont = new Font("Courier New", Font.PLAIN, 14);
+		appFont = new Font("Consolas", Font.PLAIN, 14);
 		appBorderScale = .9f;
 		appFPSColor = Color.BLACK;
 		appWidth = 1280;
 		appHeight = 720;
 		appMaintainRatio = false;
 		appSleep = 10L;
-		appTitle = "Sprite Demo";
+		appTitle = "Gold Rush v1.0";
 		appWorldWidth = 16.0f;
 		appWorldHeight = 9.0f;
 	}
