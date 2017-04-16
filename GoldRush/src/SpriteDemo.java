@@ -2,19 +2,19 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
-import java.util.ArrayList;
 import java.util.Random;
-import javagames.util.*;
+
+import javagames.util.WindowFramework;
 
 //BLAH BLAH
-public class SpriteDemo extends SimpleFramework {
+public class SpriteDemo extends WindowFramework {
 	
 	Random r = new Random();
 	
 	MarioSprite mario;
-	Background b;
-	HealthBar h;
-	Score s;
+	Background background;
+	HealthBar healthBar;
+	Score score;
 	//WarpTile s1;
 	///arpTile s2;
 	
@@ -35,6 +35,9 @@ public class SpriteDemo extends SimpleFramework {
 		appTitle = "Gold Rush v1.0";
 		appWorldWidth = 16.0f;
 		appWorldHeight = 9.0f;
+		
+		// temporal fix. Arturo.
+		setResizable(false);
 	}
 	
 	/*Initializes the various sprites w/ their coordinates and sets their bounding boxes.*/
@@ -42,12 +45,12 @@ public class SpriteDemo extends SimpleFramework {
 	protected void initialize() {
 		super.initialize();
 		
-		b = new Background(0f, 0f);
-		b.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
-		b.setSubBox();
-		b.setSprite("thing");
+		background = new Background(0f, 0f);
+		background.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		background.setSubBox();
+		background.setSprite("thing");
 		//sprites.add(new Floor(-1.0f, -4.4f));
-		s = new Score();
+		score = new Score();
 		
 		mario = new MarioSprite();
 		mario.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
@@ -87,7 +90,7 @@ public class SpriteDemo extends SimpleFramework {
 		//	rd[cRoom].items.get(x).setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
 		//}
 		
-		h = new HealthBar();
+		healthBar = new HealthBar();
 		//System.out.println(rd.length);
 		//System.out.println();
 		
@@ -116,23 +119,23 @@ public class SpriteDemo extends SimpleFramework {
 		
 		if(keyboard.keyDownOnce(KeyEvent.VK_B)){
 			mario.greenBorder = !mario.greenBorder;
-			b.greenBorder = !b.greenBorder;
+			background.greenBorder = !background.greenBorder;
 		}
 
 		if(keyboard.keyDownOnce(KeyEvent.VK_1)){
-			h.doDamage(10);
+			healthBar.doDamage(10);
 		}
 		
 		if(keyboard.keyDownOnce(KeyEvent.VK_2)){
-			h.addHealth(50);
+			healthBar.addHealth(50);
 		}
 		
 		if(keyboard.keyDownOnce(KeyEvent.VK_3)){
-			h.drainOxygen(10);
+			healthBar.drainOxygen(10);
 		}
 		
 		if(keyboard.keyDownOnce(KeyEvent.VK_4)){
-			h.addOxygen(50);
+			healthBar.addOxygen(50);
 		}
 	}
 
@@ -141,17 +144,17 @@ public class SpriteDemo extends SimpleFramework {
 		super.updateObjects(delta);
 		//System.out.printf("%f, %f\n", mario.positions.x, mario.positions.y);
 		//System.out.println(getWorldMousePosition());
-		b.updateObjects(delta);
+		background.updateObjects(delta);
 		mario.updateObjects(delta);
 		//s1.updateObjects(delta);
 		
-		if(mario.rectRectIntersection(b.subBox.get(0).getVWorld(), mario.mainBox.getVWorld())){
+		if(mario.rectRectIntersection(background.subBox.get(0).getVWorld(), mario.mainBox.getVWorld())){
 			mario.positions.y = -3.3f;
-		}else if(mario.rectRectIntersection(b.subBox.get(1).getVWorld(), mario.mainBox.getVWorld())){
+		}else if(mario.rectRectIntersection(background.subBox.get(1).getVWorld(), mario.mainBox.getVWorld())){
 			mario.positions.y = 3.3f;
-		}else if(mario.rectRectIntersection(b.subBox.get(2).getVWorld(), mario.mainBox.getVWorld())){
+		}else if(mario.rectRectIntersection(background.subBox.get(2).getVWorld(), mario.mainBox.getVWorld())){
 			mario.positions.x = -7.2f;
-		}else if(mario.rectRectIntersection(b.subBox.get(3).getVWorld(), mario.mainBox.getVWorld())){
+		}else if(mario.rectRectIntersection(background.subBox.get(3).getVWorld(), mario.mainBox.getVWorld())){
 			//b.setSprite("Thing");
 			//cRoom = rd[cRoom].wt.get(0).getWarpCoord();
 			mario.positions.x = 7.2f;
@@ -164,10 +167,10 @@ public class SpriteDemo extends SimpleFramework {
 			if(mario.rRI(rd[cRoom].items.get(x).mainBox)){
 				switch(rd[cRoom].items.get(x).getType()){
 				case "Oxygen":
-					h.addOxygen(rd[cRoom].items.get(x).getIncrease());
+					healthBar.addOxygen(rd[cRoom].items.get(x).getIncrease());
 					break;
 				case "Gold":
-					s.increaseScore(rd[cRoom].items.get(x).getIncrease());
+					score.increaseScore(rd[cRoom].items.get(x).getIncrease());
 					break;
 				default:
 					System.out.print("Unknown Thing");
@@ -190,20 +193,20 @@ public class SpriteDemo extends SimpleFramework {
 				//b.pos = cRoom;
 				//b.setSprite("thing");
 				//b.changeSprite(rd[cRoom].getBG());
-				b.currentSprite = rd[cRoom].getBG();
+				background.currentSprite = rd[cRoom].getBG();
 				//rd[cRoom].wt.get(x).updateObjects(delta);
 				rd[cRoom].updateRoomData(delta);
 				break;
 			}
 		}
 		
-		h.update(delta);
+		healthBar.update(delta);
 	}
 
 	@Override
 	protected void render(Graphics g) {
 		super.render(g);
-		b.render(g, getViewportTransform());
+		background.render(g, getViewportTransform());
 		mario.render(g, getViewportTransform());
 		//s1.render(g, getViewportTransform());
 		for(int x = 0; x < rd[cRoom].wt.size(); x++){
@@ -212,8 +215,8 @@ public class SpriteDemo extends SimpleFramework {
 		for(int x = 0; x < rd[cRoom].items.size(); x++){
 			rd[cRoom].items.get(x).render(g, getViewportTransform());
 		}
-		h.render(g, getViewportTransform());
-		s.render(g);
+		healthBar.render(g, getViewportTransform());
+		score.render(g);
 	}
 	
 	@Override

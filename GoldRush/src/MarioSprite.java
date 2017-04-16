@@ -1,25 +1,10 @@
 
 import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.RenderingHints;
-import java.awt.geom.AffineTransform;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 
-import javax.*;
-import javax.imageio.ImageIO;
-
-import java.util.*;
-
-import javagames.util.Matrix3x3f;
 import javagames.util.Sprite;
 import javagames.util.Vector2f;
 //import javagames.util.VectorObject;
 import javagames.util.VectorObject;
-
-
 
 public class MarioSprite extends Sprite{
 	
