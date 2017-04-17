@@ -11,7 +11,7 @@ import javagames.util.VectorObject;
 
 public class Background extends Sprite{
 	
-	final int spriteWidth = 1280;//test push for test branch
+	final int spriteWidth = 1280;
 	final int spriteHeight = 720;
 	final int broganTest = 1;
 	
