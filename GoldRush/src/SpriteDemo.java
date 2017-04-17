@@ -20,7 +20,7 @@ public class SpriteDemo extends WindowFramework {
 	
 	int cRoom = 0;
 	
-	RoomData[] rd;
+	RoomData[] roomData;
 	
 	public SpriteDemo() {
 		appBackground = Color.BLACK;
@@ -73,17 +73,17 @@ public class SpriteDemo extends WindowFramework {
 		WarpTile s4 = new WarpTile(1, -7f, 0, 7.7f, 0f);
 		
 		
-		rd = new RoomData[]{new RoomData("Images/Room-0.png"), new RoomData("Images/Room-1.png"),
+		roomData = new RoomData[]{new RoomData("Images/Room-0.png"), new RoomData("Images/Room-1.png"),
 				new RoomData("Images/Room-0.png")};
-		rd[0].addWarpTile(s1);
-		rd[0].addCollectible(c1);
+		roomData[0].addWarpTile(s1);
+		roomData[0].addCollectible(c1);
 		
-		rd[1].addWarpTile(s2);
-		rd[1].addWarpTile(s3);
-		rd[1].addCollectible(c2);
-		rd[1].addCollectible(c3);
+		roomData[1].addWarpTile(s2);
+		roomData[1].addWarpTile(s3);
+		roomData[1].addCollectible(c2);
+		roomData[1].addCollectible(c3);
 		
-		rd[2].addWarpTile(s4);
+		roomData[2].addWarpTile(s4);
 		
 		
 		//for(int x = 0; x < rd[cRoom].items.size(); x++){
@@ -160,42 +160,42 @@ public class SpriteDemo extends WindowFramework {
 			mario.positions.x = 7.2f;
 		}
 		
-		rd[cRoom].updateRoomData(delta);
+		roomData[cRoom].updateRoomData(delta);
 		//This is a test
-		for(int x = 0; x < rd[cRoom].items.size(); x++){
+		for(int x = 0; x < roomData[cRoom].items.size(); x++){
 			//rd[cRoom].items.get(x).updateObjects(delta);
-			if(mario.rRI(rd[cRoom].items.get(x).mainBox)){
-				switch(rd[cRoom].items.get(x).getType()){
+			if(mario.rRI(roomData[cRoom].items.get(x).mainBox)){
+				switch(roomData[cRoom].items.get(x).getType()){
 				case "Oxygen":
-					healthBar.addOxygen(rd[cRoom].items.get(x).getIncrease());
+					healthBar.addOxygen(roomData[cRoom].items.get(x).getIncrease());
 					break;
 				case "Gold":
-					score.increaseScore(rd[cRoom].items.get(x).getIncrease());
+					score.increaseScore(roomData[cRoom].items.get(x).getIncrease());
 					break;
 				default:
 					System.out.print("Unknown Thing");
 					break;
 				//x--;
 				}
-				rd[cRoom].items.remove(x);
+				roomData[cRoom].items.remove(x);
 			}
 		}
 		
 		//rd[cRoom].updateRoomData(delta);
-		for(int x = 0; x < rd[cRoom].wt.size(); x++){
+		for(int x = 0; x < roomData[cRoom].wt.size(); x++){
 			//rd[cRoom].wt.get(x).updateObjects(delta);
-			if(mario.rRI(rd[cRoom].wt.get(x).tile)){
+			if(mario.rRI(roomData[cRoom].wt.get(x).tile)){
 				//System.out.println("Warped");
-				mario.positions.x = rd[cRoom].wt.get(x).getWarpToX();
-				mario.positions.y = rd[cRoom].wt.get(x).getWarpToY();
-				cRoom = rd[cRoom].wt.get(x).getWarpMap();
+				mario.positions.x = roomData[cRoom].wt.get(x).getWarpToX();
+				mario.positions.y = roomData[cRoom].wt.get(x).getWarpToY();
+				cRoom = roomData[cRoom].wt.get(x).getWarpMap();
 				//System.out.println(cRoom);
 				//b.pos = cRoom;
 				//b.setSprite("thing");
 				//b.changeSprite(rd[cRoom].getBG());
-				background.currentSprite = rd[cRoom].getBG();
+				background.currentSprite = roomData[cRoom].getBG();
 				//rd[cRoom].wt.get(x).updateObjects(delta);
-				rd[cRoom].updateRoomData(delta);
+				roomData[cRoom].updateRoomData(delta);
 				break;
 			}
 		}
@@ -209,11 +209,11 @@ public class SpriteDemo extends WindowFramework {
 		background.render(g, getViewportTransform());
 		mario.render(g, getViewportTransform());
 		//s1.render(g, getViewportTransform());
-		for(int x = 0; x < rd[cRoom].wt.size(); x++){
-			rd[cRoom].wt.get(x).render(g, getViewportTransform());
+		for(int x = 0; x < roomData[cRoom].wt.size(); x++){
+			roomData[cRoom].wt.get(x).render(g, getViewportTransform());
 		}
-		for(int x = 0; x < rd[cRoom].items.size(); x++){
-			rd[cRoom].items.get(x).render(g, getViewportTransform());
+		for(int x = 0; x < roomData[cRoom].items.size(); x++){
+			roomData[cRoom].items.get(x).render(g, getViewportTransform());
 		}
 		healthBar.render(g, getViewportTransform());
 		score.render(g);

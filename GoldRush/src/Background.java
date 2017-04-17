@@ -1,10 +1,5 @@
 import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.RenderingHints;
-import java.awt.image.BufferedImage;
 
-import javagames.util.Matrix3x3f;
 import javagames.util.Sprite;
 import javagames.util.Vector2f;
 import javagames.util.VectorObject;
