@@ -6,7 +6,7 @@ import javagames.util.VectorObject;
 
 public class Background extends Sprite {
 
-	final int spriteWidth = 1280;
+	final int spriteWidth = 1280;//commit to test branch
 	final int spriteHeight = 720;
 
 	int pos = 0;
