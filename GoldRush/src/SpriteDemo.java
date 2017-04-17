@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Random;
 import javagames.util.*;
 
-//BLAH BLAH
+//BLAH BLAH hkjhjkhkh
 public class SpriteDemo extends SimpleFramework {
 	
 	Random r = new Random();
@@ -17,6 +17,9 @@ public class SpriteDemo extends SimpleFramework {
 	Score s;
 	//WarpTile s1;
 	///arpTile s2;
+	
+	boolean gameOver = false;
+	boolean controlLock = false;
 	
 	int cRoom = 0;
 	
@@ -71,7 +74,7 @@ public class SpriteDemo extends SimpleFramework {
 		
 		
 		rd = new RoomData[]{new RoomData("Images/Room-0.png"), new RoomData("Images/Room-1.png"),
-				new RoomData("Images/Room-0.png")};
+				new RoomData("Images/Room-0.png", "QTE")};
 		rd[0].addWarpTile(s1);
 		rd[0].addCollectible(c1);
 		
@@ -81,6 +84,7 @@ public class SpriteDemo extends SimpleFramework {
 		rd[1].addCollectible(c3);
 		
 		rd[2].addWarpTile(s4);
+		rd[2].db.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
 		
 		
 		//for(int x = 0; x < rd[cRoom].items.size(); x++){
@@ -98,20 +102,30 @@ public class SpriteDemo extends SimpleFramework {
 	@Override
 	protected void processInput(float delta) {
 		super.processInput(delta);
-		if(keyboard.keyDown(KeyEvent.VK_W)){
-			mario.setVY(2f);
-		}else if(keyboard.keyDown(KeyEvent.VK_S)){
-			mario.setVY(-2f);	
+		if(!controlLock){
+			if(keyboard.keyDown(KeyEvent.VK_W)){
+				mario.setVY(2f);
+			}else if(keyboard.keyDown(KeyEvent.VK_S)){
+				mario.setVY(-2f);	
+			}else{
+				mario.setVY(0);
+			}
+			
+			if(keyboard.keyDown(KeyEvent.VK_A)){
+				mario.setVX(-2f);
+			}else if(keyboard.keyDown(KeyEvent.VK_D)){
+				mario.setVX(2f);
+			}else{
+				mario.setVX(0);
+			}
 		}else{
+			mario.setVX(0);
 			mario.setVY(0);
 		}
 		
-		if(keyboard.keyDown(KeyEvent.VK_A)){
-			mario.setVX(-2f);
-		}else if(keyboard.keyDown(KeyEvent.VK_D)){
-			mario.setVX(2f);
-		}else{
-			mario.setVX(0);
+		if(keyboard.keyDownOnce(KeyEvent.VK_E)){
+			rd[cRoom].showDB = false;
+			controlLock = false;
 		}
 		
 		if(keyboard.keyDownOnce(KeyEvent.VK_B)){
@@ -157,6 +171,9 @@ public class SpriteDemo extends SimpleFramework {
 			mario.positions.x = 7.2f;
 		}
 		
+		if(rd[cRoom].showDB){
+			controlLock = true;
+		}
 		rd[cRoom].updateRoomData(delta);
 		//This is a test
 		for(int x = 0; x < rd[cRoom].items.size(); x++){
@@ -197,23 +214,36 @@ public class SpriteDemo extends SimpleFramework {
 			}
 		}
 		
-		h.update(delta);
+		if(!controlLock){
+			h.update(delta);
+			if(h.healthLevel <= 0){
+				gameOver = true;
+			}
+		}
 	}
 
 	@Override
 	protected void render(Graphics g) {
 		super.render(g);
-		b.render(g, getViewportTransform());
-		mario.render(g, getViewportTransform());
-		//s1.render(g, getViewportTransform());
-		for(int x = 0; x < rd[cRoom].wt.size(); x++){
-			rd[cRoom].wt.get(x).render(g, getViewportTransform());
+		if(!gameOver){
+			b.render(g, getViewportTransform());
+			mario.render(g, getViewportTransform());
+			//s1.render(g, getViewportTransform());
+			for(int x = 0; x < rd[cRoom].wt.size(); x++){
+				rd[cRoom].wt.get(x).render(g, getViewportTransform());
+			}
+			for(int x = 0; x < rd[cRoom].items.size(); x++){
+				rd[cRoom].items.get(x).render(g, getViewportTransform());
+			}
+			h.render(g, getViewportTransform());
+			s.render(g);
+			if(rd[cRoom].showDB){
+				rd[cRoom].db.render(g, getViewportTransform());
+			}
+		}else{
+			g.setColor(Color.RED);
+			g.drawString("GAME OVER", 640, 360);
 		}
-		for(int x = 0; x < rd[cRoom].items.size(); x++){
-			rd[cRoom].items.get(x).render(g, getViewportTransform());
-		}
-		h.render(g, getViewportTransform());
-		s.render(g);
 	}
 	
 	@Override
