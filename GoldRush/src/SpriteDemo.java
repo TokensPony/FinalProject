@@ -2,25 +2,25 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
-import java.util.ArrayList;
 import java.util.Random;
-import javagames.util.*;
+
+import javagames.util.WindowFramework;
 
 //BLAH BLAH
-public class SpriteDemo extends SimpleFramework {
+public class SpriteDemo extends WindowFramework {
 	
 	Random r = new Random();
 	
 	MarioSprite mario;
-	Background b;
-	HealthBar h;
-	Score s;
+	Background background;
+	HealthBar healthBar;
+	Score score;
 	//WarpTile s1;
 	///arpTile s2;
 	
 	int cRoom = 0;
 	
-	RoomData[] rd;
+	RoomData[] roomData;
 	
 	public SpriteDemo() {
 		appBackground = Color.BLACK;
@@ -35,6 +35,9 @@ public class SpriteDemo extends SimpleFramework {
 		appTitle = "Gold Rush v1.0";
 		appWorldWidth = 16.0f;
 		appWorldHeight = 9.0f;
+		
+		// temporal fix. Arturo.
+		setResizable(false);
 	}
 	
 	/*Initializes the various sprites w/ their coordinates and sets their bounding boxes.*/
@@ -42,12 +45,12 @@ public class SpriteDemo extends SimpleFramework {
 	protected void initialize() {
 		super.initialize();
 		
-		b = new Background(0f, 0f);
-		b.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
-		b.setSubBox();
-		b.setSprite("thing");
+		background = new Background(0f, 0f);
+		background.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		background.setSubBox();
+		background.setSprite("thing");
 		//sprites.add(new Floor(-1.0f, -4.4f));
-		s = new Score();
+		score = new Score();
 		
 		mario = new MarioSprite();
 		mario.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
@@ -70,24 +73,24 @@ public class SpriteDemo extends SimpleFramework {
 		WarpTile s4 = new WarpTile(1, -7f, 0, 7.7f, 0f);
 		
 		
-		rd = new RoomData[]{new RoomData("Images/Room-0.png"), new RoomData("Images/Room-1.png"),
+		roomData = new RoomData[]{new RoomData("Images/Room-0.png"), new RoomData("Images/Room-1.png"),
 				new RoomData("Images/Room-0.png")};
-		rd[0].addWarpTile(s1);
-		rd[0].addCollectible(c1);
+		roomData[0].addWarpTile(s1);
+		roomData[0].addCollectible(c1);
 		
-		rd[1].addWarpTile(s2);
-		rd[1].addWarpTile(s3);
-		rd[1].addCollectible(c2);
-		rd[1].addCollectible(c3);
+		roomData[1].addWarpTile(s2);
+		roomData[1].addWarpTile(s3);
+		roomData[1].addCollectible(c2);
+		roomData[1].addCollectible(c3);
 		
-		rd[2].addWarpTile(s4);
+		roomData[2].addWarpTile(s4);
 		
 		
 		//for(int x = 0; x < rd[cRoom].items.size(); x++){
 		//	rd[cRoom].items.get(x).setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
 		//}
 		
-		h = new HealthBar();
+		healthBar = new HealthBar();
 		//System.out.println(rd.length);
 		//System.out.println();
 		
@@ -116,23 +119,23 @@ public class SpriteDemo extends SimpleFramework {
 		
 		if(keyboard.keyDownOnce(KeyEvent.VK_B)){
 			mario.greenBorder = !mario.greenBorder;
-			b.greenBorder = !b.greenBorder;
+			background.greenBorder = !background.greenBorder;
 		}
 
 		if(keyboard.keyDownOnce(KeyEvent.VK_1)){
-			h.doDamage(10);
+			healthBar.doDamage(10);
 		}
 		
 		if(keyboard.keyDownOnce(KeyEvent.VK_2)){
-			h.addHealth(50);
+			healthBar.addHealth(50);
 		}
 		
 		if(keyboard.keyDownOnce(KeyEvent.VK_3)){
-			h.drainOxygen(10);
+			healthBar.drainOxygen(10);
 		}
 		
 		if(keyboard.keyDownOnce(KeyEvent.VK_4)){
-			h.addOxygen(50);
+			healthBar.addOxygen(50);
 		}
 	}
 
@@ -141,79 +144,79 @@ public class SpriteDemo extends SimpleFramework {
 		super.updateObjects(delta);
 		//System.out.printf("%f, %f\n", mario.positions.x, mario.positions.y);
 		//System.out.println(getWorldMousePosition());
-		b.updateObjects(delta);
+		background.updateObjects(delta);
 		mario.updateObjects(delta);
 		//s1.updateObjects(delta);
 		
-		if(mario.rectRectIntersection(b.subBox.get(0).getVWorld(), mario.mainBox.getVWorld())){
+		if(mario.rectRectIntersection(background.subBox.get(0).getVWorld(), mario.mainBox.getVWorld())){
 			mario.positions.y = -3.3f;
-		}else if(mario.rectRectIntersection(b.subBox.get(1).getVWorld(), mario.mainBox.getVWorld())){
+		}else if(mario.rectRectIntersection(background.subBox.get(1).getVWorld(), mario.mainBox.getVWorld())){
 			mario.positions.y = 3.3f;
-		}else if(mario.rectRectIntersection(b.subBox.get(2).getVWorld(), mario.mainBox.getVWorld())){
+		}else if(mario.rectRectIntersection(background.subBox.get(2).getVWorld(), mario.mainBox.getVWorld())){
 			mario.positions.x = -7.2f;
-		}else if(mario.rectRectIntersection(b.subBox.get(3).getVWorld(), mario.mainBox.getVWorld())){
+		}else if(mario.rectRectIntersection(background.subBox.get(3).getVWorld(), mario.mainBox.getVWorld())){
 			//b.setSprite("Thing");
 			//cRoom = rd[cRoom].wt.get(0).getWarpCoord();
 			mario.positions.x = 7.2f;
 		}
 		
-		rd[cRoom].updateRoomData(delta);
+		roomData[cRoom].updateRoomData(delta);
 		//This is a test
-		for(int x = 0; x < rd[cRoom].items.size(); x++){
+		for(int x = 0; x < roomData[cRoom].items.size(); x++){
 			//rd[cRoom].items.get(x).updateObjects(delta);
-			if(mario.rRI(rd[cRoom].items.get(x).mainBox)){
-				switch(rd[cRoom].items.get(x).getType()){
+			if(mario.rRI(roomData[cRoom].items.get(x).mainBox)){
+				switch(roomData[cRoom].items.get(x).getType()){
 				case "Oxygen":
-					h.addOxygen(rd[cRoom].items.get(x).getIncrease());
+					healthBar.addOxygen(roomData[cRoom].items.get(x).getIncrease());
 					break;
 				case "Gold":
-					s.increaseScore(rd[cRoom].items.get(x).getIncrease());
+					score.increaseScore(roomData[cRoom].items.get(x).getIncrease());
 					break;
 				default:
 					System.out.print("Unknown Thing");
 					break;
 				//x--;
 				}
-				rd[cRoom].items.remove(x);
+				roomData[cRoom].items.remove(x);
 			}
 		}
 		
 		//rd[cRoom].updateRoomData(delta);
-		for(int x = 0; x < rd[cRoom].wt.size(); x++){
+		for(int x = 0; x < roomData[cRoom].wt.size(); x++){
 			//rd[cRoom].wt.get(x).updateObjects(delta);
-			if(mario.rRI(rd[cRoom].wt.get(x).tile)){
+			if(mario.rRI(roomData[cRoom].wt.get(x).tile)){
 				//System.out.println("Warped");
-				mario.positions.x = rd[cRoom].wt.get(x).getWarpToX();
-				mario.positions.y = rd[cRoom].wt.get(x).getWarpToY();
-				cRoom = rd[cRoom].wt.get(x).getWarpMap();
+				mario.positions.x = roomData[cRoom].wt.get(x).getWarpToX();
+				mario.positions.y = roomData[cRoom].wt.get(x).getWarpToY();
+				cRoom = roomData[cRoom].wt.get(x).getWarpMap();
 				//System.out.println(cRoom);
 				//b.pos = cRoom;
 				//b.setSprite("thing");
 				//b.changeSprite(rd[cRoom].getBG());
-				b.currentSprite = rd[cRoom].getBG();
+				background.currentSprite = roomData[cRoom].getBG();
 				//rd[cRoom].wt.get(x).updateObjects(delta);
-				rd[cRoom].updateRoomData(delta);
+				roomData[cRoom].updateRoomData(delta);
 				break;
 			}
 		}
 		
-		h.update(delta);
+		healthBar.update(delta);
 	}
 
 	@Override
 	protected void render(Graphics g) {
 		super.render(g);
-		b.render(g, getViewportTransform());
+		background.render(g, getViewportTransform());
 		mario.render(g, getViewportTransform());
 		//s1.render(g, getViewportTransform());
-		for(int x = 0; x < rd[cRoom].wt.size(); x++){
-			rd[cRoom].wt.get(x).render(g, getViewportTransform());
+		for(int x = 0; x < roomData[cRoom].wt.size(); x++){
+			roomData[cRoom].wt.get(x).render(g, getViewportTransform());
 		}
-		for(int x = 0; x < rd[cRoom].items.size(); x++){
-			rd[cRoom].items.get(x).render(g, getViewportTransform());
+		for(int x = 0; x < roomData[cRoom].items.size(); x++){
+			roomData[cRoom].items.get(x).render(g, getViewportTransform());
 		}
-		h.render(g, getViewportTransform());
-		s.render(g);
+		healthBar.render(g, getViewportTransform());
+		score.render(g);
 	}
 	
 	@Override
