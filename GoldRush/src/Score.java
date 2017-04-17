@@ -1,6 +1,6 @@
 
 
-import java.awt.*;
+import java.awt.Graphics;
 
 public class Score{
 	private int score = 0;
