@@ -8,9 +8,9 @@ import javagames.util.VectorObject;
 
 public class MarioSprite extends Sprite{
 	
-	public String fn = "Images/super-mario-sprite2.png";
-	final int spriteWidth = 64;
-	final int spriteHeight = 128;
+	public String fn = "Images/link test.png";
+	final int spriteWidth = 46;
+	final int spriteHeight = 65;
 	//public boolean flip = false;
 	
 	/*Two different constructors for default and more customized starting values*/

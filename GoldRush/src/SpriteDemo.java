@@ -105,17 +105,17 @@ public class SpriteDemo extends WindowFramework {
 	protected void processInput(float delta) {
 		super.processInput(delta);
 		if(!controlLock){
-			if(keyboard.keyDown(KeyEvent.VK_W)){
+			if(keyboard.keyDown(KeyEvent.VK_W) || keyboard.keyDown(KeyEvent.VK_UP) ){
 				mario.setVY(2f);
-			}else if(keyboard.keyDown(KeyEvent.VK_S)){
+			}else if(keyboard.keyDown(KeyEvent.VK_S) || keyboard.keyDown(KeyEvent.VK_DOWN) ){
 				mario.setVY(-2f);	
 			}else{
 				mario.setVY(0);
 			}
 			
-			if(keyboard.keyDown(KeyEvent.VK_A)){
+			if(keyboard.keyDown(KeyEvent.VK_A) || keyboard.keyDown(KeyEvent.VK_LEFT) ){
 				mario.setVX(-2f);
-			}else if(keyboard.keyDown(KeyEvent.VK_D)){
+			}else if(keyboard.keyDown(KeyEvent.VK_D) || keyboard.keyDown(KeyEvent.VK_RIGHT) ){
 				mario.setVX(2f);
 			}else{
 				mario.setVX(0);
