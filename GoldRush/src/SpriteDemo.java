@@ -6,11 +6,6 @@ import java.util.Random;
 
 import javagames.util.WindowFramework;
 
-///<<<<<<< HEAD
-//BLAH BLAH hkjhjkhkh
-//public class SpriteDemo extends SimpleFramework {
-//=======
-//BLAH BLAH
 public class SpriteDemo extends WindowFramework {
 	// >>>>>>> branch 'master' of https://github.com/TokensPony/FinalProject.git
 
@@ -29,7 +24,7 @@ public class SpriteDemo extends WindowFramework {
 
 	int cRoom = 0;
 
-	RoomData[] roomData;
+	//RoomData[] roomData;
 
 	public SpriteDemo() {
 		appBackground = Color.BLACK;
@@ -68,6 +63,35 @@ public class SpriteDemo extends WindowFramework {
 		mario = new MarioSprite();
 		mario.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
 		mario.setSubBox();
+
+		/*
+		 * //Room 0 Tile 0 WarpTile s1 = new WarpTile(1, 0, -3f, 0, 4.2f, true);
+		 * Collectible c1 = new Collectible(7f, 3f, "Gold", 100);
+		 * c1.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		 * 
+		 * //Room 1 Tile 0 WarpTile s2 = new WarpTile(0, 0, 3f, 0, -4.2f, true);
+		 * WarpTile s3 = new WarpTile(2, 7f, 0f, -7.8f, 0, true); Collectible c2
+		 * = new Collectible(0f, 0f, "Oxygen", 50); Collectible c3 = new
+		 * Collectible(-5f, 3f, "Gold", 100); c2.setBB(appWidth, appHeight,
+		 * appWorldWidth, appWorldHeight); c3.setBB(appWidth, appHeight,
+		 * appWorldWidth, appWorldHeight);
+		 * 
+		 * //Room 3 Tile 0 WarpTile s4 = new WarpTile(1, -7f, 0, 7.7f, 0f,
+		 * false);
+		 * 
+		 * roomData = new RoomData[]{new RoomData("Images/Room-0.png"), new
+		 * RoomData("Images/Room-1.png"), new RoomData("Images/Room-0.png",
+		 * "QTE")}; roomData[0].addWarpTile(s1); roomData[0].addCollectible(c1);
+		 * 
+		 * roomData[1].addWarpTile(s2); roomData[1].addWarpTile(s3);
+		 * roomData[1].addCollectible(c2); roomData[1].addCollectible(c3);
+		 * 
+		 * roomData[2].addWarpTile(s4); roomData[2].db.setBB(appWidth,
+		 * appHeight, appWorldWidth, appWorldHeight); if(roomData[2].db ==
+		 * null){ System.out.println("NULL"); }
+		 */
+
+		healthBar = new HealthBar();
 	}
 
 	/* Processes the keyboard input for the various game controls */
@@ -105,6 +129,12 @@ public class SpriteDemo extends WindowFramework {
 			map.background.greenBorder = !map.background.greenBorder;
 		}
 
+		/*
+		 * The following controls are for debugging and testing ONLY! These MUST
+		 * be removed for final release
+		 */
+
+		/* Health bar */
 		if (keyboard.keyDownOnce(KeyEvent.VK_1)) {
 			healthBar.doDamage(10);
 		}
@@ -113,6 +143,7 @@ public class SpriteDemo extends WindowFramework {
 			healthBar.addHealth(50);
 		}
 
+		// Oxygen bar
 		if (keyboard.keyDownOnce(KeyEvent.VK_3)) {
 			healthBar.drainOxygen(10);
 		}
@@ -120,6 +151,23 @@ public class SpriteDemo extends WindowFramework {
 		if (keyboard.keyDownOnce(KeyEvent.VK_4)) {
 			healthBar.addOxygen(50);
 		}
+
+		/* Activates all warp tiles */
+		if (keyboard.keyDownOnce(KeyEvent.VK_5)) {
+			for (int x = 0; x < map.roomData[cRoom].wt.size(); x++) {
+				map.roomData[cRoom].wt.get(x).activateTile();
+				System.out.printf("Activated: %b\n", map.roomData[cRoom].wt.get(x).isActive());
+			}
+		}
+
+		/* Deactivates all warp tiles */
+		if (keyboard.keyDownOnce(KeyEvent.VK_6)) {
+			for (int x = 0; x < map.roomData[cRoom].wt.size(); x++) {
+				map.roomData[cRoom].wt.get(x).deactivateTile();
+				System.out.printf("Activated: %b\n", map.roomData[cRoom].wt.get(x).isActive());
+			}
+		}
+
 	}
 
 	@Override
@@ -166,11 +214,29 @@ public class SpriteDemo extends WindowFramework {
 				map.roomData[cRoom].items.remove(x);
 			}
 		}
+		/*
+		 * <<<<<<< HEAD
+		 * 
+		 * //roomData[cRoom].updateRoomData(delta); for(int x = 0; x <
+		 * roomData[cRoom].wt.size(); x++){
+		 * //roomData[cRoom].wt.get(x).updateObjects(delta);
+		 * if(mario.rRI(roomData[cRoom].wt.get(x).tile) &&
+		 * roomData[cRoom].wt.get(x).isActive()){
+		 * //System.out.println("Warped"); mario.positions.x =
+		 * roomData[cRoom].wt.get(x).getWarpToX(); mario.positions.y =
+		 * roomData[cRoom].wt.get(x).getWarpToY(); cRoom =
+		 * roomData[cRoom].wt.get(x).getWarpMap(); //System.out.println(cRoom);
+		 * //b.pos = cRoom; //b.setSprite("thing");
+		 * //b.changeSprite(roomData[cRoom].getBG()); background.currentSprite =
+		 * roomData[cRoom].getBG();
+		 * //roomData[cRoom].wt.get(x).updateObjects(delta);
+		 * roomData[cRoom].updateRoomData(delta); =======
+		 */
 
 		// map.roomData[cRoom].updateRoomData(delta);
 		for (int x = 0; x < map.roomData[cRoom].wt.size(); x++) {
 			// map.roomData[cRoom].wt.get(x).updateObjects(delta);
-			if (mario.rRI(map.roomData[cRoom].wt.get(x).tile)) {
+			if (mario.rRI(map.roomData[cRoom].wt.get(x).tile) && map.roomData[cRoom].wt.get(x).isActive()) {
 				// System.out.println("Warped");
 				mario.positions.x = map.roomData[cRoom].wt.get(x).getWarpToX();
 				mario.positions.y = map.roomData[cRoom].wt.get(x).getWarpToY();
@@ -182,13 +248,15 @@ public class SpriteDemo extends WindowFramework {
 				map.background.currentSprite = map.roomData[cRoom].getBG();
 				// map.roomData[cRoom].wt.get(x).updateObjects(delta);
 				map.roomData[cRoom].updateRoomData(delta);
+				// >>>>>>> branch 'master' of
+				// https://github.com/TokensPony/FinalProject.git
 				break;
 			}
 		}
 
 		if (!controlLock) {
 			healthBar.update(delta);
-			System.out.println(healthBar.healthLevel);
+			// System.out.println(healthBar.healthLevel);
 			if (healthBar.healthLevel <= 0) {
 				gameOver = true;
 			}
