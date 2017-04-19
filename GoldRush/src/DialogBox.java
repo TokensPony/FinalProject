@@ -20,7 +20,7 @@ public class DialogBox extends Sprite{
 		rotation = 0f;
 		switch(type){
 		
-		case "QTE":
+		case "FallingRocks":
 			title = "You're in trouble NOW!";
 			message = /*"As we speak, the room is about to collapse\n"
 					+ "and failing to escape means certain death...\n"

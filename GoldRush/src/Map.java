@@ -9,7 +9,7 @@ public class Map {
 	public Map() {
 		background = new Background(0f, 0f);
 		roomData = new RoomData[] { new RoomData("Images/Room-0.png"), new RoomData("Images/Room-1.png"),
-				new RoomData("Images/Room-0.png", "QTE") };
+				new RoomData("Images/Room-0.png", "FallingRocks") };
 	}
 
 	public void initialize(int appWidth, int appHeight, float appWorldWidth, float appWorldHeight) {
@@ -51,7 +51,7 @@ public class Map {
 		WarpTile s10 = new WarpTile(3, 0, 3f, 0, -4.2f, true);
 		
 		roomData = new RoomData[] { new RoomData("Images/Room-0.png"), new RoomData("Images/Room-1.png"),
-				new RoomData("Images/Room-0.png"), new RoomData("Images/Room-1.png"), new RoomData("Images/Room-0.png", "QTE"), 
+				new RoomData("Images/Room-0.png"), new RoomData("Images/Room-1.png"), new RoomData("Images/Room-0.png", "FallingRocks"), 
 				new RoomData("Images/Room-1.png")};
 		roomData[0].addWarpTile(s0);
 		roomData[0].addWarpTile(s1);
