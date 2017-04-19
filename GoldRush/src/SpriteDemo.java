@@ -214,24 +214,7 @@ public class SpriteDemo extends WindowFramework {
 				map.roomData[cRoom].items.remove(x);
 			}
 		}
-		/*
-		 * <<<<<<< HEAD
-		 * 
-		 * //roomData[cRoom].updateRoomData(delta); for(int x = 0; x <
-		 * roomData[cRoom].wt.size(); x++){
-		 * //roomData[cRoom].wt.get(x).updateObjects(delta);
-		 * if(mario.rRI(roomData[cRoom].wt.get(x).tile) &&
-		 * roomData[cRoom].wt.get(x).isActive()){
-		 * //System.out.println("Warped"); mario.positions.x =
-		 * roomData[cRoom].wt.get(x).getWarpToX(); mario.positions.y =
-		 * roomData[cRoom].wt.get(x).getWarpToY(); cRoom =
-		 * roomData[cRoom].wt.get(x).getWarpMap(); //System.out.println(cRoom);
-		 * //b.pos = cRoom; //b.setSprite("thing");
-		 * //b.changeSprite(roomData[cRoom].getBG()); background.currentSprite =
-		 * roomData[cRoom].getBG();
-		 * //roomData[cRoom].wt.get(x).updateObjects(delta);
-		 * roomData[cRoom].updateRoomData(delta); =======
-		 */
+
 
 		// map.roomData[cRoom].updateRoomData(delta);
 		for (int x = 0; x < map.roomData[cRoom].wt.size(); x++) {

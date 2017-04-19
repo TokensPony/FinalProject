@@ -11,11 +11,7 @@ public class WarpTile {
 	public float warpToX;
 	public float warpToY;
 
-	/*Parameters:
-	 * destination: Where in the roomData array does the tile go to
-	 * charPosX/Y: Where the player sprite will appear in the window after touching the tile
-	 * tilePosX/Y: Where the tile exists physically in the room
-	 * active: Is the tile active or not (Can it be entered?)*/
+
 	public WarpTile(int destination, float charPosX, float charPosY, float tilePosX, float tilePosY, boolean status) {
 		tile = new VectorObject(Color.RED, new Vector2f[] { new Vector2f(-.3f, .3f), new Vector2f(.3f, .3f),
 				new Vector2f(.3f, -.3f), new Vector2f(-.3f, -.3f), });
