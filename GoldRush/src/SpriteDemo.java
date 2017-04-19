@@ -218,7 +218,6 @@ public class SpriteDemo extends WindowFramework {
 				gameOver = true;
 			}
 		}
-		healthBar.update(delta);
 
 	}
 
