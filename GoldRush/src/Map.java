@@ -1,4 +1,4 @@
-
+// Hello test
 public class Map {
 	public Background background;
 	public WarpTile warpTile;
