@@ -30,7 +30,7 @@ public class Map {
 		c2.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
 		c3.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
 
-		// Room 3 Tile 0
+		// Room 2 Tile 0
 		WarpTile s4 = new WarpTile(1, -7f, 0, 7.7f, 0f);
 		
 		roomData = new RoomData[] { new RoomData("Images/Room-0.png"), new RoomData("Images/Room-1.png"),
