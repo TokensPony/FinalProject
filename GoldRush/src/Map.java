@@ -51,7 +51,7 @@ public class Map {
 		WarpTile s10 = new WarpTile(3, 0, 3f, 0, -4.2f, true);
 		
 		roomData = new RoomData[] { new RoomData("Images/Room-0.png"), new RoomData("Images/Room-1.png"),
-				new RoomData("Images/Room-0.png", "QTE"), new RoomData("Images/Room-1.png"), new RoomData("Images/Room-0.png"), 
+				new RoomData("Images/Room-0.png"), new RoomData("Images/Room-1.png"), new RoomData("Images/Room-0.png", "QTE"), 
 				new RoomData("Images/Room-1.png")};
 		roomData[0].addWarpTile(s0);
 		roomData[0].addWarpTile(s1);
@@ -64,20 +64,16 @@ public class Map {
 
 		roomData[2].addWarpTile(s4);
 		roomData[2].addWarpTile(s5);
-		roomData[2].db.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
 		
 		roomData[3].addWarpTile(s6);
 		roomData[3].addWarpTile(s7);
 		roomData[3].addWarpTile(s8);
 		
 		roomData[4].addWarpTile(s9);
+		roomData[4].db.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
 		
 		roomData[5].addWarpTile(s10);
 
-		// Extra check?
-		if (roomData[2].db == null) {
-			System.out.println("NULL");
-		}
 
 	}
 }
