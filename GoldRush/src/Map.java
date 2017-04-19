@@ -39,6 +39,9 @@ public class Map {
 		WarpTile s4 = new WarpTile(1, -7f, 0, 7.7f, 0f);
 		WarpTile s5 = new WarpTile(3, 7f, 0f, -7.8f, 0);
 		
+		// Room 3 Tile 0
+		WarpTile s6 = new WarpTile(2, -7f, 0, 7.7f, 0f);
+		
 		roomData = new RoomData[] { new RoomData("Images/Room-0.png"), new RoomData("Images/Room-1.png"),
 				new RoomData("Images/Room-0.png", "QTE"), new RoomData("Images/Room-1.png")};
 		roomData[0].addWarpTile(s1);
@@ -50,9 +53,6 @@ public class Map {
 		roomData[1].addWarpTile(s3);
 		roomData[1].addCollectible(c2);
 		roomData[1].addCollectible(c3);
-
-		// Room 3 Tile 0
-		WarpTile s6 = new WarpTile(2, -7f, 0, 7.7f, 0f);
 
 		roomData[2].addWarpTile(s4);
 		roomData[2].addWarpTile(s5);
