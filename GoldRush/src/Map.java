@@ -34,7 +34,6 @@ public class Map {
 		c2.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
 		c3.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
 
-//<<<<<<< HEAD
 		// Room 2 Tile 0
 		WarpTile s4 = new WarpTile(1, -7f, 0, 7.7f, 0f);
 		WarpTile s5 = new WarpTile(3, 7f, 0f, -7.8f, 0);
@@ -47,8 +46,6 @@ public class Map {
 		roomData[0].addWarpTile(s1);
 		roomData[0].addCollectible(c1);
 
-//=======
-//>>>>>>> branch 'master' of https://github.com/TokensPony/FinalProject.git
 		roomData[1].addWarpTile(s2);
 		roomData[1].addWarpTile(s3);
 		roomData[1].addCollectible(c2);
@@ -57,6 +54,7 @@ public class Map {
 		roomData[2].addWarpTile(s4);
 		roomData[2].addWarpTile(s5);
 		roomData[2].db.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		
 		roomData[3].addWarpTile(s6);
 
 		// Extra check?
