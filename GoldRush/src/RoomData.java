@@ -14,8 +14,11 @@ public class RoomData{
 	public DialogBox db;
 	public boolean showDB = false;
 	
+	public String type;
+	
 	public RoomData(String filename){
 		fn = filename;
+		type = "Normal";
 		try{
 			bg = ImageIO.read(new File(filename));
 		}catch (IOException e){
@@ -26,6 +29,7 @@ public class RoomData{
 	
 	public RoomData(String filename, String dbType){
 		fn = filename;
+		type = "Normal";
 		showDB = true;
 		db = new DialogBox(dbType);
 		try{
@@ -57,6 +61,7 @@ public class RoomData{
 		}
 		/*SpriteDemo.test++;
 		System.out.println(SpriteDemo.test);*/
+		
 	}
 	
 	public boolean doDamage(){
@@ -65,5 +70,9 @@ public class RoomData{
 	
 	public BufferedImage getBG(){
 		return bg;
+	}
+	
+	public void rockUpdater(float delta){
+		//System.out.println("Normal Room");
 	}
 }

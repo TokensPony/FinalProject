@@ -18,8 +18,6 @@ public class SpriteDemo extends WindowFramework {
 	// WarpTile s1;
 	/// arpTile s2;
 	private Map map;
-	
-	public static int test = 0;
 
 	boolean gameOver = false;
 	boolean controlLock = false;
@@ -206,6 +204,8 @@ public class SpriteDemo extends WindowFramework {
 				break;
 			}
 		}
+		
+		map.roomData[cRoom].rockUpdater(delta);
 
 		if (!controlLock) {
 			healthBar.update(delta);
