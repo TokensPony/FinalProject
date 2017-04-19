@@ -55,6 +55,12 @@ public class RoomData{
 		for(int x = 0; x < items.size(); x++){
 			items.get(x).updateObjects(delta);
 		}
+		/*SpriteDemo.test++;
+		System.out.println(SpriteDemo.test);*/
+	}
+	
+	public boolean doDamage(){
+		return false;
 	}
 	
 	public BufferedImage getBG(){

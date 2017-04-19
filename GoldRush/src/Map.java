@@ -9,7 +9,7 @@ public class Map {
 	public Map() {
 		background = new Background(0f, 0f);
 		roomData = new RoomData[] { new RoomData("Images/Room-0.png"), new RoomData("Images/Room-1.png"),
-				new RoomData("Images/Room-0.png", "FallingRocks") };
+				new RockChallengeRoom("Images/Room-0.png", "FallingRocks") };
 	}
 
 	public void initialize(int appWidth, int appHeight, float appWorldWidth, float appWorldHeight) {

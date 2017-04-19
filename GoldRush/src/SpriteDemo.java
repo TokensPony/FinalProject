@@ -18,6 +18,8 @@ public class SpriteDemo extends WindowFramework {
 	// WarpTile s1;
 	/// arpTile s2;
 	private Map map;
+	
+	public static int test = 0;
 
 	boolean gameOver = false;
 	boolean controlLock = false;
@@ -168,6 +170,8 @@ public class SpriteDemo extends WindowFramework {
 		if (map.roomData[cRoom].showDB) {
 			controlLock = true;
 		}
+		
+		//System.out.println(test);
 		map.roomData[cRoom].updateRoomData(delta);
 		// This is a test
 		for (int x = 0; x < map.roomData[cRoom].items.size(); x++) {
@@ -190,23 +194,15 @@ public class SpriteDemo extends WindowFramework {
 		}
 
 
-		// map.roomData[cRoom].updateRoomData(delta);
 		for (int x = 0; x < map.roomData[cRoom].wt.size(); x++) {
-			// map.roomData[cRoom].wt.get(x).updateObjects(delta);
 			if (mario.rRI(map.roomData[cRoom].wt.get(x).tile) && map.roomData[cRoom].wt.get(x).isActive()) {
 				// System.out.println("Warped");
 				mario.positions.x = map.roomData[cRoom].wt.get(x).getWarpToX();
 				mario.positions.y = map.roomData[cRoom].wt.get(x).getWarpToY();
 				cRoom = map.roomData[cRoom].wt.get(x).getWarpMap();
-				// System.out.println(cRoom);
-				// b.pos = cRoom;
-				// b.setSprite("thing");
-				// b.changeSprite(map.roomData[cRoom].getBG());
 				map.background.currentSprite = map.roomData[cRoom].getBG();
 				// map.roomData[cRoom].wt.get(x).updateObjects(delta);
 				map.roomData[cRoom].updateRoomData(delta);
-				// >>>>>>> branch 'master' of
-				// https://github.com/TokensPony/FinalProject.git
 				break;
 			}
 		}
