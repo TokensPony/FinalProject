@@ -1,3 +1,5 @@
+import javagames.util.*;
+
 public class Map {
 
 	public Background background;
@@ -5,7 +7,10 @@ public class Map {
 	public Collectible collectible;
 
 	public RoomData[] roomData;
-
+	
+	public AePlayWave goldCollect = new AePlayWave("Sounds/coin-drop-4.wav");
+	public AePlayWave oxygenCollect = new AePlayWave("Sounds/Oxygen Tank Pickup.wav");
+	
 	enum type {
 		Normal, Rock
 	};
@@ -91,9 +96,11 @@ public class Map {
 				switch (roomData[cRoom].items.get(x).getType()) {
 				case "Oxygen":
 					mario.healthBar.addOxygen(roomData[cRoom].items.get(x).getIncrease());
+					oxygenCollect.play();
 					break;
 				case "Gold":
 					mario.score.increaseScore(roomData[cRoom].items.get(x).getIncrease());
+					goldCollect.play();
 					break;
 				default:
 					System.out.print("Unknown Thing");

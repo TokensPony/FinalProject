@@ -4,6 +4,7 @@ import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.util.Random;
 
+import javagames.util.AePlayWave;
 import javagames.util.Matrix3x3f;
 import javagames.util.WindowFramework;
 
@@ -22,6 +23,8 @@ public class SpriteDemo extends WindowFramework {
 	boolean controlLock = false;
 
 	int cRoom = 0;
+	
+	AePlayWave bgSong = new AePlayWave("Sounds/Spooky Graveyard Song.wav");
 
 	public SpriteDemo() {
 		appBackground = Color.BLACK;
@@ -55,7 +58,8 @@ public class SpriteDemo extends WindowFramework {
 		mario = new MarioSprite();
 		mario.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
 		mario.setSubBox();
-
+		
+		bgSong.loop();
 	}
 
 	/* Processes the keyboard input for the various game controls */

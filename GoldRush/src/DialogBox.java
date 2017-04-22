@@ -37,7 +37,9 @@ public class DialogBox extends Sprite{
 	public void render(Graphics g, Matrix3x3f vp){
 		super.render(g, vp);
 		g.setColor(Color.BLACK);
-		g.drawString(title, 640, 300);
-		g.drawString(message, 640, 480);
+		int titleWidth = g.getFontMetrics().stringWidth(title);
+		int messageWidth = g.getFontMetrics().stringWidth(message);
+		g.drawString(title, 640-(titleWidth/2), 180);
+		g.drawString(message, 640-(messageWidth/2), 480);
 	}
 }

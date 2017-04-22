@@ -74,7 +74,14 @@ public class Score{
 	 * @param g
 	 */
 	public void render(Graphics g){
+		//This Draws the same string 4 times in offset positions then draws it in
+		//White to make a boarder
 		s = s.format("%d", score);
+		g.setColor(Color.BLACK);
+		g.drawString(s, 101, 23);
+		g.drawString(s, 100, 24);
+		g.drawString(s, 99, 23);
+		g.drawString(s, 100, 22);
 		g.setColor(Color.WHITE);
 		g.drawString(s, 100, 23);
 		//c = c.format("Combo Bonus %d x 100",combo);
