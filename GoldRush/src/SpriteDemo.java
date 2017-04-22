@@ -147,17 +147,20 @@ public class SpriteDemo extends WindowFramework {
 		super.updateObjects(delta);
 
 		map.update(delta, mario, cRoom);
+
 		mario.update(delta, map);
+
 		controlLock = map.lock(cRoom);
+
 		map.updateOnObjects(delta, mario, cRoom);
-		
+
 		for (int x = 0; x < map.roomData[cRoom].wt.size(); x++) {
 			if (mario.rRI(map.roomData[cRoom].wt.get(x).tile) && map.roomData[cRoom].wt.get(x).isActive()) {
 				mario.positions.x = map.roomData[cRoom].wt.get(x).getWarpToX();
 				mario.positions.y = map.roomData[cRoom].wt.get(x).getWarpToY();
 
 				cRoom = map.roomData[cRoom].wt.get(x).getWarpMap();
-				
+
 				map.background.currentSprite = map.roomData[cRoom].getBG();
 				map.roomData[cRoom].updateRoomData(delta);
 				break;
@@ -165,15 +168,8 @@ public class SpriteDemo extends WindowFramework {
 		}
 
 		map.roomData[cRoom].rockUpdater(delta);
-
-		if (!controlLock) {
-			mario.healthBar.update(delta);
-			// System.out.println(healthBar.healthLevel);
-			if (mario.healthBar.healthLevel <= 0) {
-				gameOver = true;
-			}
-		}
-
+		
+		lock(controlLock, delta);
 	}
 
 	// Locks the player if it needs to be locked.
