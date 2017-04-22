@@ -147,7 +147,7 @@ public class Sprite{
 	 * the borders on and off */
 	public void render(Graphics g, Matrix3x3f vp){
 		Graphics2D g2d = (Graphics2D) g;
-		//g.setColor(Color.GREEN);
+		g.setColor(Color.GREEN);
 		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
 				RenderingHints.VALUE_ANTIALIAS_ON);
 		doAffineTransform(g2d, vp);

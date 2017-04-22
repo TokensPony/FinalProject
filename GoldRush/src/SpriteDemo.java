@@ -104,6 +104,9 @@ public class SpriteDemo extends WindowFramework {
 		if (keyboard.keyDownOnce(KeyEvent.VK_B)) {
 			mario.greenBorder = !mario.greenBorder;
 			map.background.greenBorder = !map.background.greenBorder;
+			//for (int i = 0; i < map.roomData.length; i++) {
+			//	map.roomData[cRoom].showStuff();
+			//}
 		}
 
 		/*
@@ -173,6 +176,10 @@ public class SpriteDemo extends WindowFramework {
 		}
 
 		map.roomData[cRoom].rockUpdater(delta);
+		
+		if(map.roomData[cRoom].hazardHit(mario)){
+			mario.healthBar.doDamage(25);
+		}
 		
 		lock(controlLock, delta);
 	}

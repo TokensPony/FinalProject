@@ -19,7 +19,7 @@ public class RockChallengeRoom extends RoomData{
 	public RockChallengeRoom(String filename, String dbType){
 		super(filename, dbType);
 		type = "Rock";
-		rocks.add(createRock());
+		//rocks.add(createRock());
 		//rocks.add(new Rock(0, 0, "Test", 100));
 		//rocks.get(0).setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
 	}
@@ -27,7 +27,7 @@ public class RockChallengeRoom extends RoomData{
 	public Rock createRock(){
 		float startPosX = r.nextFloat()*16f - 8f;
 		Rock r = new Rock(startPosX, 8, "Test", 100);
-		//r.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		r.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
 		return r;
 	}
 	
@@ -49,7 +49,7 @@ public class RockChallengeRoom extends RoomData{
 			}
 			
 			for(int x = 0; x < rocks.size(); x++){
-				rocks.get(x).setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+				//rocks.get(x).setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
 			}
 		
 			for(int x = 0; x < rocks.size(); x++){
@@ -70,5 +70,24 @@ public class RockChallengeRoom extends RoomData{
 				rocks.get(x).render(g, vp);
 			}
 		}
+	}
+	
+	@Override
+	public void showStuff(){
+		for(int x = 0; x < rocks.size(); x++){
+			rocks.get(x).greenBorder = !rocks.get(x).greenBorder;
+		}
+	}
+	
+	@Override
+	public boolean hazardHit(MarioSprite m){
+		Vector2f[] box = m.mainBox.getVWorld();
+		for(int x = 0; x < rocks.size(); x++){
+			if(m.intersectCircleAABB(rocks.get(x).positions, rocks.get(x).radius, box[3], box[1])){
+				rocks.remove(x);
+				return true;
+			}
+		}
+		return false;
 	}
 }

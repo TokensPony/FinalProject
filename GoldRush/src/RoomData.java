@@ -3,6 +3,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import javagames.util.*;
 
 import javax.imageio.ImageIO;
 
@@ -90,6 +91,14 @@ public class RoomData{
 	
 	public BufferedImage getBG(){
 		return bg;
+	}
+	
+	public void showStuff(){
+		
+	}
+	
+	public boolean hazardHit(MarioSprite m){
+		return false;
 	}
 	
 	public void rockUpdater(float delta){

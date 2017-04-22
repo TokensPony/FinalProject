@@ -7,6 +7,11 @@ import java.awt.font.*;
 public class Score{
 	private int score = 0;
 	private int combo = 0;
+	
+	private int scoreX = 100;
+	private int scoreY = 23;
+	private int boldness = 2;
+	
 	private static String s = "0";
 	private static String c = "";
 	private boolean showStreak = false;
@@ -78,12 +83,12 @@ public class Score{
 		//White to make a boarder
 		s = s.format("%d", score);
 		g.setColor(Color.BLACK);
-		g.drawString(s, 101, 23);
-		g.drawString(s, 100, 24);
-		g.drawString(s, 99, 23);
-		g.drawString(s, 100, 22);
+		g.drawString(s, scoreX+boldness, scoreY);
+		g.drawString(s, scoreX, scoreY+boldness);
+		g.drawString(s, scoreX-boldness, scoreY);
+		g.drawString(s, scoreX, scoreY-boldness);
 		g.setColor(Color.WHITE);
-		g.drawString(s, 100, 23);
+		g.drawString(s, scoreX, scoreY);
 		//c = c.format("Combo Bonus %d x 100",combo);
 		//g.drawString(c, 20, 60);
 	}

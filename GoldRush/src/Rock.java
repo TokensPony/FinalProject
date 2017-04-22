@@ -5,6 +5,7 @@ import java.util.*;
 public class Rock extends Sprite{
 	public Sprite shadow;
 	public String hType;
+	//public boolean greenBorder = true;
 	
 	public int damage;
 	
@@ -13,6 +14,8 @@ public class Rock extends Sprite{
 	
 	public Rock(float x, float y, String type, int value){
 		hType = type;
+		greenBorder = true;
+		circle = true;
 		//switch(hType){
 		//case "Rock":
 			fn = "Images/Rock.png";
