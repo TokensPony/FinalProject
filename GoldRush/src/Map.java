@@ -50,7 +50,7 @@ public class Map {
 		WarpTile s8 = new WarpTile(4, -7f, 0, 7.7f, 0f, true);
 		
 		//Room 4 Tile 0
-		WarpTile s9 = new WarpTile(3, 7f, 0f, -7.8f, 0, true);
+		WarpTile s9 = new WarpTile(3, 7f, 0f, -7.8f, 0, false);
 		
 		//Room 5 Tile 0
 		WarpTile s10 = new WarpTile(3, 0, 3f, 0, -4.2f, true);
@@ -74,6 +74,7 @@ public class Map {
 		
 		roomData[4].addWarpTile(s9);
 		roomData[4].db.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		roomData[4].setStuff(appWidth, appHeight, appWorldWidth, appWorldHeight);
 		
 		roomData[5].addWarpTile(s10);
 

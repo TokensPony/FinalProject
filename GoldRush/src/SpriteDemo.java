@@ -235,6 +235,7 @@ public class SpriteDemo extends WindowFramework {
 			if (map.roomData[cRoom].showDB) {
 				map.roomData[cRoom].db.render(g, getViewportTransform());
 			}
+			map.roomData[cRoom].renderRoom(g, getViewportTransform());
 		} else {
 			g.setColor(Color.RED);
 			g.drawString("GAME OVER", 640, 360);

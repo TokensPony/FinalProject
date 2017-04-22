@@ -8,18 +8,18 @@ public class Rock extends Sprite{
 	
 	public int damage;
 	
-	public int spriteWidth = 100;
-	public int spriteHeight = 100;
+	public int spriteWidth = 120;
+	public int spriteHeight = 120;
 	
 	public Rock(float x, float y, String type, int value){
 		hType = type;
-		switch(hType){
-		case "Rock":
+		//switch(hType){
+		//case "Rock":
 			fn = "Images/Rock.png";
-			break;
-		default:
-			break;
-		}
+			//break;
+		//default:
+		//	break;
+		//}
 		damage = value;
 		loadFile(fn, spriteWidth, spriteHeight);
 		positions = new Vector2f(x, y);

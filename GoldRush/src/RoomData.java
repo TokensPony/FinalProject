@@ -1,9 +1,12 @@
+import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
+
+import javagames.util.Matrix3x3f;
 
 public class RoomData{
 	
@@ -13,6 +16,11 @@ public class RoomData{
 	public BufferedImage bg;
 	public DialogBox db;
 	public boolean showDB = false;
+	
+	public int appWidth;
+	public int appHeight;
+	public float appWorldWidth;
+	public float appWorldHeight;
 	
 	public String type;
 	
@@ -48,6 +56,13 @@ public class RoomData{
 		items.add(c);
 	}
 	
+	public void setStuff(int aW, int aH, float aWW, float aWH){
+		appWidth = aW;
+		appHeight = aH;
+		appWorldWidth = aWW;
+		appWorldHeight = aWH;
+	}
+	
 	public void updateRoomData(float delta){
 		if(db != null){
 			db.updateObjects(delta);
@@ -61,6 +76,10 @@ public class RoomData{
 		}
 		/*SpriteDemo.test++;
 		System.out.println(SpriteDemo.test);*/
+		
+	}
+	
+	public void renderRoom(Graphics g, Matrix3x3f vp){
 		
 	}
 	
