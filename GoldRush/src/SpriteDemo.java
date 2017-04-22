@@ -4,27 +4,24 @@ import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.util.Random;
 
+import javagames.util.Matrix3x3f;
 import javagames.util.WindowFramework;
 
 public class SpriteDemo extends WindowFramework {
-	// >>>>>>> branch 'master' of https://github.com/TokensPony/FinalProject.git
 
 	Random r = new Random();
 
 	MarioSprite mario;
 	Background background;
-	HealthBar healthBar;
-	Score score;
-	// WarpTile s1;
-	/// arpTile s2;
+	// HealthBar healthBar;
+	// Score score;
+
 	private Map map;
 
 	boolean gameOver = false;
 	boolean controlLock = false;
 
 	int cRoom = 0;
-
-	//RoomData[] roomData;
 
 	public SpriteDemo() {
 		appBackground = Color.BLACK;
@@ -40,7 +37,6 @@ public class SpriteDemo extends WindowFramework {
 		appWorldWidth = 16.0f;
 		appWorldHeight = 9.0f;
 
-		// temporal fix. Arturo.
 		setResizable(false);
 	}
 
@@ -56,35 +52,37 @@ public class SpriteDemo extends WindowFramework {
 		map = new Map();
 		map.initialize(appWidth, appHeight, appWorldWidth, appWorldHeight);
 
-		// sprites.add(new Floor(-1.0f, -4.4f));
-		score = new Score();
-		healthBar = new HealthBar();
-
 		mario = new MarioSprite();
 		mario.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
 		mario.setSubBox();
 
-
-		healthBar = new HealthBar();
 	}
 
 	/* Processes the keyboard input for the various game controls */
 	@Override
 	protected void processInput(float delta) {
 		super.processInput(delta);
+
+		int running = 1;
+
 		if (!controlLock) {
+			// Running. Change running to 2 for final release.
+			// I found it a reasonable value if we want to have it.,,,
+			if (keyboard.keyDown(KeyEvent.VK_SHIFT))
+				running = 4;
+
 			if (keyboard.keyDown(KeyEvent.VK_W) || keyboard.keyDown(KeyEvent.VK_UP)) {
-				mario.setVY(2f);
+				mario.setVY(2f * running);
 			} else if (keyboard.keyDown(KeyEvent.VK_S) || keyboard.keyDown(KeyEvent.VK_DOWN)) {
-				mario.setVY(-2f);
+				mario.setVY(-2f * running);
 			} else {
 				mario.setVY(0);
 			}
 
 			if (keyboard.keyDown(KeyEvent.VK_A) || keyboard.keyDown(KeyEvent.VK_LEFT)) {
-				mario.setVX(-2f);
+				mario.setVX(-2f * running);
 			} else if (keyboard.keyDown(KeyEvent.VK_D) || keyboard.keyDown(KeyEvent.VK_RIGHT)) {
-				mario.setVX(2f);
+				mario.setVX(2f * running);
 			} else {
 				mario.setVX(0);
 			}
@@ -110,20 +108,20 @@ public class SpriteDemo extends WindowFramework {
 
 		/* Health bar */
 		if (keyboard.keyDownOnce(KeyEvent.VK_1)) {
-			healthBar.doDamage(10);
+			mario.healthBar.doDamage(10);
 		}
 
 		if (keyboard.keyDownOnce(KeyEvent.VK_2)) {
-			healthBar.addHealth(50);
+			mario.healthBar.addHealth(50);
 		}
 
 		// Oxygen bar
 		if (keyboard.keyDownOnce(KeyEvent.VK_3)) {
-			healthBar.drainOxygen(10);
+			mario.healthBar.drainOxygen(10);
 		}
 
 		if (keyboard.keyDownOnce(KeyEvent.VK_4)) {
-			healthBar.addOxygen(50);
+			mario.healthBar.addOxygen(50);
 		}
 
 		/* Activates all warp tiles */
@@ -147,95 +145,70 @@ public class SpriteDemo extends WindowFramework {
 	@Override
 	protected void updateObjects(float delta) {
 		super.updateObjects(delta);
-		// System.out.printf("%f, %f\n", mario.positions.x, mario.positions.y);
-		// System.out.println(getWorldMousePosition());
-		map.background.updateObjects(delta);
-		mario.updateObjects(delta);
-		// s1.updateObjects(delta);
 
-		if (mario.rectRectIntersection(map.background.subBox.get(0).getVWorld(), mario.mainBox.getVWorld())) {
-			mario.positions.y = -3.3f;
-		} else if (mario.rectRectIntersection(map.background.subBox.get(1).getVWorld(), mario.mainBox.getVWorld())) {
-			mario.positions.y = 3.3f;
-		} else if (mario.rectRectIntersection(map.background.subBox.get(2).getVWorld(), mario.mainBox.getVWorld())) {
-			mario.positions.x = -7.2f;
-		} else if (mario.rectRectIntersection(map.background.subBox.get(3).getVWorld(), mario.mainBox.getVWorld())) {
-			// b.setSprite("Thing");
-			// cRoom = map.roomData[cRoom].wt.get(0).getWarpCoord();
-			mario.positions.x = 7.2f;
-		}
-
-		if (map.roomData[cRoom].showDB) {
-			controlLock = true;
-		}
+		map.update(delta, mario, cRoom);
+		mario.update(delta, map);
+		controlLock = map.lock(cRoom);
+		map.updateOnObjects(delta, mario, cRoom);
 		
-		//System.out.println(test);
-		map.roomData[cRoom].updateRoomData(delta);
-		// This is a test
-		for (int x = 0; x < map.roomData[cRoom].items.size(); x++) {
-			// map.roomData[cRoom].items.get(x).updateObjects(delta);
-			if (mario.rRI(map.roomData[cRoom].items.get(x).mainBox)) {
-				switch (map.roomData[cRoom].items.get(x).getType()) {
-				case "Oxygen":
-					healthBar.addOxygen(map.roomData[cRoom].items.get(x).getIncrease());
-					break;
-				case "Gold":
-					score.increaseScore(map.roomData[cRoom].items.get(x).getIncrease());
-					break;
-				default:
-					System.out.print("Unknown Thing");
-					break;
-				// x--;
-				}
-				map.roomData[cRoom].items.remove(x);
-			}
-		}
-
-
 		for (int x = 0; x < map.roomData[cRoom].wt.size(); x++) {
 			if (mario.rRI(map.roomData[cRoom].wt.get(x).tile) && map.roomData[cRoom].wt.get(x).isActive()) {
-				// System.out.println("Warped");
 				mario.positions.x = map.roomData[cRoom].wt.get(x).getWarpToX();
 				mario.positions.y = map.roomData[cRoom].wt.get(x).getWarpToY();
+
 				cRoom = map.roomData[cRoom].wt.get(x).getWarpMap();
+				
 				map.background.currentSprite = map.roomData[cRoom].getBG();
-				// map.roomData[cRoom].wt.get(x).updateObjects(delta);
 				map.roomData[cRoom].updateRoomData(delta);
 				break;
 			}
 		}
-		
+
 		map.roomData[cRoom].rockUpdater(delta);
 
 		if (!controlLock) {
-			healthBar.update(delta);
+			mario.healthBar.update(delta);
 			// System.out.println(healthBar.healthLevel);
-			if (healthBar.healthLevel <= 0) {
+			if (mario.healthBar.healthLevel <= 0) {
 				gameOver = true;
 			}
 		}
 
 	}
 
+	// Locks the player if it needs to be locked.
+	// If not, decreases the Health bar.
+	private void lock(boolean controlLock, float delta) {
+		if (!controlLock) {
+			mario.healthBar.update(delta);
+			if (mario.healthBar.healthLevel <= 0) {
+				gameOver = true;
+			}
+		}
+	}
+
 	@Override
 	protected void render(Graphics g) {
 		super.render(g);
+
+		Matrix3x3f vp = getViewportTransform();
+
 		if (!gameOver) {
-			map.background.render(g, getViewportTransform());
-			mario.render(g, getViewportTransform());
+			map.background.render(g, vp);
+			mario.render(g, vp);
 			// s1.render(g, getViewportTransform());
 			for (int x = 0; x < map.roomData[cRoom].wt.size(); x++) {
-				map.roomData[cRoom].wt.get(x).render(g, getViewportTransform());
+				map.roomData[cRoom].wt.get(x).render(g, vp);
 			}
 			for (int x = 0; x < map.roomData[cRoom].items.size(); x++) {
-				map.roomData[cRoom].items.get(x).render(g, getViewportTransform());
+				map.roomData[cRoom].items.get(x).render(g, vp);
 			}
-			healthBar.render(g, getViewportTransform());
-			score.render(g);
+			mario.healthBar.render(g, vp);
+			mario.score.render(g);
 			if (map.roomData[cRoom].showDB) {
-				map.roomData[cRoom].db.render(g, getViewportTransform());
+				map.roomData[cRoom].db.render(g, vp);
 			}
-			map.roomData[cRoom].renderRoom(g, getViewportTransform());
+			map.roomData[cRoom].renderRoom(g, vp);
 		} else {
 			g.setColor(Color.RED);
 			g.drawString("GAME OVER", 640, 360);

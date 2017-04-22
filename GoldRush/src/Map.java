@@ -5,16 +5,16 @@ public class Map {
 	public Collectible collectible;
 
 	public RoomData[] roomData;
-	
-	enum type{
+
+	enum type {
 		Normal, Rock
 	};
 
 	public Map() {
 		background = new Background(0f, 0f);
 		roomData = new RoomData[] { new RoomData("Images/Room-0.png"), new RoomData("Images/Room-1.png"),
-				new RoomData("Images/Room-0.png"), new RoomData("Images/Room-1.png"), new RockChallengeRoom("Images/Room-0.png", "FallingRocks"), 
-				new RoomData("Images/Room-1.png")};
+				new RoomData("Images/Room-0.png"), new RoomData("Images/Room-1.png"),
+				new RockChallengeRoom("Images/Room-0.png", "FallingRocks"), new RoomData("Images/Room-1.png") };
 	}
 
 	public void initialize(int appWidth, int appHeight, float appWorldWidth, float appWorldHeight) {
@@ -24,11 +24,12 @@ public class Map {
 		background.setSprite("thing");
 
 		// Room 0 Tile 0
-		WarpTile s0 = new WarpTile(10, 7f, 0f, -7.8f, 0, false);//this is for the exit
+		WarpTile s0 = new WarpTile(10, 7f, 0f, -7.8f, 0, false);// this is for
+																// the exit
 		WarpTile s1 = new WarpTile(1, 0, -3f, 0, 4.2f, true);
 		Collectible c1 = new Collectible(7f, 3f, "Gold", 100);
 		c1.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
-		
+
 		roomData[0].addWarpTile(s1);
 		roomData[0].addCollectible(c1);
 
@@ -43,19 +44,18 @@ public class Map {
 		// Room 2 Tile 0
 		WarpTile s4 = new WarpTile(1, 7f, 0f, -7.8f, 0, true);
 		WarpTile s5 = new WarpTile(3, -7f, 0, 7.7f, 0f, true);
-		
+
 		// Room 3 Tile 0
 		WarpTile s6 = new WarpTile(2, 7f, 0f, -7.8f, 0, true);
 		WarpTile s7 = new WarpTile(5, 0, -3f, 0, 4.2f, true);
 		WarpTile s8 = new WarpTile(4, -7f, 0, 7.7f, 0f, true);
-		
-		//Room 4 Tile 0
+
+		// Room 4 Tile 0
 		WarpTile s9 = new WarpTile(3, 7f, 0f, -7.8f, 0, false);
-		
-		//Room 5 Tile 0
+
+		// Room 5 Tile 0
 		WarpTile s10 = new WarpTile(3, 0, 3f, 0, -4.2f, true);
-		
-		
+
 		roomData[0].addWarpTile(s0);
 		roomData[0].addWarpTile(s1);
 		roomData[0].addCollectible(c1);
@@ -67,18 +67,47 @@ public class Map {
 
 		roomData[2].addWarpTile(s4);
 		roomData[2].addWarpTile(s5);
-		
+
 		roomData[3].addWarpTile(s6);
 		roomData[3].addWarpTile(s7);
 		roomData[3].addWarpTile(s8);
-		
+
 		roomData[4].addWarpTile(s9);
 		roomData[4].db.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
 		roomData[4].setStuff(appWidth, appHeight, appWorldWidth, appWorldHeight);
-		
+
 		roomData[5].addWarpTile(s10);
+	}
 
+	public void update(float delta, MarioSprite mario, int cRoom) {
+		background.updateObjects(delta);
+	}	
 
+	public void updateOnObjects(float delta, MarioSprite mario, int cRoom) {
+		roomData[cRoom].updateRoomData(delta);
+
+		for (int x = 0; x < roomData[cRoom].items.size(); x++) {
+			if (mario.rRI(roomData[cRoom].items.get(x).mainBox)) {
+				switch (roomData[cRoom].items.get(x).getType()) {
+				case "Oxygen":
+					mario.healthBar.addOxygen(roomData[cRoom].items.get(x).getIncrease());
+					break;
+				case "Gold":
+					mario.score.increaseScore(roomData[cRoom].items.get(x).getIncrease());
+					break;
+				default:
+					System.out.print("Unknown Thing");
+					break;
+				}
+				roomData[cRoom].items.remove(x);
+			}
+		}
 	}
 	
+	public boolean lock(int cRoom) {
+		if (roomData[cRoom].showDB)
+			return true;
+		else
+			return false;
+	}
 }

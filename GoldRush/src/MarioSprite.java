@@ -11,6 +11,10 @@ public class MarioSprite extends Sprite{
 	public String fn = "Images/link test.png";
 	final int spriteWidth = 46;
 	final int spriteHeight = 65;
+	
+	public HealthBar healthBar;
+	public Score score;
+	
 	//public boolean flip = false;
 	
 	/*Two different constructors for default and more customized starting values*/
@@ -21,6 +25,9 @@ public class MarioSprite extends Sprite{
 		velocity = new Vector2f(0.0f, 0f);
 		angle = (float) Math.toRadians(0);
 		rotation = 0f;
+		
+		healthBar = new HealthBar();
+		score = new Score();
 	}
 	
 	public MarioSprite(Vector2f pos, Vector2f vel, float ang, float rot){
@@ -92,4 +99,7 @@ public class MarioSprite extends Sprite{
 		}
 	}
 	
+	public void update(float delta, Map map) {
+		updateObjects(delta);
+	}
 }
