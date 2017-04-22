@@ -16,6 +16,7 @@ public class RoomData{
 	public BufferedImage bg;
 	public DialogBox db;
 	public boolean showDB = false;
+	public boolean challengeActive = false;
 	
 	public int appWidth;
 	public int appHeight;

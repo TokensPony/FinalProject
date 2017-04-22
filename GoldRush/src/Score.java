@@ -1,6 +1,8 @@
 
 
+import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.font.*;
 
 public class Score{
 	private int score = 0;
@@ -73,7 +75,8 @@ public class Score{
 	 */
 	public void render(Graphics g){
 		s = s.format("%d", score);
-		g.drawString(s, 1200, 20);
+		g.setColor(Color.WHITE);
+		g.drawString(s, 100, 23);
 		//c = c.format("Combo Bonus %d x 100",combo);
 		//g.drawString(c, 20, 60);
 	}

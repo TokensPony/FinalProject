@@ -36,23 +36,25 @@ public class RockChallengeRoom extends RoomData{
 	@Override
 	public void updateRoomData(float delta){
 		super.updateRoomData(delta);
-		rampUpFuse += delta;
-		if(rampUpFuse > rampUp){
-			System.out.println("GERONIMO");
-			rocks.add(createRock());
-			rampUpFuse = 0f;
-		}
+		if(challengeActive){
+			rampUpFuse += delta;
+			if(rampUpFuse > rampUp){
+				System.out.println("GERONIMO");
+				rocks.add(createRock());
+				rampUpFuse = 0f;
+			}
+			
+			for(int x = 0; x < rocks.size(); x++){
+				rocks.get(x).velocity.y += -3f * delta;
+			}
+			
+			for(int x = 0; x < rocks.size(); x++){
+				rocks.get(x).setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+			}
 		
-		for(int x = 0; x < rocks.size(); x++){
-			rocks.get(x).velocity.y += -3f * delta;
-		}
-		
-		for(int x = 0; x < rocks.size(); x++){
-			rocks.get(x).setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
-		}
-		
-		for(int x = 0; x < rocks.size(); x++){
-			rocks.get(x).updateObjects(delta);
+			for(int x = 0; x < rocks.size(); x++){
+				rocks.get(x).updateObjects(delta);
+			}
 		}
 	}
 	
@@ -63,8 +65,10 @@ public class RockChallengeRoom extends RoomData{
 	
 	@Override
 	public void renderRoom(Graphics g, Matrix3x3f vp){
-		for(int x = 0; x < rocks.size(); x++){
-			rocks.get(x).render(g, vp);
+		if(challengeActive){
+			for(int x = 0; x < rocks.size(); x++){
+				rocks.get(x).render(g, vp);
+			}
 		}
 	}
 }

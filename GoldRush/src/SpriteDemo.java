@@ -26,7 +26,7 @@ public class SpriteDemo extends WindowFramework {
 	public SpriteDemo() {
 		appBackground = Color.BLACK;
 		appBorder = Color.LIGHT_GRAY;
-		appFont = new Font("Consolas", Font.PLAIN, 14);
+		appFont = new Font("Consolas", Font.BOLD, 25);
 		appBorderScale = .9f;
 		appFPSColor = Color.BLACK;
 		appWidth = 1280;
@@ -94,6 +94,7 @@ public class SpriteDemo extends WindowFramework {
 		if (keyboard.keyDownOnce(KeyEvent.VK_E)) {
 			map.roomData[cRoom].showDB = false;
 			controlLock = false;
+			map.roomData[cRoom].challengeActive = true;
 		}
 
 		if (keyboard.keyDownOnce(KeyEvent.VK_B)) {
