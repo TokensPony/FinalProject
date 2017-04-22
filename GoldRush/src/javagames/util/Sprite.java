@@ -100,7 +100,7 @@ public class Sprite{
 			mainBox = new VectorObject(Color.GREEN, new Vector2f[] { new Vector2f(-widthCollide, heightCollide),
 				new Vector2f(widthCollide, heightCollide), new Vector2f(widthCollide, -heightCollide),
 				new Vector2f(-widthCollide, -heightCollide), });
-			System.out.printf("%f, %f\n", widthCollide, heightCollide);
+			//System.out.printf("%f, %f\n", widthCollide, heightCollide);
 		}else{
 			if(heightCollide > widthCollide){
 				radius = heightCollide;
