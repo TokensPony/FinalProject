@@ -42,6 +42,10 @@ public class Collectible extends Sprite{
 			fn = "Images/OTankTemp.png";
 			increase = 20;
 			break;
+		case "Health50":
+			fn = "Images/HeathTemp.png";
+			increase = 50;
+			break;
 		case "GoldCoin":
 			fn = "Images/GoldTemp.png";
 			increase = 1;
