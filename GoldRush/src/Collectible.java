@@ -11,18 +11,35 @@ public class Collectible extends Sprite{
 	final int spriteWidth = 32;
 	final int spriteHeight = 40;
 	
-	public Collectible(float x, float y, String type, int value){
+	public Collectible(float x, float y, String type){
 		cType = type;
 		switch(cType){
 		case "Oxygen":
 			fn = "Images/OTankTemp.png";
 			break;
-		case "Gold":
+		case "GoldCoin":
 			fn = "Images/GoldTemp.png";
+			increase = 1;
+			break;
+		case "GoldNugget":
+			fn = "Images/GoldTemp.png";
+			increase = 30;
+			break;
+		case "GoldBar":
+			fn = "Images/GoldTemp.png";
+			increase = 120;
+			break;
+		case "Diamond":
+			fn = "Images/GoldTemp.png";
+			increase = 200;
+			break;
+		case "Arkenstone":
+			fn = "Images/GoldTemp.png";
+			increase = 10000;
+			break;
 		default:
 			break;
 		}
-		increase = value;
 		loadFile(fn, spriteWidth, spriteHeight);
 		positions = new Vector2f(x, y);
 		velocity = new Vector2f(0.0f, 0f);
