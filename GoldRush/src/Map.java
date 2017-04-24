@@ -53,10 +53,10 @@ public class Map {
 		// Room 2 Tile 0
 		WarpTile s4 = new WarpTile(1, 7f, 0f, -7.8f, 0, true);
 		WarpTile s5 = new WarpTile(3, -7f, 0, 7.7f, 0f, true);
-		Collectible o1 = new Collectible(0f, 0f, "Oxygen20");
-		Collectible o2 = new Collectible(-5f, 3f, "Oxygen20");
-		Collectible o3 = new Collectible(6f, 2f, "Oxygen40");
-		Collectible o4 = new Collectible(6f, -3f, "Oxygen30");
+		Collectible o1 = new Collectible(0f, 0f, "Oxygen10");
+		Collectible o2 = new Collectible(-5f, 3f, "Oxygen10");
+		Collectible o3 = new Collectible(6f, 2f, "Oxygen30");
+		Collectible o4 = new Collectible(6f, -3f, "Oxygen10");
 		o1.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
 		o2.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
 		o3.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
@@ -135,11 +135,7 @@ public class Map {
 					mario.healthBar.addOxygen(roomData[cRoom].items.get(x).getIncrease());
 					oxygenCollect.play();
 					break;
-				case "Oxygen70":
-					mario.healthBar.addOxygen(roomData[cRoom].items.get(x).getIncrease());
-					oxygenCollect.play();
-					break;
-				case "Oxygen60":
+				case "Oxygen80":
 					mario.healthBar.addOxygen(roomData[cRoom].items.get(x).getIncrease());
 					oxygenCollect.play();
 					break;
@@ -155,7 +151,7 @@ public class Map {
 					mario.healthBar.addOxygen(roomData[cRoom].items.get(x).getIncrease());
 					oxygenCollect.play();
 					break;
-				case "Oxygen20":
+				case "Oxygen10":
 					mario.healthBar.addOxygen(roomData[cRoom].items.get(x).getIncrease());
 					oxygenCollect.play();
 					break;

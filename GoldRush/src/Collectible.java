@@ -20,17 +20,13 @@ public class Collectible extends Sprite{
 			break;
 		case "Oxygen70":
 			fn = "Images/OTankTemp.png";
-			increase = 70;
-			break;
-		case "Oxygen60":
-			fn = "Images/OTankTemp.png";
-			increase = 60;
+			increase = 80;
 			break;
 		case "Oxygen50":
 			fn = "Images/OTankTemp.png";
 			increase = 50;
 			break;
-		case "Oxygen40":
+		case "Oxygen20":
 			fn = "Images/OTankTemp.png";
 			increase = 40;
 			break;
@@ -38,13 +34,9 @@ public class Collectible extends Sprite{
 			fn = "Images/OTankTemp.png";
 			increase = 30;
 			break;
-		case "Oxygen20":
+		case "Oxygen10":
 			fn = "Images/OTankTemp.png";
-			increase = 20;
-			break;
-		case "Health50":
-			fn = "Images/HeathTemp.png";
-			increase = 50;
+			increase = 10;
 			break;
 		case "GoldCoin":
 			fn = "Images/GoldTemp.png";

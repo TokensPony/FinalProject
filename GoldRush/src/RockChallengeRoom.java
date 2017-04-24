@@ -6,7 +6,7 @@ import java.util.*;
 public class RockChallengeRoom extends RoomData{
 	ArrayList<Rock> rocks = new ArrayList<Rock>();
 	
-	private float rampUp = 2.5f;
+	private float rampUp = .5f;
 	private float rampUpFuse;
 	
 	Random r = new Random();

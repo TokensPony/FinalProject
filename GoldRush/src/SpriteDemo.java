@@ -79,12 +79,12 @@ public class SpriteDemo extends WindowFramework {
 				mario.flip = false;
 				mario.setSprite("Up");
 				mario.direction = "Up";
-				mario.setVY(2f * running);
+				mario.setVY(2.4f * running);
 			} else if (keyboard.keyDown(KeyEvent.VK_S) || keyboard.keyDown(KeyEvent.VK_DOWN)) {
 				mario.flip = false;
 				mario.setSprite("Down");
 				mario.direction = "Down";
-				mario.setVY(-2f * running);
+				mario.setVY(-2.4f * running);
 			} else {
 				mario.setVY(0);
 				//mario.setSprite("");
@@ -94,12 +94,12 @@ public class SpriteDemo extends WindowFramework {
 				mario.flip = true;
 				mario.setSprite("Left");
 				mario.direction = "Left";
-				mario.setVX(-2f * running);
+				mario.setVX(-2.4f * running);
 			} else if (keyboard.keyDown(KeyEvent.VK_D) || keyboard.keyDown(KeyEvent.VK_RIGHT)) {
 				mario.flip = false;
 				mario.setSprite("Right");
 				mario.direction = "Right";
-				mario.setVX(2f * running);
+				mario.setVX(2.4f * running);
 			} else {
 				//mario.setSprite("");
 				mario.setVX(0);
