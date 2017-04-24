@@ -49,6 +49,13 @@ public class DialogBox extends Sprite {
 					+ "than the amount of oxygen\n" + "that you started with.\n"
 					+ "Press \"E\" to continue...";
 			break;
+		case "Room3":
+			title = "Branching Paths";
+			message = "For the rest of your adventure,\n" + "you will need to make choices\n" + "about which path you will take.\n"
+					+ "To the east is a series of\n" + "challenge rooms that hold\n" + "a treasure should you complete them.\n"
+					+ "To the north is the rest of the mine.\n" + "The choice is yours, but be careful\n" + " not to get lost in your greed.\n"
+					+ "Press \"E\" to continue...";
+			break;
 		default:
 			break;
 		}
