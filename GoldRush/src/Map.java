@@ -53,6 +53,14 @@ public class Map {
 		// Room 2 Tile 0
 		WarpTile s4 = new WarpTile(1, 7f, 0f, -7.8f, 0, true);
 		WarpTile s5 = new WarpTile(3, -7f, 0, 7.7f, 0f, true);
+		Collectible o1 = new Collectible(0f, 0f, "Oxygen20");
+		Collectible o2 = new Collectible(-5f, 3f, "Oxygen20");
+		Collectible o3 = new Collectible(6f, 2f, "Oxygen40");
+		Collectible o4 = new Collectible(6f, -3f, "Oxygen30");
+		o1.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		o2.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		o3.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		o4.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
 
 		// Room 3 Tile 0
 		WarpTile s6 = new WarpTile(2, 7f, 0f, -7.8f, 0, true);
@@ -89,6 +97,10 @@ public class Map {
 		roomData[2].addWarpTile(s4);
 		roomData[2].addWarpTile(s5);
 		roomData[2].db.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		roomData[2].addCollectible(o1);
+		roomData[2].addCollectible(o2);
+		roomData[2].addCollectible(o3);
+		roomData[2].addCollectible(o4);
 
 		roomData[3].addWarpTile(s6);
 		roomData[3].addWarpTile(s7);
@@ -118,7 +130,31 @@ public class Map {
 		for (int x = 0; x < roomData[cRoom].items.size(); x++) {
 			if (mario.rRI(roomData[cRoom].items.get(x).mainBox)) {
 				switch (roomData[cRoom].items.get(x).getType()) {
-				case "Oxygen":
+				case "Oxygen100":
+					mario.healthBar.addOxygen(roomData[cRoom].items.get(x).getIncrease());
+					oxygenCollect.play();
+					break;
+				case "Oxygen70":
+					mario.healthBar.addOxygen(roomData[cRoom].items.get(x).getIncrease());
+					oxygenCollect.play();
+					break;
+				case "Oxygen60":
+					mario.healthBar.addOxygen(roomData[cRoom].items.get(x).getIncrease());
+					oxygenCollect.play();
+					break;
+				case "Oxygen50":
+					mario.healthBar.addOxygen(roomData[cRoom].items.get(x).getIncrease());
+					oxygenCollect.play();
+					break;
+				case "Oxygen40":
+					mario.healthBar.addOxygen(roomData[cRoom].items.get(x).getIncrease());
+					oxygenCollect.play();
+					break;
+				case "Oxygen30":
+					mario.healthBar.addOxygen(roomData[cRoom].items.get(x).getIncrease());
+					oxygenCollect.play();
+					break;
+				case "Oxygen20":
 					mario.healthBar.addOxygen(roomData[cRoom].items.get(x).getIncrease());
 					oxygenCollect.play();
 					break;
