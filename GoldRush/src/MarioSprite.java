@@ -8,12 +8,13 @@ import javagames.util.VectorObject;
 
 public class MarioSprite extends Sprite{
 	
-	public String fn = "Images/link test.png";
-	final int spriteWidth = 46;
-	final int spriteHeight = 65;
+	public String fn = "Images/PlayerSprites.png";
+	final int spriteWidth = 50;
+	final int spriteHeight = 70;
 	
 	public HealthBar healthBar;
 	public Score score;
+	public String direction = "Down";
 	
 	//public boolean flip = false;
 	
@@ -57,45 +58,67 @@ public class MarioSprite extends Sprite{
 	@Override
 	public void setSprite(String status){
 		cycle += delta;
+		float temp = (float)cycle%2;
 		switch(status){
-		case "Walk":
-		//if(getVX() == -.3f || getVX() == 0.3f){
-			//System.out.println(cycle);
-			float temp = (float)cycle%6;
+		case "Down":
+			//System.out.println(x);
 			if((temp > 0f && temp < .2f)){
+				System.out.println("One");
 				currentSprite = spriteSheet.getSubimage(spriteWidth, 0, spriteWidth, spriteHeight);
-			}else if((temp > .2f && temp < .4f)||(temp > .6f && temp < .8f)){
+			}else if((temp > .2f && temp < .4f)){
 				//28
+				System.out.println("Two");
 				currentSprite = spriteSheet.getSubimage(spriteWidth*2, 0, spriteWidth, spriteHeight);
-			}else if(temp > .4f && temp <.6f){
-				currentSprite = spriteSheet.getSubimage(spriteWidth*3, 0, spriteWidth, spriteHeight);
-			}else if(temp > .8f){
+			}else if(temp > .4f){
 				cycle = 0f;
 			}
 			break;
-		case "Jump":
-			currentSprite = spriteSheet.getSubimage(spriteWidth*5, 0, spriteWidth, spriteHeight);
-			break;
-		case "Climbing":
-			float climb = (float)cycle%4;
-			System.out.println(climb);
-			if((climb >= 0f && climb < .2f)){
-				currentSprite = spriteSheet.getSubimage(spriteWidth*7, 0, spriteWidth, spriteHeight);
-			}else if(climb >= .2f && climb <= .4f){
-				currentSprite = spriteSheet.getSubimage(spriteWidth*8, 0, spriteWidth, spriteHeight);
-			}else if (climb > .4f){
+		case "Left":
+		case "Right":
+			//float temp = (float)cycle%2;
+			//System.out.println(x);
+			if((temp > 0f && temp < .2f)){
+				System.out.println("One");
+				currentSprite = spriteSheet.getSubimage(spriteWidth, spriteHeight, spriteWidth, spriteHeight);
+			}else if((temp > .2f && temp < .4f)){
+				//28
+				System.out.println("Two");
+				currentSprite = spriteSheet.getSubimage(spriteWidth*2, spriteHeight, spriteWidth, spriteHeight);
+			}else if(temp > .4f){
 				cycle = 0f;
 			}
 			break;
-		case "Grab":
-			currentSprite = spriteSheet.getSubimage(spriteWidth*8, 0, spriteWidth, spriteHeight);
+		case "Up":
+			//float temp = (float)cycle%2;
+			//System.out.println(x);
+			if((temp > 0f && temp < .2f)){
+				System.out.println("One");
+				currentSprite = spriteSheet.getSubimage(spriteWidth, spriteHeight*2, spriteWidth, spriteHeight);
+			}else if((temp > .2f && temp < .4f)){
+				//28
+				System.out.println("Two");
+				currentSprite = spriteSheet.getSubimage(spriteWidth*2, spriteHeight*2, spriteWidth, spriteHeight);
+			}else if(temp > .4f){
+				cycle = 0f;
+			}
 			break;
-		//}else{
 		default:
 			//cycle = 0f;
-			currentSprite = spriteSheet.getSubimage(0, 0, spriteWidth, spriteHeight);
+			switch(direction){
+			case "Down":
+				currentSprite = spriteSheet.getSubimage(0, 0, spriteWidth, spriteHeight);
+				break;
+			case "Left":
+			case "Right":
+				currentSprite = spriteSheet.getSubimage(0, spriteHeight, spriteWidth, spriteHeight);
+				break;
+			case "Up":
+				currentSprite = spriteSheet.getSubimage(0, spriteHeight*2, spriteWidth, spriteHeight);
+				break;
+			}
+			//System.out.println("Default");
+			
 			break;
-		//}
 		}
 	}
 	

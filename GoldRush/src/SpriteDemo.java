@@ -76,21 +76,43 @@ public class SpriteDemo extends WindowFramework {
 				running = 4;
 
 			if (keyboard.keyDown(KeyEvent.VK_W) || keyboard.keyDown(KeyEvent.VK_UP)) {
+				mario.flip = false;
+				mario.setSprite("Up");
+				mario.direction = "Up";
 				mario.setVY(2f * running);
 			} else if (keyboard.keyDown(KeyEvent.VK_S) || keyboard.keyDown(KeyEvent.VK_DOWN)) {
+				mario.flip = false;
+				mario.setSprite("Down");
+				mario.direction = "Down";
 				mario.setVY(-2f * running);
 			} else {
 				mario.setVY(0);
+				//mario.setSprite("");
 			}
 
 			if (keyboard.keyDown(KeyEvent.VK_A) || keyboard.keyDown(KeyEvent.VK_LEFT)) {
+				mario.flip = true;
+				mario.setSprite("Left");
+				mario.direction = "Left";
 				mario.setVX(-2f * running);
 			} else if (keyboard.keyDown(KeyEvent.VK_D) || keyboard.keyDown(KeyEvent.VK_RIGHT)) {
+				mario.flip = false;
+				mario.setSprite("Right");
+				mario.direction = "Right";
 				mario.setVX(2f * running);
 			} else {
+				//mario.setSprite("");
 				mario.setVX(0);
 			}
+			if(!keyboard.keyDown(KeyEvent.VK_RIGHT) && !keyboard.keyDown(KeyEvent.VK_D) &&
+					!keyboard.keyDown(KeyEvent.VK_UP) && !keyboard.keyDown(KeyEvent.VK_W) &&
+					!keyboard.keyDown(KeyEvent.VK_DOWN) && !keyboard.keyDown(KeyEvent.VK_S)&&
+					!keyboard.keyDown(KeyEvent.VK_LEFT)&& !keyboard.keyDown(KeyEvent.VK_A)){
+				mario.setSprite("");
+			}
+			
 		} else {
+			//mario.setSprite("");
 			mario.setVX(0);
 			mario.setVY(0);
 		}
