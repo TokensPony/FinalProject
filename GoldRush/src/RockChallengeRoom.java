@@ -56,6 +56,12 @@ public class RockChallengeRoom extends RoomData{
 				rocks.get(x).updateObjects(delta);
 			}
 		}
+		if(items.isEmpty()){
+			challengeActive = false;
+			for(int x = 0; x < wt.size(); x++){
+				wt.get(x).active = true;
+			}
+		}
 	}
 	
 	@Override
