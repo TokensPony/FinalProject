@@ -227,6 +227,9 @@ public class SpriteDemo extends WindowFramework {
 
 		if (!gameOver) {
 			map.background.render(g, vp);
+			if(cRoom == 5){
+				map.roomData[cRoom].renderRoom(g, vp);
+			}
 			mario.render(g, vp);
 			// s1.render(g, getViewportTransform());
 			for (int x = 0; x < map.roomData[cRoom].wt.size(); x++) {
@@ -240,7 +243,9 @@ public class SpriteDemo extends WindowFramework {
 			if (map.roomData[cRoom].showDB) {
 				map.roomData[cRoom].db.render(g, vp);
 			}
-			map.roomData[cRoom].renderRoom(g, vp);
+			if(cRoom != 5){
+				map.roomData[cRoom].renderRoom(g, vp);
+			}
 		} else {
 			g.setColor(Color.RED);
 			g.drawString("GAME OVER", 640, 360);

@@ -41,8 +41,8 @@ public class Sprite{
 	public float widthCollide;
 	public float heightCollide;
 	
-	final int spriteWidth = 1280;
-	final int spriteHeight = 720;
+	public int spriteWidth = 1280;
+	public int spriteHeight = 720;
 	
 	public int width;
 	public int height;
