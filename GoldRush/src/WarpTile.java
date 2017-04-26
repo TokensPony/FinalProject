@@ -7,6 +7,7 @@ public class WarpTile {
 
 	public VectorObject tile;
 	public boolean active = true;
+	public boolean challengeEntrance = false;
 	public int warpX;
 	public float warpToX;
 	public float warpToY;

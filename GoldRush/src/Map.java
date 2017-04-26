@@ -66,6 +66,7 @@ public class Map {
 		WarpTile s6 = new WarpTile(2, 7f, 0f, -7.8f, 0, true);
 		WarpTile s7 = new WarpTile(5, 0, -3f, 0, 4.2f, true);
 		WarpTile s8 = new WarpTile(4, -7f, 0, 7.7f, 0f, true);
+		s8.challengeEntrance = true;
 
 		// Room 4 Tile 0
 		WarpTile s9 = new WarpTile(3, 7f, 0f, -7.8f, 0, false);

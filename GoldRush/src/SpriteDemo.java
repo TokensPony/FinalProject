@@ -188,7 +188,9 @@ public class SpriteDemo extends WindowFramework {
 			if (mario.rRI(map.roomData[cRoom].wt.get(x).tile) && map.roomData[cRoom].wt.get(x).isActive()) {
 				mario.positions.x = map.roomData[cRoom].wt.get(x).getWarpToX();
 				mario.positions.y = map.roomData[cRoom].wt.get(x).getWarpToY();
-
+				if(map.roomData[cRoom].wt.get(x).challengeEntrance){
+					map.roomData[cRoom].wt.get(x).active = false;
+				}
 				cRoom = map.roomData[cRoom].wt.get(x).getWarpMap();
 
 				map.background.currentSprite = map.roomData[cRoom].getBG();
