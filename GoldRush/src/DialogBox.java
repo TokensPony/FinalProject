@@ -25,8 +25,9 @@ public class DialogBox extends Sprite {
 		// NO MORE THAN 35 CHARS PER LINE (not counting \n)
 		case "FallingRocks":
 			title = "Watch your head!";
-			message = "Looks like rocks are going to be\n" + "falling here! Keep your eyes on\n"
-					+ "the shadows to keep safe! Let's\n" + "hope this risk was worth it!"
+			message = "Looks like rocks are going to be\n" + "falling here! No turning back now. \n"
+					+ "Collect all the gold and get out\n" + "while you can! I hope this risk\n" 
+					+ "was worth it!\n"
 					+ "\n\nPress \"E\" to continue...";
 			break;
 		case "QTE":
