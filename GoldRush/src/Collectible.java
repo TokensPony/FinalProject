@@ -14,17 +14,17 @@ public class Collectible extends Sprite{
 	public Collectible(float x, float y, String type){
 		cType = type;
 		switch(cType){
-		case "Oxygen100":
-			fn = "Images/OxygenTank100.png";
-			spriteWidth = 19;
-			spriteHeight = 50;
+		case "LargPastie":
+			fn = "Images/HealthTemp.png";
 			increase = 100;
 			break;
-		case "Oxygen80":
-			fn = "Images/OxygenTank80.png";
-			spriteWidth = 19;
-			spriteHeight = 50;
-			increase = 80;
+		case "SmallPastie":
+			fn = "Images/HealthTemp.png";
+			increase = 50;
+			break;
+		case "Chips":
+			fn = "Images/HealthTemp.png";
+			increase = 10;
 			break;
 		case "Oxygen50":
 			fn = "Images/OxygenTank50.png";
