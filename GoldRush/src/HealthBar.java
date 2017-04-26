@@ -5,6 +5,7 @@ import javagames.util.Matrix3x3f;
 
 public class HealthBar{
 	
+	int Max = 200;
 	int healthLevel = 200;
 	//Screen coordinates
 	int healthXPos = 25;
@@ -51,6 +52,9 @@ public class HealthBar{
 	}
 	
 	public void render(Graphics g, Matrix3x3f vp){
+		g.setColor(Color.BLACK);
+		g.fillRect(25-1, 25-1, 27 , Max+2);
+		g.fillRect(55-1, 25-1, 27 , Max+2);
 		g.setColor(Color.RED);
 		g.fillRect(healthXPos, healthYPos, 25, healthLevel);
 		g.setColor(Color.CYAN);
