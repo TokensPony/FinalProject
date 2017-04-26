@@ -16,6 +16,7 @@ public class Rock extends Sprite{
 		hType = type;
 		greenBorder = true;
 		circle = true;
+		
 		//switch(hType){
 		//case "Rock":
 			fn = "Images/Rock.png";

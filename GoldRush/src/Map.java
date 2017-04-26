@@ -8,8 +8,8 @@ public class Map {
 
 	public RoomData[] roomData;
 	
-	public AePlayWave goldCollect = new AePlayWave("Sounds/coin-drop-4.wav");
-	public AePlayWave oxygenCollect = new AePlayWave("Sounds/Oxygen Tank Pickup.wav");
+	//public AePlayWave goldCollect = new AePlayWave("Sounds/coin-drop-4.wav");
+	//public AePlayWave oxygenCollect = new AePlayWave("Sounds/Oxygen Tank Pickup.wav");
 	
 	enum type {
 		Normal, Rock
@@ -203,52 +203,53 @@ public class Map {
 					break;
 				case "Oxygen100":
 					mario.healthBar.addOxygen(roomData[cRoom].items.get(x).getIncrease());
-					oxygenCollect.play();
+					//oxygenCollect.play();
 					break;
 				case "Oxygen80":
 					mario.healthBar.addOxygen(roomData[cRoom].items.get(x).getIncrease());
-					oxygenCollect.play();
+					//oxygenCollect.play();
 					break;
 				case "Oxygen50":
 					mario.healthBar.addOxygen(roomData[cRoom].items.get(x).getIncrease());
-					oxygenCollect.play();
+					//oxygenCollect.play();
 					break;
 				case "Oxygen40":
 					mario.healthBar.addOxygen(roomData[cRoom].items.get(x).getIncrease());
-					oxygenCollect.play();
+					//oxygenCollect.play();
 					break;
 				case "Oxygen30":
 					mario.healthBar.addOxygen(roomData[cRoom].items.get(x).getIncrease());
-					oxygenCollect.play();
+					//oxygenCollect.play();
 					break;
 				case "Oxygen10":
 					mario.healthBar.addOxygen(roomData[cRoom].items.get(x).getIncrease());
-					oxygenCollect.play();
+					//oxygenCollect.play();
 					break;
 				case "GoldCoin":
 					mario.score.increaseScore(roomData[cRoom].items.get(x).getIncrease());
-					goldCollect.play();
+					//goldCollect.play();
 					break;
 				case "GoldNugget":
 					mario.score.increaseScore(roomData[cRoom].items.get(x).getIncrease());
-					goldCollect.play();
+					//goldCollect.play();
 					break;
 				case "GoldBar":
 					mario.score.increaseScore(roomData[cRoom].items.get(x).getIncrease());
-					goldCollect.play();
+					//goldCollect.play();
 					break;
 				case "Diamond":
 					mario.score.increaseScore(roomData[cRoom].items.get(x).getIncrease());
-					goldCollect.play();
+					//goldCollect.play();
 					break;
 				case "Arkenstone":
 					mario.score.increaseScore(roomData[cRoom].items.get(x).getIncrease());
-					goldCollect.play();
+					//goldCollect.play();
 					break;
 				default:
 					System.out.print("Unknown Thing");
 					break;
 				}
+				roomData[cRoom].items.get(x).collectSFX.play();
 				roomData[cRoom].items.remove(x);
 			}
 		}
