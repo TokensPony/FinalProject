@@ -113,6 +113,7 @@ public class Map {
 		c20.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
 		c21.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
 		c22.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		h1.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
 
 		roomData[0].addWarpTile(s0);
 		roomData[0].addWarpTile(s1);
@@ -168,6 +169,7 @@ public class Map {
 		roomData[7].addCollectible(c20);
 		roomData[7].addCollectible(c21);
 		roomData[7].addCollectible(c22);
+		roomData[7].addCollectible(h1);
 	}
 
 	public void update(float delta, MarioSprite mario, int cRoom) {
@@ -180,17 +182,14 @@ public class Map {
 		for (int x = 0; x < roomData[cRoom].items.size(); x++) {
 			if (mario.rRI(roomData[cRoom].items.get(x).mainBox)) {
 				switch (roomData[cRoom].items.get(x).getType()) {
-				case "LargPastie":
+				case "LargePastie":
 					mario.healthBar.addHealth(roomData[cRoom].items.get(x).getIncrease());
-					oxygenCollect.play();
 					break;
 				case "SmallPastie":
 					mario.healthBar.addHealth(roomData[cRoom].items.get(x).getIncrease());
-					oxygenCollect.play();
 					break;
 				case "Chips":
 					mario.healthBar.addHealth(roomData[cRoom].items.get(x).getIncrease());
-					oxygenCollect.play();
 					break;
 				case "Oxygen100":
 					mario.healthBar.addOxygen(roomData[cRoom].items.get(x).getIncrease());

@@ -14,7 +14,7 @@ public class Collectible extends Sprite{
 	public Collectible(float x, float y, String type){
 		cType = type;
 		switch(cType){
-		case "LargPastie":
+		case "LargePastie":
 			fn = "Images/HealthTemp.png";
 			increase = 100;
 			break;
