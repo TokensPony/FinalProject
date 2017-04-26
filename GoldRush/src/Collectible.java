@@ -8,34 +8,46 @@ public class Collectible extends Sprite{
 	
 	String cType;
 	
-	final int spriteWidth = 32;
-	final int spriteHeight = 40;
+	int spriteWidth = 32;
+	int spriteHeight = 40;
 	
 	public Collectible(float x, float y, String type){
 		cType = type;
 		switch(cType){
 		case "Oxygen100":
-			fn = "Images/OTankTemp.png";
+			fn = "Images/OxygenTank100.png";
+			spriteWidth = 19;
+			spriteHeight = 50;
 			increase = 100;
 			break;
-		case "Oxygen70":
-			fn = "Images/OTankTemp.png";
+		case "Oxygen80":
+			fn = "Images/OxygenTank80.png";
+			spriteWidth = 19;
+			spriteHeight = 50;
 			increase = 80;
 			break;
 		case "Oxygen50":
-			fn = "Images/OTankTemp.png";
+			fn = "Images/OxygenTank50.png";
+			spriteWidth = 19;
+			spriteHeight = 50;
 			increase = 50;
 			break;
 		case "Oxygen20":
-			fn = "Images/OTankTemp.png";
-			increase = 40;
+			fn = "Images/OxygenTank20.png";
+			spriteWidth = 19;
+			spriteHeight = 50;
+			increase = 20;
 			break;
 		case "Oxygen30":
-			fn = "Images/OTankTemp.png";
+			fn = "Images/OxygenTank30.png";
+			spriteWidth = 19;
+			spriteHeight = 50;
 			increase = 30;
 			break;
 		case "Oxygen10":
-			fn = "Images/OTankTemp.png";
+			fn = "Images/OxygenTank10.png";
+			spriteWidth = 19;
+			spriteHeight = 50;
 			increase = 10;
 			break;
 		case "GoldCoin":
