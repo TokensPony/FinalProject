@@ -70,12 +70,18 @@ public class Map {
 		// Room 4 Tile 0
 		WarpTile s9 = new WarpTile(3, 7f, 0f, -7.8f, 0, false);
 		WarpTile s11 = new WarpTile(6, 0, -3f, 0, 4.2f, true);
+		Collectible g1 = new Collectible(6f, -3f, "GoldCoin");
+		Collectible g2 = new Collectible(0f, 0f, "GoldBar");
+		Collectible g3 = new Collectible(-7f, 3f, "GoldCoin");
+		g1.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		g2.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		g3.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
 
 		// Room 5 Tile 0
 		WarpTile s10 = new WarpTile(3, 0, 3f, 0, -4.2f, true);
 		
 		//Room 6
-		WarpTile s12 = new WarpTile(4, 0, 3f, 0, -4.2f, false);
+		WarpTile s12 = new WarpTile(3, 0, 3f, 0, -4.2f, false);
 		WarpTile s13 = new WarpTile(7, 0, -3f, 0, 4.2f, false);
 				
 		//Room 7
@@ -145,6 +151,9 @@ public class Map {
 		roomData[4].db.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
 		roomData[4].setStuff(appWidth, appHeight, appWorldWidth, appWorldHeight);
 		roomData[4].addWarpTile(s11);
+		roomData[4].addCollectible(g1);
+		roomData[4].addCollectible(g2);
+		roomData[4].addCollectible(g3);
 
 		roomData[5].addWarpTile(s10);
 		
