@@ -131,6 +131,12 @@ public class SpriteDemo extends WindowFramework {
 			//	map.roomData[cRoom].showStuff();
 			//}
 		}
+		
+		switch(map.roomData[cRoom].passKeyboard(keyboard)){
+		default:
+			break;
+		}
+		
 		/*if(keyboard.keyDown(KeyEvent.VK_N) && keyboard.keyDown(KeyEvent.VK_M)){
 			System.out.println("IT WORKED");
 		}

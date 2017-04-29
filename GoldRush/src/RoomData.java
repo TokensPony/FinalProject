@@ -108,4 +108,8 @@ public class RoomData{
 	public void rockUpdater(float delta){
 		//System.out.println("Normal Room");
 	}
+	
+	public String passKeyboard(KeyboardInput k){
+		return "";
+	}
 }

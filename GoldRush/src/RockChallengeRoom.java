@@ -2,41 +2,36 @@ import javagames.util.*;
 import java.awt.*;
 import java.util.*;
 
-
-public class RockChallengeRoom extends RoomData{
+public class RockChallengeRoom extends RoomData {
 	ArrayList<Rock> rocks = new ArrayList<Rock>();
-	
+
 	private float rampUp = .5f;
 	private float rampUpFuse;
-	
+
 	Random r = new Random();
-	
-	public RockChallengeRoom(String filename){
+
+	public RockChallengeRoom(String filename) {
 		super(filename);
 		type = "Rock";
 	}
-	
-	public RockChallengeRoom(String filename, String dbType){
+
+	public RockChallengeRoom(String filename, String dbType) {
 		super(filename, dbType);
 		type = "Rock";
-		//rocks.add(createRock());
-		//rocks.add(new Rock(0, 0, "Test", 100));
-		//rocks.get(0).setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
 	}
-	
-	public Rock createRock(){
-		float startPosX = r.nextFloat()*16f - 8f;
-		Rock r = new Rock(startPosX, 8, "Test", 100);
+
+	public Rock createRock() {
+		float startPosX = r.nextFloat() * 16f - 8f;
+		Rock r = new Rock(startPosX, 8);
 		r.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
 		return r;
 	}
-	
-	//Need values for appWorld Width and height passed in so
-	//That the random generation of the rocks will work efficiently
+
+	// Need values for appWorld Width and height passed in so
+	// That the random generation of the rocks will work efficiently
 	@Override
-	public void updateRoomData(float delta){
+	public void updateRoomData(float delta) {
 		super.updateRoomData(delta);
-		//if(challengeActive){
 		if (challengeActive) {
 			rampUpFuse += delta;
 		}
@@ -45,55 +40,52 @@ public class RockChallengeRoom extends RoomData{
 			rocks.add(createRock());
 			rampUpFuse = 0f;
 		}
-		
-		if(!rocks.isEmpty()){
+
+		if (!rocks.isEmpty()) {
 			for (int x = 0; x < rocks.size(); x++) {
 				rocks.get(x).velocity.y += -3f * delta;
 			}
-	
+
 			for (int x = 0; x < rocks.size(); x++) {
-				// rocks.get(x).setBB(appWidth, appHeight, appWorldWidth,
-				// appWorldHeight);
 			}
-	
+
 			for (int x = 0; x < rocks.size(); x++) {
 				rocks.get(x).updateObjects(delta);
 			}
 		}
-		if(items.isEmpty()){
+		if (items.isEmpty()) {
 			challengeActive = false;
-			for(int x = 0; x < wt.size(); x++){
+			for (int x = 0; x < wt.size(); x++) {
 				wt.get(x).active = true;
 			}
 		}
 	}
-	
+
 	@Override
-	public void rockUpdater(float delta){
-		//System.out.println("It Worked!");
+	public void rockUpdater(float delta) {
 	}
-	
+
 	@Override
-	public void renderRoom(Graphics g, Matrix3x3f vp){
-		if(!rocks.isEmpty()){
-			for(int x = 0; x < rocks.size(); x++){
+	public void renderRoom(Graphics g, Matrix3x3f vp) {
+		if (!rocks.isEmpty()) {
+			for (int x = 0; x < rocks.size(); x++) {
 				rocks.get(x).render(g, vp);
 			}
 		}
 	}
-	
+
 	@Override
-	public void showStuff(){
-		for(int x = 0; x < rocks.size(); x++){
+	public void showStuff() {
+		for (int x = 0; x < rocks.size(); x++) {
 			rocks.get(x).greenBorder = !rocks.get(x).greenBorder;
 		}
 	}
-	
+
 	@Override
-	public boolean hazardHit(MarioSprite m){
+	public boolean hazardHit(MarioSprite m) {
 		Vector2f[] box = m.mainBox.getVWorld();
-		for(int x = 0; x < rocks.size(); x++){
-			if(m.intersectCircleAABB(rocks.get(x).positions, rocks.get(x).radius, box[3], box[1])){
+		for (int x = 0; x < rocks.size(); x++) {
+			if (m.intersectCircleAABB(rocks.get(x).positions, rocks.get(x).radius, box[3], box[1])) {
 				rocks.remove(x);
 				return true;
 			}
