@@ -108,7 +108,7 @@ public class Collectible extends Sprite{
 			collectSFX = new AePlayWave("Sounds/Ding.wav");
 			break;
 		case "Arkenstone":
-			fn = "Images/Arkentstone.png";
+			fn = "Images/Arkenstone.png";
 			spriteWidth = 66;
 			spriteHeight = 75;
 			collectSFX = new AePlayWave("Sounds/Arkenstone.wav");
