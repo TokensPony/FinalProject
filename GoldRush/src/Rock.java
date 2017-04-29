@@ -14,7 +14,7 @@ public class Rock extends Sprite{
 	
 	public Rock(float x, float y, String type, int value){
 		hType = type;
-		greenBorder = true;
+		//greenBorder = true;
 		circle = true;
 		
 		//switch(hType){
