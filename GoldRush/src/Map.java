@@ -70,7 +70,7 @@ public class Map {
 
 		// Room 4 Tile 0
 		WarpTile s9 = new WarpTile(3, 7f, 0f, -7.8f, 0, false);
-		WarpTile s11 = new WarpTile(6, 0, -3f, 0, 4.2f, true);
+		WarpTile s11 = new WarpTile(6, 0, -3f, 0, 4.2f, false);
 		Collectible g1 = new Collectible(6f, -3f, "GoldCoin");
 		Collectible g2 = new Collectible(0f, 0f, "GoldBar");
 		Collectible g3 = new Collectible(-7f, 3f, "GoldCoin");

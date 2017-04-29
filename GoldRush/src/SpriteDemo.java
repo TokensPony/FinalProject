@@ -22,7 +22,7 @@ public class SpriteDemo extends WindowFramework {
 	boolean gameOver = false;
 	boolean controlLock = false;
 
-	int cRoom = 0;
+	int cRoom = 5;
 	
 	AePlayWave bgSong = new AePlayWave("Sounds/Spooky Graveyard Song.wav");
 
