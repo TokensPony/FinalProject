@@ -133,7 +133,7 @@ public class SpriteDemo extends WindowFramework {
 		}
 		/*if(keyboard.keyDown(KeyEvent.VK_N) && keyboard.keyDown(KeyEvent.VK_M)){
 			System.out.println("IT WORKED");
-		}*/
+		}
 
 		/*
 		 * The following controls are for debugging and testing ONLY! These MUST
