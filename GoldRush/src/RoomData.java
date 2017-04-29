@@ -3,6 +3,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import javagames.util.*;
 
 import javax.imageio.ImageIO;
 
@@ -106,5 +107,9 @@ public class RoomData{
 	
 	public void rockUpdater(float delta){
 		//System.out.println("Normal Room");
+	}
+	
+	public void passKeyboard(KeyboardInput k){
+		
 	}
 }
