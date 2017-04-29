@@ -19,7 +19,7 @@ public class Map {
 		background = new Background(0f, 0f);
 		roomData = new RoomData[] { new RoomData("Images/Room-0.png")/*Room 0*/, new RoomData("Images/Room-1.png", "GoldIntroduction")/*Room 1*/,
 				new RoomData("Images/Room-0.png", "OxygenIntroduction")/*Room 2*/, new RoomData("Images/Room-1.png", "Room3")/*Room 3*/, new RockChallengeRoom("Images/Room-0.png", "FallingRocks")/*Room 4*/, 
-				new LavaRoom("Images/Room-1.png")/*Room 5*/, new RoomData("Images/Room-0.png", "QTE")/*Room 6 QTE*/, new RoomData("Images/Room-1.png")/*Room 7 Challenge Gold Room*/};
+				new LavaRoom("Images/Room-1.png", "LavaRoom")/*Room 5*/, new RoomData("Images/Room-0.png", "QTE")/*Room 6 QTE*/, new RoomData("Images/Room-1.png")/*Room 7 Challenge Gold Room*/};
 	}
 
 	public void initialize(int appWidth, int appHeight, float appWorldWidth, float appWorldHeight) {
@@ -183,6 +183,7 @@ public class Map {
 
 		roomData[5].addWarpTile(s10);
 		roomData[5].setStuff(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		roomData[5].db.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
 		
 		roomData[6].addWarpTile(s12);
 		roomData[6].addWarpTile(s13);
