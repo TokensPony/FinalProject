@@ -57,6 +57,16 @@ public class DialogBox extends Sprite {
 					+ "To the north is the rest of the mine.\n" + "The choice is yours, but be careful\n" + " not to get lost in your greed.\n"
 					+ "Press \"E\" to continue...";
 			break;
+		case "LavaRoom":
+			title = "A Firey Finish";
+			message = 	"Before you is the final gauntlet\n" + 
+						"you must pass. Move carefully on\n" +
+						"these stone logs, lest all your\n" +
+						"hard work go up in flames! Plus,\n" +
+						"lava wouldn't look good on your\n" +
+						"skin...\n" +
+						"Press \"E\" to continue...\n";
+					break;
 		default:
 			break;
 		}

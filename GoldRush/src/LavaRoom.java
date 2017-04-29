@@ -16,6 +16,15 @@ public class LavaRoom extends RoomData{
 		logs.add(new Log(10f, 2.25f,-3f));
 	}
 	
+	public LavaRoom(String filename, String dbType){
+		super(filename, dbType);
+		type = dbType;
+		logs.add(new Log(-10f,-2.3f,1.5f));
+		logs.add(new Log(10f, -.8f, -2f));
+		logs.add(new Log(-10f, .75f, 2.5f));
+		logs.add(new Log(10f, 2.25f,-3f));
+	}
+	
 	@Override
 	public void setStuff(int aW, int aH, float aWW, float aWH){
 		super.setStuff(aW, aH, aWW, aWH);
