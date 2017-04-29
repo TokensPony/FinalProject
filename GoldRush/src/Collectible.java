@@ -24,14 +24,32 @@ public class Collectible extends Sprite{
 			collectSFX = new AePlayWave("Sounds/Health Pickup.wav");
 			break;
 		case "SmallPastie":
-			fn = "Images/HealthTemp.png";
+			fn = "Images/PastySmall.png";
+			spriteWidth = 30;
+			spriteHeight = 13;
 			increase = 50;
 			collectSFX = new AePlayWave("Sounds/Health Pickup.wav");
 			break;
 		case "Chips":
-			fn = "Images/HealthTemp.png";
+			fn = "Images/ChipsBag.png";
+			spriteWidth = 23;
+			spriteHeight = 27;
 			increase = 10;
 			collectSFX = new AePlayWave("Sounds/Health Pickup.wav");
+			break;
+		case "Oxygen100":
+			fn = "Images/OxygenTank100.png";
+			spriteWidth = 19;
+			spriteHeight = 50;
+			increase = 50;
+			collectSFX = new AePlayWave("Sounds/Oxygen Tank Pickup.wav");
+			break;
+		case "Oxygen80":
+			fn = "Images/OxygenTank80.png";
+			spriteWidth = 19;
+			spriteHeight = 50;
+			increase = 50;
+			collectSFX = new AePlayWave("Sounds/Oxygen Tank Pickup.wav");
 			break;
 		case "Oxygen50":
 			fn = "Images/OxygenTank50.png";
