@@ -35,7 +35,7 @@ public class Collectible extends Sprite{
 			spriteWidth = 23;
 			spriteHeight = 27;
 			increase = 10;
-			collectSFX = new AePlayWave("Sounds/Health Pickup.wav");
+			collectSFX = new AePlayWave("Sounds/Chips.wav");
 			break;
 		case "Oxygen100":
 			fn = "Images/OxygenTank100.png";
@@ -98,7 +98,7 @@ public class Collectible extends Sprite{
 			spriteWidth = 45;
 			spriteHeight = 25;
 			increase = 120;
-			collectSFX = new AePlayWave("Sounds/coin-drop-4.wav");
+			collectSFX = new AePlayWave("Sounds/GoldBar.wav");
 			break;
 		case "Diamond":
 			fn = "Images/Diamond.png";
@@ -111,7 +111,7 @@ public class Collectible extends Sprite{
 			fn = "Images/Arkentstone.png";
 			spriteWidth = 66;
 			spriteHeight = 75;
-			collectSFX = new AePlayWave("Sounds/coin-drop-4.wav");
+			collectSFX = new AePlayWave("Sounds/Arkenstone.wav");
 			increase = 100000;
 			break;
 		default:
