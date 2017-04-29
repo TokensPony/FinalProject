@@ -22,7 +22,7 @@ public class SpriteDemo extends WindowFramework {
 	boolean gameOver = false;
 	boolean controlLock = false;
 
-	int cRoom = 5;
+	int cRoom = 0;
 	
 	AePlayWave bgSong = new AePlayWave("Sounds/Spooky Graveyard Song.wav");
 
@@ -104,6 +104,7 @@ public class SpriteDemo extends WindowFramework {
 				//mario.setSprite("");
 				mario.setVX(0);
 			}
+			mario.velocity.x += map.roomData[cRoom].onLog(mario);
 			if(!keyboard.keyDown(KeyEvent.VK_RIGHT) && !keyboard.keyDown(KeyEvent.VK_D) &&
 					!keyboard.keyDown(KeyEvent.VK_UP) && !keyboard.keyDown(KeyEvent.VK_W) &&
 					!keyboard.keyDown(KeyEvent.VK_DOWN) && !keyboard.keyDown(KeyEvent.VK_S)&&
@@ -179,11 +180,12 @@ public class SpriteDemo extends WindowFramework {
 		map.update(delta, mario, cRoom);
 
 		mario.update(delta, map);
+		//mario.velocity.x += map.roomData[cRoom].onLog(mario);
 
 		controlLock = map.lock(cRoom);
 
 		map.updateOnObjects(delta, mario, cRoom);
-
+		//mario.velocity.x += map.roomData[cRoom].onLog(mario);
 		for (int x = 0; x < map.roomData[cRoom].wt.size(); x++) {
 			if (mario.rRI(map.roomData[cRoom].wt.get(x).tile) && map.roomData[cRoom].wt.get(x).isActive()) {
 				mario.positions.x = map.roomData[cRoom].wt.get(x).getWarpToX();
@@ -204,6 +206,10 @@ public class SpriteDemo extends WindowFramework {
 		if(map.roomData[cRoom].hazardHit(mario)){
 			mario.healthBar.doDamage(25);
 		}
+		
+		//mario.velocity.x += map.roomData[cRoom].onLog(mario);
+		//System.out.printf("Mario Velocity After:%f\n ", mario.velocity.x);
+		
 		
 		lock(controlLock, delta);
 	}
