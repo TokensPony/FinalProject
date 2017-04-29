@@ -7,7 +7,7 @@ public class QTERoom extends RoomData{
 	//public char[] hard = {'r', 'p', 'n'};
 	
 	public int easy = KeyEvent.VK_T;
-	public int[] hard = {KeyEvent.VK_R
+	public int[] hard = {KeyEvent.VK_R};
 	
 	
 	public QTERoom(String filename, String dbType){
