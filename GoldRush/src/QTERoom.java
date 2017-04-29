@@ -15,10 +15,12 @@ public class QTERoom extends RoomData{
 	}
 	
 	@Override
-	public void passKeyboard(KeyboardInput k){
+	public String passKeyboard(KeyboardInput k){
 		if(k.keyDown(hard[0]) && k.keyDown(hard[1]) && k.keyDown(hard[2])){
 			
 		}
+		
+		return "";
 	}
 	
 	@Override

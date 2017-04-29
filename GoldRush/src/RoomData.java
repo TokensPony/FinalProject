@@ -109,7 +109,7 @@ public class RoomData{
 		//System.out.println("Normal Room");
 	}
 	
-	public void passKeyboard(KeyboardInput k){
-		
+	public String passKeyboard(KeyboardInput k){
+		return "";
 	}
 }
