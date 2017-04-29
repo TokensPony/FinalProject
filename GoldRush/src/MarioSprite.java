@@ -43,8 +43,8 @@ public class MarioSprite extends Sprite{
 	 * with the floor and platforms.*/
 	@Override
 	public void setSubBox(){
-		VectorObject feet = new VectorObject(Color.GREEN, new Vector2f[] { new Vector2f(-widthCollide, -heightCollide+.05f),
-				new Vector2f(widthCollide, -heightCollide+.05f), new Vector2f(widthCollide, -heightCollide),
+		VectorObject feet = new VectorObject(Color.GREEN, new Vector2f[] { new Vector2f(-widthCollide, -heightCollide+.1f),
+				new Vector2f(widthCollide, -heightCollide+.1f), new Vector2f(widthCollide, -heightCollide),
 				new Vector2f(-widthCollide, -heightCollide), });
 		subBox.add(feet);
 		System.out.println("Feet Set");
@@ -63,11 +63,11 @@ public class MarioSprite extends Sprite{
 		case "Down":
 			//System.out.println(x);
 			if((temp > 0f && temp < .2f)){
-				System.out.println("One");
+				//System.out.println("One");
 				currentSprite = spriteSheet.getSubimage(spriteWidth, 0, spriteWidth, spriteHeight);
 			}else if((temp > .2f && temp < .4f)){
 				//28
-				System.out.println("Two");
+				//System.out.println("Two");
 				currentSprite = spriteSheet.getSubimage(spriteWidth*2, 0, spriteWidth, spriteHeight);
 			}else if(temp > .4f){
 				cycle = 0f;
@@ -78,11 +78,11 @@ public class MarioSprite extends Sprite{
 			//float temp = (float)cycle%2;
 			//System.out.println(x);
 			if((temp > 0f && temp < .2f)){
-				System.out.println("One");
+				//System.out.println("One");
 				currentSprite = spriteSheet.getSubimage(spriteWidth, spriteHeight, spriteWidth, spriteHeight);
 			}else if((temp > .2f && temp < .4f)){
 				//28
-				System.out.println("Two");
+				//System.out.println("Two");
 				currentSprite = spriteSheet.getSubimage(spriteWidth*2, spriteHeight, spriteWidth, spriteHeight);
 			}else if(temp > .4f){
 				cycle = 0f;
@@ -92,11 +92,11 @@ public class MarioSprite extends Sprite{
 			//float temp = (float)cycle%2;
 			//System.out.println(x);
 			if((temp > 0f && temp < .2f)){
-				System.out.println("One");
+				//System.out.println("One");
 				currentSprite = spriteSheet.getSubimage(spriteWidth, spriteHeight*2, spriteWidth, spriteHeight);
 			}else if((temp > .2f && temp < .4f)){
 				//28
-				System.out.println("Two");
+				//System.out.println("Two");
 				currentSprite = spriteSheet.getSubimage(spriteWidth*2, spriteHeight*2, spriteWidth, spriteHeight);
 			}else if(temp > .4f){
 				cycle = 0f;
@@ -126,9 +126,9 @@ public class MarioSprite extends Sprite{
 		updateObjects(delta);
 		
 		if (rectRectIntersection(map.background.subBox.get(0).getVWorld(), mainBox.getVWorld())) {
-			positions.y = -3.3f;
+			positions.y = -3.6f;
 		} else if (rectRectIntersection(map.background.subBox.get(1).getVWorld(), mainBox.getVWorld())) {
-			positions.y = 3.3f;
+			positions.y = 3.6f;
 		} else if (rectRectIntersection(map.background.subBox.get(2).getVWorld(), mainBox.getVWorld())) {
 			positions.x = -7.2f;
 		} else if (rectRectIntersection(map.background.subBox.get(3).getVWorld(), mainBox.getVWorld())) {

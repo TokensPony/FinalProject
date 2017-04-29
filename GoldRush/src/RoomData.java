@@ -101,6 +101,10 @@ public class RoomData{
 		return false;
 	}
 	
+	public float onLog(MarioSprite m){
+		return 0f;
+	}
+	
 	public void rockUpdater(float delta){
 		//System.out.println("Normal Room");
 	}
