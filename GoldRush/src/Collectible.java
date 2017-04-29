@@ -102,7 +102,7 @@ public class Collectible extends Sprite{
 		case "Arkenstone":
 			fn = "Images/GoldTemp.png";
 			collectSFX = new AePlayWave("Sounds/coin-drop-4.wav");
-			increase = 10000;
+			increase = 100000;
 			break;
 		default:
 			break;

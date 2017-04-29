@@ -72,11 +72,23 @@ public class Map {
 		WarpTile s9 = new WarpTile(3, 7f, 0f, -7.8f, 0, false);
 		WarpTile s11 = new WarpTile(6, 0, -3f, 0, 4.2f, false);
 		Collectible g1 = new Collectible(6f, -3f, "GoldCoin");
-		Collectible g2 = new Collectible(0f, 0f, "GoldBar");
+		Collectible g2 = new Collectible(0f, -2f, "GoldBar");
 		Collectible g3 = new Collectible(-7f, 3f, "GoldCoin");
+		Collectible g4 = new Collectible(7f, 3.5f, "Diamond");
+		Collectible g5 = new Collectible(-7f, -3.5f, "GoldNugget");
+		Collectible g6 = new Collectible(4f, 0f, "GoldBar");
+		Collectible o8 = new Collectible(-5.5f, 3f, "Oxygen20");
+		Collectible h2 = new Collectible(0f, -3f, "SmallPastie");
+		Collectible h3 = new Collectible(-3.2f, -2f, "Chips");
 		g1.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
 		g2.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
 		g3.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		g4.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		g5.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		g6.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		o8.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		h2.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		h3.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
 
 		// Room 5 Tile 0
 		WarpTile s10 = new WarpTile(3, 0, 3f, 0, -4.2f, true);
@@ -105,6 +117,9 @@ public class Map {
 		Collectible c21 = new Collectible(3f, 1f, "Diamond");
 		Collectible c22 = new Collectible(-4f, -3.5f, "Diamond");
 		Collectible h1 = new Collectible(-6f, 0f, "LargePastie");
+		Collectible o5 = new Collectible(-6, 2.5f, "Oxygen50");
+		Collectible o6 = new Collectible(7f, 3.5f, "Oxygen100");
+		Collectible o7 = new Collectible(5f, -2.5f, "Oxygen30");
 		c7.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
 		c8.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
 		c9.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
@@ -122,6 +137,9 @@ public class Map {
 		c21.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
 		c22.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
 		h1.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		o5.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		o6.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		o7.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
 
 		roomData[0].addWarpTile(s0);
 		roomData[0].addWarpTile(s1);
@@ -156,6 +174,12 @@ public class Map {
 		roomData[4].addCollectible(g1);
 		roomData[4].addCollectible(g2);
 		roomData[4].addCollectible(g3);
+		roomData[4].addCollectible(g4);
+		roomData[4].addCollectible(g5);
+		roomData[4].addCollectible(g6);
+		roomData[4].addCollectible(o8);
+		roomData[4].addCollectible(h2);
+		roomData[4].addCollectible(h3);
 
 		roomData[5].addWarpTile(s10);
 		roomData[5].setStuff(appWidth, appHeight, appWorldWidth, appWorldHeight);
@@ -182,6 +206,9 @@ public class Map {
 		roomData[7].addCollectible(c21);
 		roomData[7].addCollectible(c22);
 		roomData[7].addCollectible(h1);
+		roomData[7].addCollectible(o5);
+		roomData[7].addCollectible(o6);
+		roomData[7].addCollectible(o7);
 	}
 
 	public void update(float delta, MarioSprite mario, int cRoom) {
