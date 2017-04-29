@@ -93,7 +93,7 @@ public class Map {
 
 		// Room 5 Tile 0
 		WarpTile s10 = new WarpTile(3, 0, 3f, 0, -4.2f, true);
-		WarpTile s15 = new WarpTile(8, 0, -3.5f, 0, 4.3f, true);
+		WarpTile s15 = new WarpTile(8, 0, -3f, 0, 4.2f, true);
 		
 		//Room 6
 		WarpTile s12 = new WarpTile(3, 0, 3f, 0, -4.2f, false);

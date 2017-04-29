@@ -127,11 +127,11 @@ public class MarioSprite extends Sprite{
 		
 		if (rectRectIntersection(map.background.subBox.get(0).getVWorld(), mainBox.getVWorld())) {
 			positions.y = -3.6f;
-		} else if (rectRectIntersection(map.background.subBox.get(1).getVWorld(), mainBox.getVWorld())) {
-			positions.y = 3.6f;
-		} else if (rectRectIntersection(map.background.subBox.get(2).getVWorld(), mainBox.getVWorld())) {
+		} else if (rectRectIntersection(map.background.subBox.get(1).getVWorld(), subBox.get(0).getVWorld())) {
+			positions.y = 4.3f;
+		} else if (rectRectIntersection(map.background.subBox.get(2).getVWorld(), subBox.get(0).getVWorld())) {
 			positions.x = -7.2f;
-		} else if (rectRectIntersection(map.background.subBox.get(3).getVWorld(), mainBox.getVWorld())) {
+		} else if (rectRectIntersection(map.background.subBox.get(3).getVWorld(), subBox.get(0).getVWorld())) {
 			// b.setSprite("Thing");
 			// cRoom = map.roomData[cRoom].wt.get(0).getWarpCoord();
 			positions.x = 7.2f;

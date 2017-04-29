@@ -22,7 +22,7 @@ public class SpriteDemo extends WindowFramework {
 	boolean gameOver = false;
 	boolean controlLock = false;
 
-	int cRoom = 0;
+	int cRoom = 7;
 	
 	AePlayWave bgSong = new AePlayWave("Sounds/Spooky Graveyard Song.wav");
 
@@ -190,7 +190,7 @@ public class SpriteDemo extends WindowFramework {
 		map.updateOnObjects(delta, mario, cRoom);
 		//mario.velocity.x += map.roomData[cRoom].onLog(mario);
 		for (int x = 0; x < map.roomData[cRoom].wt.size(); x++) {
-			if (mario.rRI(map.roomData[cRoom].wt.get(x).tile) && map.roomData[cRoom].wt.get(x).isActive()) {
+			if (mario.rectRectIntersection(map.roomData[cRoom].wt.get(x).tile.getVWorld(), mario.subBox.get(0).getVWorld()) && map.roomData[cRoom].wt.get(x).isActive()) {
 				mario.positions.x = map.roomData[cRoom].wt.get(x).getWarpToX();
 				mario.positions.y = map.roomData[cRoom].wt.get(x).getWarpToY();
 				if(map.roomData[cRoom].wt.get(x).challengeEntrance){
@@ -236,7 +236,7 @@ public class SpriteDemo extends WindowFramework {
 
 		if (!gameOver) {
 			map.background.render(g, vp);
-			if(cRoom == 5){
+			if(cRoom == 5 || cRoom == 8){
 				map.roomData[cRoom].renderRoom(g, vp);
 			}
 			mario.render(g, vp);
@@ -252,7 +252,7 @@ public class SpriteDemo extends WindowFramework {
 			if (map.roomData[cRoom].showDB) {
 				map.roomData[cRoom].db.render(g, vp);
 			}
-			if(cRoom != 5){
+			if(cRoom != 5 && cRoom != 8){
 				map.roomData[cRoom].renderRoom(g, vp);
 			}
 		} else {
