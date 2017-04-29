@@ -80,27 +80,37 @@ public class Collectible extends Sprite{
 			collectSFX = new AePlayWave("Sounds/Oxygen Tank Pickup.wav");
 			break;
 		case "GoldCoin":
-			fn = "Images/GoldTemp.png";
+			fn = "Images/GoldCoin.png";
+			spriteWidth = 9;
+			spriteHeight = 12;
 			increase = 1;
 			collectSFX = new AePlayWave("Sounds/coin-drop-4.wav");
 			break;
 		case "GoldNugget":
-			fn = "Images/GoldTemp.png";
+			fn = "Images/GoldNugget.png";
+			spriteWidth = 23;
+			spriteHeight = 26;
 			increase = 30;
 			collectSFX = new AePlayWave("Sounds/coin-drop-4.wav");
 			break;
 		case "GoldBar":
-			fn = "Images/GoldTemp.png";
+			fn = "Images/GoldBar.png";
+			spriteWidth = 45;
+			spriteHeight = 25;
 			increase = 120;
 			collectSFX = new AePlayWave("Sounds/coin-drop-4.wav");
 			break;
 		case "Diamond":
-			fn = "Images/GoldTemp.png";
+			fn = "Images/Diamond.png";
+			spriteWidth = 35;
+			spriteHeight = 30;
 			increase = 200;
-			collectSFX = new AePlayWave("Sounds/coin-drop-4.wav");
+			collectSFX = new AePlayWave("Sounds/Ding.wav");
 			break;
 		case "Arkenstone":
-			fn = "Images/GoldTemp.png";
+			fn = "Images/Arkentstone.png";
+			spriteWidth = 66;
+			spriteHeight = 75;
 			collectSFX = new AePlayWave("Sounds/coin-drop-4.wav");
 			increase = 100000;
 			break;
