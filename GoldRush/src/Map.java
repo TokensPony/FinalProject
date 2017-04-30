@@ -194,6 +194,49 @@ public class Map {
 		h6.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
 		h7.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
 		
+		//Room 13
+		WarpTile s26 = new WarpTile(10, 0, 4f, 0, -4.2f, true);
+		Collectible c23 = new Collectible(2f, 2f, "GoldNugget");
+		Collectible c24 = new Collectible(-2f, -2f, "GoldNugget");
+		Collectible c25 = new Collectible(0f, 0f, "GoldNugget");
+		Collectible c26 = new Collectible(-2f, 2f, "GoldNugget");
+		Collectible c27 = new Collectible(2f, 0f, "GoldNugget");
+		Collectible c28 = new Collectible(0f, -2f, "GoldNugget");
+		Collectible c29 = new Collectible(0f, 2f, "GoldNugget");
+		Collectible c30 = new Collectible(3f, 3f, "GoldNugget");
+		Collectible c31 = new Collectible(1f, 3.5f, "GoldBar");
+		Collectible c32 = new Collectible(5f, -1f, "GoldBar");
+		Collectible c33 = new Collectible(2f, 3.5f, "GoldBar");
+		Collectible c34 = new Collectible(0f, -3.5f, "Diamond");
+		Collectible c35 = new Collectible(5f, 0f, "Diamond");
+		Collectible c36 = new Collectible(4f, 3.5f, "Diamond");
+		Collectible c37 = new Collectible(3f, 1f, "Diamond");
+		Collectible c38 = new Collectible(-4f, -3.5f, "Diamond");
+		Collectible h8 = new Collectible(-6f, 0f, "LargePasty");
+		Collectible o13 = new Collectible(-6, 2.5f, "Oxygen50");
+		Collectible o14 = new Collectible(7f, 3.5f, "Oxygen100");
+		Collectible o15 = new Collectible(5f, -2.5f, "Oxygen30");
+		c23.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		c24.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		c25.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		c26.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		c27.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		c28.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		c29.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		c30.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		c31.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		c32.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		c33.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		c34.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		c35.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		c36.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		c37.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		c38.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		h8.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		o13.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		o14.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		o15.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		
 
 		roomData[0].addWarpTile(s0);
 		roomData[0].addWarpTile(s1);
@@ -262,9 +305,9 @@ public class Map {
 		roomData[7].addCollectible(c21);
 		roomData[7].addCollectible(c22);
 		roomData[7].addCollectible(h1);
-		roomData[7].addCollectible(o5);
-		roomData[7].addCollectible(o6);
-		roomData[7].addCollectible(o7);
+		roomData[7].addCollectible(o13);
+		roomData[7].addCollectible(o14);
+		roomData[7].addCollectible(o15);
 		
 		roomData[8].addWarpTile(s16);
 		roomData[8].setStuff(appWidth, appHeight, appWorldWidth, appWorldHeight);
@@ -300,6 +343,28 @@ public class Map {
 		roomData[12].addCollectible(o12);
 		roomData[12].addCollectible(h6);
 		roomData[12].addCollectible(h7);
+		
+		roomData[13].addWarpTile(s26);
+		roomData[13].addCollectible(c23);
+		roomData[13].addCollectible(c24);
+		roomData[13].addCollectible(c25);
+		roomData[13].addCollectible(c26);
+		roomData[13].addCollectible(c27);
+		roomData[13].addCollectible(c28);
+		roomData[13].addCollectible(c29);
+		roomData[13].addCollectible(c30);
+		roomData[13].addCollectible(c31);
+		roomData[13].addCollectible(c32);
+		roomData[13].addCollectible(c33);
+		roomData[13].addCollectible(c34);
+		roomData[13].addCollectible(c35);
+		roomData[13].addCollectible(c36);
+		roomData[13].addCollectible(c37);
+		roomData[13].addCollectible(c38);
+		roomData[13].addCollectible(h8);
+		roomData[13].addCollectible(o5);
+		roomData[13].addCollectible(o6);
+		roomData[13].addCollectible(o7);
 		
 	}
 
