@@ -22,7 +22,7 @@ public class SpriteDemo extends WindowFramework {
 	boolean gameOver = false;
 	boolean controlLock = false;
 
-	int cRoom = 0;
+	int cRoom = 14;
 	
 	public String gameOverText = "GAME OVER";
 	
@@ -144,6 +144,9 @@ public class SpriteDemo extends WindowFramework {
 		case "Escaped":
 			if(cRoom == 6){
 				cRoom = 3;
+			}
+			else if(cRoom == 11){
+				cRoom = 10;
 			}
 			map.background.currentSprite = map.roomData[cRoom].getBG();
 			break;

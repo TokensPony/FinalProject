@@ -14,8 +14,8 @@ public class WarpTile {
 
 
 	public WarpTile(int destination, float charPosX, float charPosY, float tilePosX, float tilePosY, boolean status) {
-		tile = new VectorObject(Color.RED, new Vector2f[] { new Vector2f(-.3f, .3f), new Vector2f(.3f, .3f),
-				new Vector2f(.3f, -.3f), new Vector2f(-.3f, -.3f), });
+		tile = new VectorObject(Color.RED, new Vector2f[] { new Vector2f(-.4f, .4f), new Vector2f(.4f, .4f),
+				new Vector2f(.4f, -.4f), new Vector2f(-.4f, -.4f), });
 		warpX = destination;
 		warpToX = charPosX;
 		warpToY = charPosY;

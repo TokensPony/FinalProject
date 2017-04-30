@@ -94,7 +94,7 @@ public class Map {
 
 		// Room 5 Tile 0
 		WarpTile s10 = new WarpTile(3, 0, 3f, 0, -4.2f, true);
-		WarpTile s15 = new WarpTile(14, 0, -3.5f, 0, 4.2f, true);
+		WarpTile s15 = new WarpTile(14, 0, -3f, 0, 4.2f, true);
 		
 		//Room 6
 		WarpTile s12 = new WarpTile(3, 0, 3f, 0, -4.2f, false);
@@ -239,7 +239,7 @@ public class Map {
 		
 		//Room 14
 		WarpTile s27 = new WarpTile(5, 0, 4f, 0, -4.2f, true);
-		WarpTile s28 = new WarpTile(8, 0, -3.5f, 0, 4.2f, true);
+		WarpTile s28 = new WarpTile(8, 0, -3f, 0, 4.2f, true);
 
 		roomData[0].addWarpTile(s0);
 		roomData[0].addWarpTile(s1);
