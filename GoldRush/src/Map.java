@@ -20,7 +20,8 @@ public class Map {
 		roomData = new RoomData[] { new RoomData("Images/Room-0.png")/*Room 0*/, new RoomData("Images/Room-1.png", "GoldIntroduction")/*Room 1*/,
 				new RoomData("Images/Room-0.png", "OxygenIntroduction")/*Room 2*/, new RoomData("Images/Room-1.png", "Room3")/*Room 3*/, new RockChallengeRoom("Images/Room-0.png", "FallingRocks")/*Room 4*/, 
 				new LavaRoom("Images/Room-1.png", "LavaRoom")/*Room 5*/, new QTERoom("Images/Room-0.png", "QTE")/*Room 6 QTE*/, new RoomData("Images/Room-1.png")/*Room 7 Challenge Gold Room*/, 
-				new LavaRoom("Images/Room-0.png")/*Room 8*/, new RoomData("Images/Room-1.png")/*Room 9*/};
+				new LavaRoom("Images/Room-0.png")/*Room 8*/, new RoomData("Images/Room-1.png")/*Room 9*/, new RoomData("Images/Room-0.png")/*Roomn10*/, new QTERoom("Images/Room-0.png", "QTE")/*Roomn11*/, 
+				new RockChallengeRoom("Images/Room-0.png", "FallingRocks")/*Roomn12*/, new RoomData("Images/Room-0.png")/*Roomn13*/, new RockChallengeRoom("Images/Room-0.png", "FallingRocks")/*Room 14*/};
 	}
 
 	public void initialize(int appWidth, int appHeight, float appWorldWidth, float appWorldHeight) {
@@ -65,7 +66,7 @@ public class Map {
 
 		// Room 3 Tile 0
 		WarpTile s6 = new WarpTile(2, 7f, 0f, -7.8f, 0, true);
-		WarpTile s7 = new WarpTile(5, 0, -3f, 0, 4.2f, true);
+		WarpTile s7 = new WarpTile(10, 0, -3f, 0, 4.2f, true);
 		WarpTile s8 = new WarpTile(4, -7f, 0, 7.7f, 0f, true);
 		s8.challengeEntrance = true;
 
@@ -79,7 +80,7 @@ public class Map {
 		Collectible g5 = new Collectible(-7f, -3.5f, "GoldNugget");
 		Collectible g6 = new Collectible(4f, 0f, "GoldBar");
 		Collectible o8 = new Collectible(-5.5f, 3f, "Oxygen20");
-		Collectible h2 = new Collectible(0f, -3f, "SmallPastie");
+		Collectible h2 = new Collectible(0f, -3f, "SmallPasty");
 		Collectible h3 = new Collectible(-3.2f, -2f, "Chips");
 		g1.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
 		g2.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
@@ -117,7 +118,7 @@ public class Map {
 		Collectible c20 = new Collectible(4f, 3.5f, "Diamond");
 		Collectible c21 = new Collectible(3f, 1f, "Diamond");
 		Collectible c22 = new Collectible(-4f, -3.5f, "Diamond");
-		Collectible h1 = new Collectible(-6f, 0f, "LargePastie");
+		Collectible h1 = new Collectible(-6f, 0f, "LargePasty");
 		Collectible o5 = new Collectible(-6, 2.5f, "Oxygen50");
 		Collectible o6 = new Collectible(7f, 3.5f, "Oxygen100");
 		Collectible o7 = new Collectible(5f, -2.5f, "Oxygen30");
@@ -150,6 +151,49 @@ public class Map {
 		WarpTile s18 = new WarpTile(8, 0, 4f, 0, -4.2f, true);
 		Collectible a1 = new Collectible(0f, 3f, "Arkenstone");
 		a1.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		
+		//Room 10
+		WarpTile s19 = new WarpTile(3, 0, 4f, 0, -4.2f, true);
+		WarpTile s20 = new WarpTile(11, 7f, 0f, -7.8f, 0, true);
+		WarpTile s21 = new WarpTile(5, 0, -3f, 0, 4.2f, true);
+		Collectible o9 = new Collectible(-6, 2.5f, "Oxygen50");
+		Collectible o10 = new Collectible(7f, 3.5f, "Oxygen100");
+		Collectible o11 = new Collectible(5f, -2.5f, "Oxygen30");
+		Collectible h4 = new Collectible(0f, -3f, "SmallPasty");
+		Collectible h5 = new Collectible(-3.2f, -2f, "Chips");
+		o9.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		o10.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		o11.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		h4.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		h5.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		s20.challengeEntrance = true;
+		
+		//Room 11
+		WarpTile s22 = new WarpTile(10, -7f, 0, 7.7f, 0f, false);
+		WarpTile s23 = new WarpTile(12, 0, -3f, 0, 4.2f, false);
+		
+		//Room 12
+		WarpTile s24 = new WarpTile(11, 0, 4f, 0, -4.2f, false);
+		WarpTile s25 = new WarpTile(13, 0, -3f, 0, 4.2f, false);
+		Collectible g7 = new Collectible(6f, -3f, "GoldCoin");
+		Collectible g8 = new Collectible(0f, -2f, "GoldBar");
+		Collectible g9 = new Collectible(-7f, 3f, "GoldCoin");
+		Collectible g10 = new Collectible(7f, 3.5f, "Diamond");
+		Collectible g11 = new Collectible(-7f, -3.5f, "GoldNugget");
+		Collectible g12 = new Collectible(4f, 0f, "GoldBar");
+		Collectible o12 = new Collectible(-5.5f, 3f, "Oxygen20");
+		Collectible h6 = new Collectible(0f, -3f, "SmallPasty");
+		Collectible h7 = new Collectible(-3.2f, -2f, "Chips");
+		g7.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		g8.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		g9.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		g10.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		g11.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		g12.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		o12.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		h6.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		h7.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		
 
 		roomData[0].addWarpTile(s0);
 		roomData[0].addWarpTile(s1);
@@ -228,6 +272,35 @@ public class Map {
 		
 		roomData[9].addWarpTile(s18);
 		roomData[9].addCollectible(a1);
+		
+		roomData[10].addWarpTile(s19);
+		roomData[10].addWarpTile(s20);
+		roomData[10].addWarpTile(s21);
+		roomData[10].addCollectible(o9);
+		roomData[10].addCollectible(o10);
+		roomData[10].addCollectible(o11);
+		roomData[10].addCollectible(h4);
+		roomData[10].addCollectible(h5);
+		
+		roomData[11].addWarpTile(s22);
+		roomData[11].addWarpTile(s23);
+		roomData[11].setStuff(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		roomData[11].db.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		
+		roomData[12].addWarpTile(s24);
+		roomData[12].addWarpTile(s25);
+		roomData[12].db.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		roomData[12].setStuff(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		roomData[12].addCollectible(g7);
+		roomData[12].addCollectible(g8);
+		roomData[12].addCollectible(g9);
+		roomData[12].addCollectible(g10);
+		roomData[12].addCollectible(g11);
+		roomData[12].addCollectible(g12);
+		roomData[12].addCollectible(o12);
+		roomData[12].addCollectible(h6);
+		roomData[12].addCollectible(h7);
+		
 	}
 
 	public void update(float delta, MarioSprite mario, int cRoom) {
@@ -240,10 +313,10 @@ public class Map {
 		for (int x = 0; x < roomData[cRoom].items.size(); x++) {
 			if (mario.rRI(roomData[cRoom].items.get(x).mainBox)) {
 				switch (roomData[cRoom].items.get(x).getType()) {
-				case "LargePastie":
+				case "LargePasty":
 					mario.healthBar.addHealth(roomData[cRoom].items.get(x).getIncrease());
 					break;
-				case "SmallPastie":
+				case "SmallPasty":
 					mario.healthBar.addHealth(roomData[cRoom].items.get(x).getIncrease());
 					break;
 				case "Chips":

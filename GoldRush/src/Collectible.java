@@ -16,14 +16,14 @@ public class Collectible extends Sprite{
 	public Collectible(float x, float y, String type){
 		cType = type;
 		switch(cType){
-		case "LargePastie":
+		case "LargePasty":
 			fn = "Images/PastyLarge.png";
 			spriteWidth = 44;
 			spriteHeight = 20;
 			increase = 100;
 			collectSFX = new AePlayWave("Sounds/Health Pickup.wav");
 			break;
-		case "SmallPastie":
+		case "SmallPasty":
 			fn = "Images/PastySmall.png";
 			spriteWidth = 30;
 			spriteHeight = 13;
