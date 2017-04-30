@@ -94,7 +94,7 @@ public class Map {
 
 		// Room 5 Tile 0
 		WarpTile s10 = new WarpTile(3, 0, 3f, 0, -4.2f, true);
-		WarpTile s15 = new WarpTile(8, 0, -3.5f, 0, 4.2f, true);
+		WarpTile s15 = new WarpTile(14, 0, -3.5f, 0, 4.2f, true);
 		
 		//Room 6
 		WarpTile s12 = new WarpTile(3, 0, 3f, 0, -4.2f, false);
@@ -144,7 +144,7 @@ public class Map {
 		o7.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
 		
 		//Room 8
-		WarpTile s16 = new WarpTile(5, 0, 4f, 0, -4.2f, true);
+		WarpTile s16 = new WarpTile(14, 0, 4f, 0, -4.2f, true);
 		WarpTile s17 = new WarpTile(9, 0, -3f, 0, 4.2f, true);
 		
 		//Room 9
@@ -237,6 +237,9 @@ public class Map {
 		o14.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
 		o15.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
 		
+		//Room 14
+		WarpTile s27 = new WarpTile(5, 0, 4f, 0, -4.2f, true);
+		WarpTile s28 = new WarpTile(8, 0, -3.5f, 0, 4.2f, true);
 
 		roomData[0].addWarpTile(s0);
 		roomData[0].addWarpTile(s1);
@@ -365,6 +368,11 @@ public class Map {
 		roomData[13].addCollectible(o5);
 		roomData[13].addCollectible(o6);
 		roomData[13].addCollectible(o7);
+		
+		roomData[14].addWarpTile(s27);
+		roomData[14].setStuff(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		roomData[14].db.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		roomData[14].addWarpTile(s28);
 		
 	}
 
