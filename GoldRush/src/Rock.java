@@ -1,5 +1,4 @@
-import javagames.util.Sprite;
-import javagames.util.Vector2f;
+import javagames.util.*;
 
 public class Rock extends Sprite {
 	public Sprite shadow;
@@ -7,6 +6,9 @@ public class Rock extends Sprite {
 	private int spriteWidth = 120;
 	private int spriteHeight = 120;
 
+	AePlayWave hit = new AePlayWave("Sounds/PlayerDamage.wav");
+	AePlayWave rumble = new AePlayWave("Sounds/Rumble.wav");
+	
 	public Rock(float x, float y) {
 		circle = true;
 

@@ -24,6 +24,7 @@ public class RockChallengeRoom extends RoomData {
 		float startPosX = r.nextFloat() * 16f - 8f;
 		Rock r = new Rock(startPosX, 8);
 		r.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		r.rumble.play();
 		return r;
 	}
 
@@ -86,6 +87,7 @@ public class RockChallengeRoom extends RoomData {
 		Vector2f[] box = m.mainBox.getVWorld();
 		for (int x = 0; x < rocks.size(); x++) {
 			if (m.intersectCircleAABB(rocks.get(x).positions, rocks.get(x).radius, box[3], box[1])) {
+				rocks.get(x).hit.play();
 				rocks.remove(x);
 				return true;
 			}

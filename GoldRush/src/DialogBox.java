@@ -32,9 +32,13 @@ public class DialogBox extends Sprite {
 			break;
 		case "QTE":
 			title = "You're in trouble NOW!";
-			message = "As we speak, the room is about to cave\n" + "in and failing to escape means\n"
-					+ "certain death...You've got to\n" + "choose to go for it or call it\n" + "quits....FAST!\n\n"
-					+ "Press \"E\" to continue...";
+			message = 	"As we speak, the room is about to cave\n" +
+						"in and failing to escape means\n" +
+						"certain death...You've got to\n" +
+						"choose to go for it or call it\n" +
+						"quits....FAST! All keys must be\n" +
+						"pressed together!\n\n"+
+						"Press \"E\" to continue...";
 			// "Abcdefghijklmopqrstuvwxy1234567890ABCDEFGHIJKL";
 			break;
 		case "GoldIntroduction":
