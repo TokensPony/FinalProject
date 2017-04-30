@@ -12,7 +12,7 @@ public class QTERoom extends RoomData{
 	public int timerPosY = 100;
 	
 	public String timerText = "%.2f";
-	public String buttonText = "Escape: \'T\' Continue: \'R\', \'P\', and \'N\'";
+	public String buttonText = "Escape: \'T\'             Continue: \'R\'+\'P\'+\'N\'";
 	
 	public int easy = KeyEvent.VK_T;
 	public int[] hard = {KeyEvent.VK_R, KeyEvent.VK_P, KeyEvent.VK_N};
@@ -69,7 +69,13 @@ public class QTERoom extends RoomData{
 			g.setColor(Color.WHITE);
 			g.drawString(temp, timerPosX, timerPosY);
 			
-			
+			g.setColor(Color.BLACK);
+			g.drawString(buttonText, 640-(sWidth/2), 200-1);
+			g.drawString(buttonText, 640-(sWidth/2)+1, 200);
+			g.drawString(buttonText, 640-(sWidth/2), 200+1);
+			g.drawString(buttonText, 640-(sWidth/2)-1, 200);
+			g.setColor(Color.WHITE);
+			g.drawString(buttonText, 640-(sWidth/2), 200);
 		}
 	}
 }

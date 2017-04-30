@@ -145,6 +145,7 @@ public class SpriteDemo extends WindowFramework {
 			if(cRoom == 6){
 				cRoom = 3;
 			}
+			map.background.currentSprite = map.roomData[cRoom].getBG();
 			break;
 		case "Failed":
 			gameOverText = "TOO SLOW";
