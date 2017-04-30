@@ -38,7 +38,7 @@ public class QTERoom extends RoomData{
 			if(k.keyDown(hard[0]) && k.keyDown(hard[1]) && k.keyDown(hard[2])){
 				challengeActive = false;
 				System.out.println("Succeeded");
-				return "Suceeded";
+				return "Succeeded";
 			}
 			if(k.keyDown(easy)){
 				challengeActive = false;
