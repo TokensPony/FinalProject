@@ -8,7 +8,11 @@ public class QTERoom extends RoomData{
 	public float timer = 3;
 	public float timeUp = 0;
 	
+	public int timerPosX = 640;
+	public int timerPosY = 100;
+	
 	public String timerText = "%.2f";
+	public String buttonText = "Escape: \'T\' Continue: \'R\', \'P\', and \'N\'";
 	
 	public int easy = KeyEvent.VK_T;
 	public int[] hard = {KeyEvent.VK_R, KeyEvent.VK_P, KeyEvent.VK_N};
@@ -55,8 +59,17 @@ public class QTERoom extends RoomData{
 	public void renderRoom(Graphics g, Matrix3x3f vp){
 		String temp = "";
 		temp = temp.format(timerText, timer);
+		int sWidth = g.getFontMetrics().stringWidth(buttonText);
 		if(challengeActive){
-			g.drawString(temp, 640, 100);
+			g.setColor(Color.BLACK);
+			g.drawString(temp, timerPosX, timerPosY-1);
+			g.drawString(temp, timerPosX+1, timerPosY);
+			g.drawString(temp, timerPosX, timerPosY+1);
+			g.drawString(temp, timerPosX-1, timerPosY);
+			g.setColor(Color.WHITE);
+			g.drawString(temp, timerPosX, timerPosY);
+			
+			
 		}
 	}
 }

@@ -136,6 +136,10 @@ public class SpriteDemo extends WindowFramework {
 		
 		switch(map.roomData[cRoom].passKeyboard(keyboard)){
 		case "Succeeded":
+			for (int x = 0; x < map.roomData[cRoom].wt.size(); x++) {
+				map.roomData[cRoom].wt.get(x).activateTile();
+				System.out.printf("Activated: %b\n", map.roomData[cRoom].wt.get(x).isActive());
+			}
 			break;
 		case "Escaped":
 			if(cRoom == 6){
