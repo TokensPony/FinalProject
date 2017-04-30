@@ -22,7 +22,7 @@ public class SpriteDemo extends WindowFramework {
 	boolean gameOver = false;
 	boolean controlLock = false;
 
-	int cRoom = 14;
+	int cRoom = 0;
 	
 	public String gameOverText = "GAME OVER";
 	

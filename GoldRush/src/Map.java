@@ -93,7 +93,7 @@ public class Map {
 		h3.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
 
 		// Room 5 Tile 0
-		WarpTile s10 = new WarpTile(3, 0, 3f, 0, -4.2f, true);
+		WarpTile s10 = new WarpTile(10, 0, 3f, 0, -4.2f, true);
 		WarpTile s15 = new WarpTile(14, 0, -3f, 0, 4.2f, true);
 		
 		//Room 6
