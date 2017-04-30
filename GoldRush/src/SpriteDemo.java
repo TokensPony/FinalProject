@@ -24,6 +24,8 @@ public class SpriteDemo extends WindowFramework {
 
 	int cRoom = 0;
 	
+	public String gameOverText = "GAME OVER";
+	
 	AePlayWave bgSong = new AePlayWave("Sounds/Spooky Graveyard Song.wav");
 
 	public SpriteDemo() {
@@ -133,6 +135,17 @@ public class SpriteDemo extends WindowFramework {
 		}
 		
 		switch(map.roomData[cRoom].passKeyboard(keyboard)){
+		case "Succeeded":
+			break;
+		case "Escaped":
+			if(cRoom == 6){
+				cRoom = 3;
+			}
+			break;
+		case "Failed":
+			gameOverText = "TOO SLOW";
+			mario.healthBar.doDamage(200);
+			break;
 		default:
 			break;
 		}
@@ -263,7 +276,7 @@ public class SpriteDemo extends WindowFramework {
 			}
 		} else {
 			g.setColor(Color.RED);
-			g.drawString("GAME OVER", 640, 360);
+			g.drawString(gameOverText, 640, 360);
 		}
 	}
 
