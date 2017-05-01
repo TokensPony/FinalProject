@@ -53,6 +53,7 @@ public class RoomData{
 	}
 	
 	public void addWarpTile(WarpTile w){
+		w.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
 		wt.add(w);
 	}
 	

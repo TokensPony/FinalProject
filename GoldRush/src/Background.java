@@ -13,7 +13,7 @@ public class Background extends Sprite {
 
 	int pos = 0;
 
-	public String fn = "Images/Room-0.png";
+	public String fn = "Images/Background-Normal.png";
 
 	VectorObject floor = new VectorObject(Color.GREEN, new Vector2f[] { new Vector2f(-8f, -4.1f),
 			new Vector2f(8f, -4.1f), new Vector2f(8f, -4.5f), new Vector2f(-8f, -4.5f), });

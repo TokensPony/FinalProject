@@ -269,11 +269,12 @@ public class SpriteDemo extends WindowFramework {
 			if(cRoom == 5 || cRoom == 8){
 				map.roomData[cRoom].renderRoom(g, vp);
 			}
-			mario.render(g, vp);
+			
 			// s1.render(g, getViewportTransform());
 			for (int x = 0; x < map.roomData[cRoom].wt.size(); x++) {
 				map.roomData[cRoom].wt.get(x).render(g, vp);
 			}
+			mario.render(g, vp);
 			for (int x = 0; x < map.roomData[cRoom].items.size(); x++) {
 				map.roomData[cRoom].items.get(x).render(g, vp);
 			}
