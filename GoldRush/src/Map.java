@@ -11,6 +11,8 @@ public class Map {
 	private int appWidth, appHeight;
 	private float appWorldWidth, appWorldHeight;
 	
+	
+	/*These are variables that are used to place warp tiles on the map*/
 	float upX = 0f;
 	float upY = 4.2f;
 	int upDegree = 0;
@@ -37,13 +39,25 @@ public class Map {
 		Normal, Rock
 	};
 
+	/*The map constructor initializes the background and lays the foundation for the types of rooms
+	 * in the roomData array.*/
 	public Map() {
 		background = new Background(0f, 0f);
-		roomData = new RoomData[] { new RoomData("Images/Background-Normal.png")/*Room 0*/, new RoomData("Images/Background-Normal.png", "GoldIntroduction")/*Room 1*/,
-				new RoomData("Images/Background-Normal.png", "OxygenIntroduction")/*Room 2*/, new RoomData("Images/Background-Normal.png", "Room3")/*Room 3*/, new RockChallengeRoom("Images/Background-Challenge.png", "FallingRocks")/*Room 4*/, 
-				new LavaRoom("Images/Background-Lava.png", "LavaRoom")/*Room 5*/, new QTERoom("Images/Background-Challenge.png", "QTE")/*Room 6 QTE*/, new RoomData("Images/Background-Challenge.png")/*Room 7 Challenge Gold Room*/, 
-				new LavaRoom("Images/Background-Lava.png")/*Room 8*/, new RoomData("Images/Background-Normal.png")/*Room 9*/, new RoomData("Images/Background-Normal.png")/*Roomn10*/, new QTERoom("Images/Background-Challenge.png", "QTE")/*Roomn11*/, 
-				new RockChallengeRoom("Images/Background-Challenge.png", "FallingRocks")/*Roomn12*/, new RoomData("Images/Background-Normal.png")/*Roomn13*/, new RockChallengeRoom("Images/Background-Challenge.png", "FallingRocks")/*Room 14*/};
+		roomData = 	new RoomData[] { new RoomData("Images/Background-Normal.png")/*Room 0- Beginning*/,
+					new RoomData("Images/Background-Normal.png", "GoldIntroduction")/*Room 1 - Gold Intro*/,
+					new RoomData("Images/Background-Normal.png", "OxygenIntroduction")/*Room 2 - Oxygen Intro*/,
+					new RoomData("Images/Background-Normal.png", "Room3")/*Room 3 - Branching path 1*/,
+					new RockChallengeRoom("Images/Background-Challenge.png", "FallingRocks")/*Room 4 -Rock room 1*/, 
+					new LavaRoom("Images/Background-Lava.png", "LavaRoom")/*Room 5*/,
+					new QTERoom("Images/Background-Challenge.png", "QTE")/*Room 6 QTE*/,
+					new RoomData("Images/Background-Challenge.png")/*Room 7 Challenge Gold Room*/, 
+					new LavaRoom("Images/Background-Lava.png", "LavaRoom")/*Room 8*/,
+					new RoomData("Images/Background-Arkenstone.png")/*Room 9*/,
+					new RoomData("Images/Background-Normal.png")/*Roomn10*/,
+					new QTERoom("Images/Background-Challenge.png", "QTE")/*Roomn11*/, 
+					new RockChallengeRoom("Images/Background-Challenge.png", "FallingRocks")/*Roomn12*/,
+					new RoomData("Images/Background-Normal.png")/*Roomn13*/,
+					new RockChallengeRoom("Images/Background-Challenge.png")/*Room 14*/};
 	}
 	
 
@@ -84,6 +98,7 @@ public class Map {
 		initialize();
 		
 	}
+	
 	
 	public void initialize() 
 	{
@@ -177,7 +192,7 @@ public class Map {
 		WarpTile s16 = new WarpTile(14, 0, 4f, downX, downY, true, downDegree, "Normal");
 		WarpTile s17 = new WarpTile(9, 0, -3f, upX, upY, true, upDegree, "Normal");
 		roomData[8].addWarpTile(s16);
-		roomData[8].setStuff(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		roomData[8].db.get(0).setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
 		roomData[8].addWarpTile(s17);
 		
 		//Room 9
@@ -197,19 +212,19 @@ public class Map {
 		s20.challengeEntrance = true;
 		
 		//Room 11
-		WarpTile s22 = new WarpTile(10, -7f, 0, rightX, rightY, false, rightDegree, "Normal");
-		WarpTile s23 = new WarpTile(12, 0, -3f, upX, upY, false, upDegree, "Normal");
+		WarpTile s22 = new WarpTile(10, -7f, 0, rightX, rightY, false, rightDegree, "Challenge");
+		WarpTile s23 = new WarpTile(12, 0, -3f, upX, upY, false, upDegree, "Challenge");
 		
 		//Room 12
-		WarpTile s24 = new WarpTile(11, 0, 4f, downX, downY, false, downDegree, "Normal");
-		WarpTile s25 = new WarpTile(13, 0, -3f, upX, upY, false, upDegree, "Normal");
+		WarpTile s24 = new WarpTile(11, 0, 4f, downX, downY, false, downDegree, "Challenge");
+		WarpTile s25 = new WarpTile(13, 0, -3f, upX, upY, false, upDegree, "Challenge");
 		addItems(12, 1, "Oxygen20");
 		addItems(12, 2, allEdibles);
 		addItems(12, 5, allGold);
 		addItems(12, 1, "Diamond");
 		
 		//Room 13
-		WarpTile s26 = new WarpTile(10, 0, 4f, downX, downY, true, downDegree, "Normal");
+		WarpTile s26 = new WarpTile(10, 0, 3.5f, downX, downY, true, downDegree, "Normal");
 		addItems(13, 8, "GoldNugget");
 		addItems(13, 3, "GoldBar");
 		addItems(13, 5, "Diamond");
@@ -217,7 +232,7 @@ public class Map {
 		addItems(13, 3, allOxygen);
 		
 		//Room 14
-		WarpTile s27 = new WarpTile(5, 0, 4f, downX, downY, true, 0, "Normal");
+		WarpTile s27 = new WarpTile(5, 0, 4f, downX, downY, true, downDegree, "Normal");
 		WarpTile s28 = new WarpTile(8, 0, -3f, upX, upY, true, upDegree, "Normal");
 
 		roomData[10].setStuff(appWidth, appHeight, appWorldWidth, appWorldHeight);
@@ -228,19 +243,20 @@ public class Map {
 		roomData[11].setStuff(appWidth, appHeight, appWorldWidth, appWorldHeight);
 		roomData[11].addWarpTile(s22);
 		roomData[11].addWarpTile(s23);
-		roomData[11].setStuff(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		//roomData[11].setStuff(appWidth, appHeight, appWorldWidth, appWorldHeight);
 		roomData[11].db.get(0).setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
 		
 		roomData[12].setStuff(appWidth, appHeight, appWorldWidth, appWorldHeight);
 		roomData[12].addWarpTile(s24);
 		roomData[12].addWarpTile(s25);
 		roomData[12].db.get(0).setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
-		roomData[12].setStuff(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		
+		roomData[13].setStuff(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		roomData[13].addWarpTile(s26);
 		
 		roomData[14].setStuff(appWidth, appHeight, appWorldWidth, appWorldHeight);
 		roomData[14].addWarpTile(s27);
-		roomData[14].setStuff(appWidth, appHeight, appWorldWidth, appWorldHeight);
-		roomData[14].db.get(0).setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		//roomData[14].db.get(0).setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
 		roomData[14].addWarpTile(s28);
 		
 		

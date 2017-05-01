@@ -58,12 +58,12 @@ public class RockChallengeRoom extends RoomData {
 			challengeActive = false;
 			for (int x = 0; x < wt.size(); x++) {
 				wt.get(x).active = true;
+				wt.get(x).currentSprite = wt.get(x).temp;
 			}
-			if(currentDB < db.size()-1){
-				for(int x = 0; x < wt.size(); x++){
-					wt.get(x).currentSprite = wt.get(x).temp;
+			if(db != null){
+				if(currentDB < db.size()-1){
+					showNextDB();
 				}
-				showNextDB();
 			}
 		}
 	}
