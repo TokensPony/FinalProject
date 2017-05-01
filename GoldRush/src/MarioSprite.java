@@ -43,8 +43,8 @@ public class MarioSprite extends Sprite{
 	 * with the floor and platforms.*/
 	@Override
 	public void setSubBox(){
-		VectorObject feet = new VectorObject(Color.GREEN, new Vector2f[] { new Vector2f(-widthCollide, -heightCollide+.1f),
-				new Vector2f(widthCollide, -heightCollide+.1f), new Vector2f(widthCollide, -heightCollide),
+		VectorObject feet = new VectorObject(Color.GREEN, new Vector2f[] { new Vector2f(-widthCollide, -heightCollide+.3f),
+				new Vector2f(widthCollide, -heightCollide+.3f), new Vector2f(widthCollide, -heightCollide),
 				new Vector2f(-widthCollide, -heightCollide), });
 		subBox.add(feet);
 		System.out.println("Feet Set");
@@ -128,7 +128,7 @@ public class MarioSprite extends Sprite{
 		if (rectRectIntersection(map.background.subBox.get(0).getVWorld(), mainBox.getVWorld())) {
 			positions.y = -3.6f;
 		} else if (rectRectIntersection(map.background.subBox.get(1).getVWorld(), subBox.get(0).getVWorld())) {
-			positions.y = 4.3f;
+			positions.y = 4.1f;
 		} else if (rectRectIntersection(map.background.subBox.get(2).getVWorld(), subBox.get(0).getVWorld())) {
 			positions.x = -7.2f;
 		} else if (rectRectIntersection(map.background.subBox.get(3).getVWorld(), subBox.get(0).getVWorld())) {
