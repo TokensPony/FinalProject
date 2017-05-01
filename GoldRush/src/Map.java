@@ -79,7 +79,6 @@ public class Map {
 		background.setSubBox();
 		background.setSprite("thing");
 		
-		addItems(5, 1, "Arkenstone");
 
 		/*Room 0*/
 		roomData[0].addWarpTile(new WarpTile(10, 7f, 0f, -7.8f, 0, false));//this is for the exit
