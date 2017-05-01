@@ -145,6 +145,7 @@ public class Map {
 		addItems(7, 1, "LargePasty");
 		addItems(7, 3, allOxygen);
 
+		
 		//TODO: (Brogan) I need to finish going through the rooms below...
 		
 		//Room 8
@@ -165,16 +166,8 @@ public class Map {
 		WarpTile s19 = new WarpTile(3, 0, 4f, 0, -4.2f, true);
 		WarpTile s20 = new WarpTile(11, 7f, 0f, -7.8f, 0, true);
 		WarpTile s21 = new WarpTile(5, 0, -3f, 0, 4.2f, true);
-		Collectible o9 = new Collectible(-6, 2.5f, "Oxygen50");
-		Collectible o10 = new Collectible(7f, 3.5f, "Oxygen100");
-		Collectible o11 = new Collectible(5f, -2.5f, "Oxygen30");
-		Collectible h4 = new Collectible(0f, -3f, "SmallPasty");
-		Collectible h5 = new Collectible(-3.2f, -2f, "Chips");
-		o9.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
-		o10.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
-		o11.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
-		h4.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
-		h5.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		addItems(10, 3, allOxygen);
+		addItems(10, 2, allEdibles);
 		s20.challengeEntrance = true;
 		
 		//Room 11
@@ -184,91 +177,27 @@ public class Map {
 		//Room 12
 		WarpTile s24 = new WarpTile(11, 0, 4f, 0, -4.2f, false);
 		WarpTile s25 = new WarpTile(13, 0, -3f, 0, 4.2f, false);
-		Collectible g7 = new Collectible(6f, -3f, "GoldCoin");
-		Collectible g8 = new Collectible(0f, -2f, "GoldBar");
-		Collectible g9 = new Collectible(-7f, 3f, "GoldCoin");
-		Collectible g10 = new Collectible(7f, 3.5f, "Diamond");
-		Collectible g11 = new Collectible(-7f, -3.5f, "GoldNugget");
-		Collectible g12 = new Collectible(4f, 0f, "GoldBar");
-		Collectible o12 = new Collectible(-5.5f, 3f, "Oxygen20");
-		Collectible h6 = new Collectible(0f, -3f, "SmallPasty");
-		Collectible h7 = new Collectible(-3.2f, -2f, "Chips");
-		g7.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
-		g8.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
-		g9.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
-		g10.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
-		g11.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
-		g12.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
-		o12.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
-		h6.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
-		h7.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		addItems(12, 1, "Oxygen20");
+		addItems(12, 2, allEdibles);
+		addItems(12, 5, allGold);
+		addItems(12, 1, "Diamond");
 		
 		//Room 13
 		WarpTile s26 = new WarpTile(10, 0, 4f, 0, -4.2f, true);
-		Collectible c23 = new Collectible(2f, 2f, "GoldNugget");
-		Collectible c24 = new Collectible(-2f, -2f, "GoldNugget");
-		Collectible c25 = new Collectible(0f, 0f, "GoldNugget");
-		Collectible c26 = new Collectible(-2f, 2f, "GoldNugget");
-		Collectible c27 = new Collectible(2f, 0f, "GoldNugget");
-		Collectible c28 = new Collectible(0f, -2f, "GoldNugget");
-		Collectible c29 = new Collectible(0f, 2f, "GoldNugget");
-		Collectible c30 = new Collectible(3f, 3f, "GoldNugget");
-		Collectible c31 = new Collectible(1f, 3.5f, "GoldBar");
-		Collectible c32 = new Collectible(5f, -1f, "GoldBar");
-		Collectible c33 = new Collectible(2f, 3.5f, "GoldBar");
-		Collectible c34 = new Collectible(0f, -3.5f, "Diamond");
-		Collectible c35 = new Collectible(5f, 0f, "Diamond");
-		Collectible c36 = new Collectible(4f, 3.5f, "Diamond");
-		Collectible c37 = new Collectible(3f, 1f, "Diamond");
-		Collectible c38 = new Collectible(-4f, -3.5f, "Diamond");
-		Collectible h8 = new Collectible(-6f, 0f, "LargePasty");
-		Collectible o13 = new Collectible(-6, 2.5f, "Oxygen50");
-		Collectible o14 = new Collectible(7f, 3.5f, "Oxygen100");
-		Collectible o15 = new Collectible(5f, -2.5f, "Oxygen30");
-		c23.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
-		c24.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
-		c25.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
-		c26.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
-		c27.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
-		c28.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
-		c29.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
-		c30.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
-		c31.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
-		c32.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
-		c33.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
-		c34.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
-		c35.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
-		c36.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
-		c37.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
-		c38.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
-		h8.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
-		o13.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
-		o14.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
-		o15.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		addItems(13, 8, "GoldNugget");
+		addItems(13, 3, "GoldBar");
+		addItems(13, 5, "Diamond");
+		addItems(13, 1, "LargePasty");
+		addItems(13, 3, allOxygen);
 		
 		//Room 14
 		WarpTile s27 = new WarpTile(5, 0, 4f, 0, -4.2f, true);
 		WarpTile s28 = new WarpTile(8, 0, -3f, 0, 4.2f, true);
 
-
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		
 		roomData[10].addWarpTile(s19);
 		roomData[10].addWarpTile(s20);
 		roomData[10].addWarpTile(s21);
-		roomData[10].addCollectible(o9);
-		roomData[10].addCollectible(o10);
-		roomData[10].addCollectible(o11);
-		roomData[10].addCollectible(h4);
-		roomData[10].addCollectible(h5);
 		
 		roomData[11].addWarpTile(s22);
 		roomData[11].addWarpTile(s23);
@@ -279,42 +208,13 @@ public class Map {
 		roomData[12].addWarpTile(s25);
 		roomData[12].db.get(0).setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
 		roomData[12].setStuff(appWidth, appHeight, appWorldWidth, appWorldHeight);
-		roomData[12].addCollectible(g7);
-		roomData[12].addCollectible(g8);
-		roomData[12].addCollectible(g9);
-		roomData[12].addCollectible(g10);
-		roomData[12].addCollectible(g11);
-		roomData[12].addCollectible(g12);
-		roomData[12].addCollectible(o12);
-		roomData[12].addCollectible(h6);
-		roomData[12].addCollectible(h7);
 		
-		roomData[13].addWarpTile(s26);
-		roomData[13].addCollectible(c23);
-		roomData[13].addCollectible(c24);
-		roomData[13].addCollectible(c25);
-		roomData[13].addCollectible(c26);
-		roomData[13].addCollectible(c27);
-		roomData[13].addCollectible(c28);
-		roomData[13].addCollectible(c29);
-		roomData[13].addCollectible(c30);
-		roomData[13].addCollectible(c31);
-		roomData[13].addCollectible(c32);
-		roomData[13].addCollectible(c33);
-		roomData[13].addCollectible(c34);
-		roomData[13].addCollectible(c35);
-		roomData[13].addCollectible(c36);
-		roomData[13].addCollectible(c37);
-		roomData[13].addCollectible(c38);
-		roomData[13].addCollectible(h8);
-		//roomData[13].addCollectible(o5);
-		//roomData[13].addCollectible(o6);
-		//roomData[13].addCollectible(o7);
 		
 		roomData[14].addWarpTile(s27);
 		roomData[14].setStuff(appWidth, appHeight, appWorldWidth, appWorldHeight);
 		roomData[14].db.get(0).setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
 		roomData[14].addWarpTile(s28);
+		
 		
 	}
 
