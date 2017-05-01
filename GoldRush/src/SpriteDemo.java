@@ -248,10 +248,13 @@ public class SpriteDemo extends WindowFramework {
 	// If not, decreases the Health bar.
 	private void lock(boolean controlLock, float delta) {
 		if (!controlLock) {
+			mario.healthBar.immune = false;
 			mario.healthBar.update(delta);
 			if (mario.healthBar.healthLevel <= 0) {
 				gameOver = true;
 			}
+		}else{
+			mario.healthBar.immune = true;
 		}
 	}
 
@@ -276,9 +279,9 @@ public class SpriteDemo extends WindowFramework {
 			}
 			mario.healthBar.render(g, vp);
 			mario.score.render(g);
-			if (map.roomData[cRoom].showDB) {
-				map.roomData[cRoom].db.render(g, vp);
-			}
+			/*if (map.roomData[cRoom].showDB) {
+				map.roomData[cRoom].db.get(0).render(g, vp);
+			}*/
 			if(cRoom != 5 && cRoom != 8){
 				map.roomData[cRoom].renderRoom(g, vp);
 			}

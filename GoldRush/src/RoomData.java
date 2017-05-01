@@ -15,8 +15,9 @@ public class RoomData{
 	ArrayList<Collectible> items = new ArrayList<Collectible>();
 	public String fn;
 	public BufferedImage bg;
-	public DialogBox db;
+	ArrayList<DialogBox> db;
 	public boolean showDB = false;
+	public int currentDB = 0;
 	public boolean challengeActive = false;
 	
 	public int appWidth;
@@ -41,7 +42,8 @@ public class RoomData{
 		fn = filename;
 		type = "Normal";
 		showDB = true;
-		db = new DialogBox(dbType);
+		db = new ArrayList<DialogBox>();
+		db.add(new DialogBox(dbType));
 		try{
 			bg = ImageIO.read(new File(filename));
 		}catch (IOException e){
@@ -67,7 +69,7 @@ public class RoomData{
 	
 	public void updateRoomData(float delta){
 		if(db != null){
-			db.updateObjects(delta);
+			db.get(currentDB).updateObjects(delta);
 		}
 		for(int x = 0; x < wt.size(); x++){
 			wt.get(x).updateObjects(delta);
@@ -82,7 +84,9 @@ public class RoomData{
 	}
 	
 	public void renderRoom(Graphics g, Matrix3x3f vp){
-		
+		if (showDB) {
+			db.get(currentDB).render(g, vp);
+		}
 	}
 	
 	public boolean doDamage(){
@@ -111,5 +115,10 @@ public class RoomData{
 	
 	public String passKeyboard(KeyboardInput k){
 		return "";
+	}
+	
+	public void showNextDB(){
+		currentDB++;
+		showDB = true;
 	}
 }

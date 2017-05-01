@@ -59,6 +59,9 @@ public class RockChallengeRoom extends RoomData {
 			for (int x = 0; x < wt.size(); x++) {
 				wt.get(x).active = true;
 			}
+			if(currentDB < db.size()-1){
+				showNextDB();
+			}
 		}
 	}
 
@@ -73,6 +76,7 @@ public class RockChallengeRoom extends RoomData {
 				rocks.get(x).render(g, vp);
 			}
 		}
+		super.renderRoom(g, vp);
 	}
 
 	@Override

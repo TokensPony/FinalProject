@@ -5,7 +5,7 @@ import java.awt.event.KeyEvent;
 public class QTERoom extends RoomData{
 	//public char easy = 't';
 	//public char[] hard = {'r', 'p', 'n'};
-	public float timer = 3;
+	public float timer = 5;
 	public float timeUp = 0;
 	
 	public int timerPosX = 640;
@@ -57,6 +57,7 @@ public class QTERoom extends RoomData{
 	
 	@Override
 	public void renderRoom(Graphics g, Matrix3x3f vp){
+		super.renderRoom(g, vp);
 		String temp = "";
 		temp = temp.format(timerText, timer);
 		int sWidth = g.getFontMetrics().stringWidth(buttonText);

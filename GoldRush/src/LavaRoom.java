@@ -89,5 +89,6 @@ public class LavaRoom extends RoomData{
 		for(int x = 0; x < logs.size(); x++	){
 			logs.get(x).render(g, vp);
 		}
+		super.renderRoom(g, vp);
 	}
 }

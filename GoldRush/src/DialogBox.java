@@ -30,6 +30,17 @@ public class DialogBox extends Sprite {
 					+ "was worth it!\n"
 					+ "\n\nPress \"E\" to continue...";
 			break;
+		case "Success":
+			title = "Decisions, decisions....";
+			message = 	"Looks like you got what you came\n" +
+						"for! Now you must decide. If you\n" +
+						"continue on, you may find as many\n" +
+						"dangers as there are treasures.\n" +
+						"Or you can call play it safe and\n" +
+						"leave while you can. Just know that\n" + 
+						"once you make your choice, there's\n" +
+						"no turning back...\n\n";
+			break;
 		case "QTE":
 			title = "You're in trouble NOW!";
 			message = 	"As we speak, the room is about to cave\n" +

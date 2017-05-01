@@ -89,7 +89,7 @@ public class Map {
 		/* Room 1 (Gold Demo Room)*/
 		roomData[1].addWarpTile(new WarpTile(0, 0, 3f, 0, -4.2f, true));
 		roomData[1].addWarpTile(new WarpTile(2, -7f, 0, 7.7f, 0f, true));
-		roomData[1].db.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		roomData[1].db.get(0).setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
 		addItems(1, 50, "GoldCoin");//put 50 GoldCoins in room 1 randomly
 		addItems(1, 3, "GoldNugget");//put 3 GoldNuggets in room 1
 		addItems(1, 2, "GoldBar");//add 2 GoldBars
@@ -99,7 +99,7 @@ public class Map {
 		/* Room 2 Oxygen Demo */
 		roomData[2].addWarpTile(new WarpTile(1, 7f, 0f, -7.8f, 0, true));
 		roomData[2].addWarpTile(new WarpTile(3, -7f, 0, 7.7f, 0f, true));
-		roomData[2].db.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		roomData[2].db.get(0).setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
 		addItems(2, 3, allOxygen); //add three items from oxygen[] randomly
 
 		
@@ -109,13 +109,15 @@ public class Map {
 		WarpTile s8 = new WarpTile(4, -7f, 0, 7.7f, 0f, true);
 		s8.challengeEntrance = true;
 		roomData[3].addWarpTile(s8);
-		roomData[3].db.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		roomData[3].db.get(0).setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
 
 
 		/* Room 4 Falling Rock Demo*/
 		roomData[4].addWarpTile(new WarpTile(3, 7f, 0f, -7.8f, 0, false));
 		roomData[4].addWarpTile(new WarpTile(6, 0, -3f, 0, 4.2f, false));
-		roomData[4].db.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		roomData[4].db.get(0).setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		roomData[4].db.add(new DialogBox("Success"));
+		roomData[4].db.get(1).setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
 		roomData[4].setStuff(appWidth, appHeight, appWorldWidth, appWorldHeight);	
 		addItems(4, 1, "Oxygen20");
 		addItems(4, 2, allEdibles);
@@ -126,14 +128,14 @@ public class Map {
 		/* Room 5 First Lava Room*/
 		roomData[5].addWarpTile(new WarpTile(10, 0, 3f, 0, -4.2f, true));
 		roomData[5].setStuff(appWidth, appHeight, appWorldWidth, appWorldHeight);
-		roomData[5].db.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		roomData[5].db.get(0).setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
 		roomData[5].addWarpTile(new WarpTile(14, 0, -3f, 0, 4.2f, true));
 		
 		
 		/* Room 6 QTE Demo*/
 		roomData[6].addWarpTile(new WarpTile(3, 0, 3f, 0, -4.2f, false));
 		roomData[6].addWarpTile(new WarpTile(7, 0, -3f, 0, 4.2f, false));
-		roomData[6].db.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		roomData[6].db.get(0).setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
 
 
 		/* Room 7 Pot of Gold*/
@@ -272,11 +274,11 @@ public class Map {
 		roomData[11].addWarpTile(s22);
 		roomData[11].addWarpTile(s23);
 		roomData[11].setStuff(appWidth, appHeight, appWorldWidth, appWorldHeight);
-		roomData[11].db.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		roomData[11].db.get(0).setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
 		
 		roomData[12].addWarpTile(s24);
 		roomData[12].addWarpTile(s25);
-		roomData[12].db.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		roomData[12].db.get(0).setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
 		roomData[12].setStuff(appWidth, appHeight, appWorldWidth, appWorldHeight);
 		roomData[12].addCollectible(g7);
 		roomData[12].addCollectible(g8);
@@ -312,7 +314,7 @@ public class Map {
 		
 		roomData[14].addWarpTile(s27);
 		roomData[14].setStuff(appWidth, appHeight, appWorldWidth, appWorldHeight);
-		roomData[14].db.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		roomData[14].db.get(0).setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
 		roomData[14].addWarpTile(s28);
 		
 	}

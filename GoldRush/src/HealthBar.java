@@ -22,6 +22,8 @@ public class HealthBar{
 	
 	float time = 0;
 	
+	boolean immune = false;
+	
 	public HealthBar(){
 		
 	}
@@ -63,7 +65,7 @@ public class HealthBar{
 	
 	/*Decreases the healthBar by the given value*/
 	public void doDamage(int hit){
-		if(healthLevel > 0){
+		if(healthLevel > 0 && !immune){
 			healthLevel -= hit;
 			healthYPos += hit;
 		}
