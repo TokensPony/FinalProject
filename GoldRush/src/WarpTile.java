@@ -1,4 +1,10 @@
 import java.awt.Color;
+import java.awt.image.*;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
+
 import java.awt.Graphics;
 
 import javagames.util.*;
@@ -6,6 +12,8 @@ import javagames.util.*;
 public class WarpTile extends Sprite{
 
 	public VectorObject tile;
+	public BufferedImage closed;
+	public BufferedImage temp;
 	public boolean active = true;
 	public boolean challengeEntrance = false;
 	public int warpX;
@@ -19,8 +27,28 @@ public class WarpTile extends Sprite{
 	//For what tile the room leads to, where the player appears on the screen, and where the tile
 	//Itself physically resides.
 	public WarpTile(int destination, float charPosX, float charPosY, float tilePosX, float tilePosY, boolean status, int degrees, String type) {
-		fn = "Images/Door-Final.png";
+		switch(type){
+		case("Normal"):
+			fn = "Images/Door-Normal.png";
+			break;
+		case("Challenge"):
+			fn = "Images/Door-ChallengeO.png";
+			try {
+				closed = ImageIO.read(new File("Images/Door-ChallengeC.png"));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			break;
+		case("Final"):
+			fn = "Images/Door-Final.png";
+			break;
+		default:
+			fn = "Images/Door-Normal.png";
+			break;
+		}
 		loadFile(fn,spriteWidth, spriteHeight);
+		temp = currentSprite;
 		positions = new Vector2f(tilePosX, tilePosY);
 		velocity = new Vector2f(0f, 0f);
 		angle = (float) Math.toRadians(degrees);

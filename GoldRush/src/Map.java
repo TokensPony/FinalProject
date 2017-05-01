@@ -98,7 +98,7 @@ public class Map {
 
 		/*Room 0*/
 		roomData[0].setStuff(appWidth, appHeight, appWorldWidth, appWorldHeight);
-		roomData[0].addWarpTile(new WarpTile(10, 7f, 0f, leftX, leftY, false, leftDegree, "Normal"));//this is for the exit
+		//roomData[0].addWarpTile(new WarpTile(10, 7f, 0f, leftX, leftY, false, leftDegree, "Normal"));//this is for the exit
 		roomData[0].addWarpTile(new WarpTile(1, 0, -3f, upX, upY, true, upDegree, "Normal"));
 
 
@@ -125,7 +125,7 @@ public class Map {
 		roomData[3].setStuff(appWidth, appHeight, appWorldWidth, appWorldHeight);
 		roomData[3].addWarpTile(new WarpTile(2, 7f, 0f, leftX, leftY, true, leftDegree, "Normal"));
 		roomData[3].addWarpTile(new WarpTile(10, 0, -3f, upX, upY, true, upDegree, "Normal"));
-		WarpTile s8 = new WarpTile(4, -7f, 0, rightX, rightY, true, rightDegree, "Normal");
+		WarpTile s8 = new WarpTile(4, -7f, 0, rightX, rightY, true, rightDegree, "Challenge");
 		s8.challengeEntrance = true;
 		roomData[3].addWarpTile(s8);
 		roomData[3].db.get(0).setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
@@ -133,8 +133,8 @@ public class Map {
 
 		/* Room 4 Falling Rock Demo*/
 		roomData[4].setStuff(appWidth, appHeight, appWorldWidth, appWorldHeight);
-		roomData[4].addWarpTile(new WarpTile(3, 7f, 0f, leftX, leftY, false, leftDegree, "Normal"));
-		roomData[4].addWarpTile(new WarpTile(6, 0, -3f, upX, upY, false, upDegree, "Normal"));
+		roomData[4].addWarpTile(new WarpTile(3, 7f, 0f, leftX, leftY, false, leftDegree, "Challenge"));
+		roomData[4].addWarpTile(new WarpTile(6, 0, -3f, upX, upY, false, upDegree, "Challenge"));
 		roomData[4].db.get(0).setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
 		roomData[4].db.add(new DialogBox("Success"));
 		roomData[4].db.get(1).setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
@@ -155,14 +155,14 @@ public class Map {
 		
 		/* Room 6 QTE Demo*/
 		roomData[6].setStuff(appWidth, appHeight, appWorldWidth, appWorldHeight);
-		roomData[6].addWarpTile(new WarpTile(3, 0, 3f, downX, downY, false, downDegree, "Normal"));
-		roomData[6].addWarpTile(new WarpTile(7, 0, -3f, upX, upY, false, upDegree, "Normal"));
+		roomData[6].addWarpTile(new WarpTile(3, 0, 3f, downX, downY, false, downDegree, "Challenge"));
+		roomData[6].addWarpTile(new WarpTile(7, 0, -3f, upX, upY, false, upDegree, "Challenge"));
 		roomData[6].db.get(0).setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
 
 
 		/* Room 7 Pot of Gold*/
 		roomData[7].setStuff(appWidth, appHeight, appWorldWidth, appWorldHeight);
-		roomData[7].addWarpTile(new WarpTile(3, 0, 3f, downX, downY, true, downDegree, "Normal"));
+		roomData[7].addWarpTile(new WarpTile(3, 0, 3f, downX, downY, true, downDegree, "Challenge"));
 		addItems(7, 8, "GoldNugget");
 		addItems(7, 3, "GoldBar");
 		addItems(7, 5, "Diamond");
@@ -190,7 +190,7 @@ public class Map {
 		
 		//Room 10
 		WarpTile s19 = new WarpTile(3, 0, 4f, downX, downY, true, downDegree, "Normal");
-		WarpTile s20 = new WarpTile(11, 7f, 0f, leftX, leftY, true, leftDegree, "Normal");
+		WarpTile s20 = new WarpTile(11, 7f, 0f, leftX, leftY, true, leftDegree, "Challenge");
 		WarpTile s21 = new WarpTile(5, 0, -3f, upX, upY, true, upDegree, "Normal");
 		addItems(10, 3, allOxygen);
 		addItems(10, 2, allEdibles);

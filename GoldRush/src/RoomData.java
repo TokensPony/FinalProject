@@ -54,6 +54,9 @@ public class RoomData{
 	
 	public void addWarpTile(WarpTile w){
 		w.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
+		if(!w.active){
+			w.currentSprite = w.closed;
+		}
 		wt.add(w);
 	}
 	

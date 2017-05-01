@@ -37,6 +37,9 @@ public class QTERoom extends RoomData{
 		if(challengeActive){
 			if(k.keyDown(hard[0]) && k.keyDown(hard[1]) && k.keyDown(hard[2])){
 				challengeActive = false;
+				for(int x = 0; x < wt.size(); x++){
+					wt.get(x).currentSprite = wt.get(x).temp;
+				}
 				System.out.println("Succeeded");
 				return "Succeeded";
 			}

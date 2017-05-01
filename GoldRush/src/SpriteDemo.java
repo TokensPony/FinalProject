@@ -4,6 +4,12 @@ import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.util.Random;
 
+import javax.imageio.ImageIO;
+
+import java.awt.image.*;
+import java.io.File;
+import java.io.IOException;
+
 import javagames.util.AePlayWave;
 import javagames.util.Matrix3x3f;
 import javagames.util.WindowFramework;
@@ -222,6 +228,7 @@ public class SpriteDemo extends WindowFramework {
 				mario.positions.y = map.roomData[cRoom].wt.get(x).getWarpToY();
 				if(map.roomData[cRoom].wt.get(x).challengeEntrance){
 					map.roomData[cRoom].wt.get(x).active = false;
+					map.roomData[cRoom].wt.get(x).currentSprite = map.roomData[cRoom].wt.get(x).closed;
 				}
 				cRoom = map.roomData[cRoom].wt.get(x).getWarpMap();
 
