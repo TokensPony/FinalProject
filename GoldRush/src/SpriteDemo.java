@@ -28,7 +28,7 @@ public class SpriteDemo extends WindowFramework {
 	boolean gameOver = false;
 	boolean controlLock = false;
 	boolean gameWon = false;
-	int cRoom = 14;
+	int cRoom = 0;
 	
 	
 	public String finalScore = "Final Score: %d";
@@ -77,13 +77,13 @@ public class SpriteDemo extends WindowFramework {
 	protected void processInput(float delta) {
 		super.processInput(delta);
 
-		int running = 1;
+		int running = 2;
 
 		if (!controlLock) {
 			// Running. Change running to 2 for final release.
 			// I found it a reasonable value if we want to have it.,,,
 			if (keyboard.keyDown(KeyEvent.VK_SHIFT))
-				running = 4;
+				running = 3;
 
 			if (keyboard.keyDown(KeyEvent.VK_W) || keyboard.keyDown(KeyEvent.VK_UP)) {
 				mario.flip = false;
@@ -166,9 +166,6 @@ public class SpriteDemo extends WindowFramework {
 			break;
 		}
 		
-		/*if(keyboard.keyDown(KeyEvent.VK_N) && keyboard.keyDown(KeyEvent.VK_M)){
-			System.out.println("IT WORKED");
-		}
 
 		/*
 		 * The following controls are for debugging and testing ONLY! These MUST
