@@ -36,7 +36,7 @@ public class DialogBox extends Sprite {
 						"for! Now you must decide. If you\n" +
 						"continue on, you may find as many\n" +
 						"dangers as there are treasures.\n" +
-						"Or you can call play it safe and\n" +
+						"Or you can play it safe and\n" +
 						"leave while you can. Just know that\n" + 
 						"once you make your choice, there's\n" +
 						"no turning back...\n\n";
