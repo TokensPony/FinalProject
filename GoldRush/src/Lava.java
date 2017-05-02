@@ -3,30 +3,14 @@ import java.awt.*;
 import java.util.*;
 
 public class Lava extends Sprite{
-	//public Sprite shadow;
-	//public String hType;
-	//public boolean greenBorder = true;
+
+	public final int damage = 200;
 	
-	public int damage;
-	
-	public int spriteWidth = 1280;
-	public int spriteHeight = 480;
+	public final int spriteWidth = 1280;
+	public final int spriteHeight = 480;
 	
 	public Lava(){
-		//hType = type;
-		//greenBorder = true;
-		//circle = true;
-		
-		//switch(hType){
-		//case "Rock":
-			fn = "Images/LavaTemp.png";
-		
-			//break;
-		//default:
-		//	break;
-		//}
-		
-		damage = 200;
+		fn = "Images/LavaTemp.png";
 		loadFile(fn, spriteWidth, spriteHeight);
 		positions = new Vector2f(0, 0);
 		velocity = new Vector2f(0.0f, 0f);
