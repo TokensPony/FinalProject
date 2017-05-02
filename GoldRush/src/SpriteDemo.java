@@ -27,9 +27,11 @@ public class SpriteDemo extends WindowFramework {
 
 	boolean gameOver = false;
 	boolean controlLock = false;
-
-	int cRoom = 0;
+	boolean gameWon = false;
+	int cRoom = 14;
 	
+	
+	public String finalScore = "Final Score: %d";
 	public String gameOverText = "GAME OVER";
 	
 	AePlayWave bgSong = new AePlayWave("Sounds/Spooky Graveyard Song.wav");
@@ -247,6 +249,10 @@ public class SpriteDemo extends WindowFramework {
 		//mario.velocity.x += map.roomData[cRoom].onLog(mario);
 		//System.out.printf("Mario Velocity After:%f\n ", mario.velocity.x);
 		
+		if(map.roomData[9].items.isEmpty()){
+			gameWon = true;
+			controlLock = true;
+		}
 		
 		lock(controlLock, delta);
 	}
@@ -293,6 +299,30 @@ public class SpriteDemo extends WindowFramework {
 			if(cRoom != 5 && cRoom != 8){
 				map.roomData[cRoom].renderRoom(g, vp);
 			}
+			
+			if(gameWon){
+				String c2 = "Congratulations!";
+				String c1 = "You've found the Arkenstone!";
+				int cWidth = g.getFontMetrics().stringWidth(c1);
+				g.setColor(Color.BLACK);
+				g.drawString(c1, 640-(cWidth/2), 300-1);
+				g.drawString(c1, 640-(cWidth/2)+1, 300);
+				g.drawString(c1, 640-(cWidth/2), 300+1);
+				g.drawString(c1, 640-(cWidth/2)-1, 300);
+				g.setColor(Color.WHITE);
+				g.drawString(c1, 640-(cWidth/2), 300);
+				String temp = "";
+				temp = temp.format(finalScore, mario.score.getScore());
+				int sWidth = g.getFontMetrics().stringWidth(temp);
+				g.setColor(Color.BLACK);
+				g.drawString(temp, 640-(sWidth/2), 400-1);
+				g.drawString(temp, 640-(sWidth/2)+1, 400);
+				g.drawString(temp, 640-(sWidth/2), 400+1);
+				g.drawString(temp, 640-(sWidth/2)-1, 400);
+				g.setColor(Color.WHITE);
+				g.drawString(temp, 640-(sWidth/2), 400);
+			}
+			
 		} else {
 			g.setColor(Color.RED);
 			g.drawString(gameOverText, 640, 360);

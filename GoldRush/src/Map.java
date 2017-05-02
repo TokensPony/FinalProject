@@ -120,7 +120,7 @@ public class Map {
 		/* Room 1 (Gold Demo Room)*/
 		roomData[1].setStuff(appWidth, appHeight, appWorldWidth, appWorldHeight);
 		roomData[1].addWarpTile(new WarpTile(0, 0, 3f, downX, downY, true, downDegree, "Normal"));
-		roomData[1].addWarpTile(new WarpTile(2, -7f, 0, rightX, rightY, true, rightDegree, "Normal"));
+		roomData[1].addWarpTile(new WarpTile(2, -6.9f, 0, rightX, rightY, true, rightDegree, "Normal"));
 		roomData[1].db.get(0).setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
 		addItems(1, 50, "GoldCoin");//put 50 GoldCoins in room 1 randomly
 		addItems(1, 3, "GoldNugget");//put 3 GoldNuggets in room 1
@@ -130,15 +130,15 @@ public class Map {
 		
 		/* Room 2 Oxygen Demo */
 		roomData[2].setStuff(appWidth, appHeight, appWorldWidth, appWorldHeight);
-		roomData[2].addWarpTile(new WarpTile(1, 7f, 0f, leftX, leftY, true, leftDegree, "Normal"));
-		roomData[2].addWarpTile(new WarpTile(3, -7f, 0, rightX, rightY, true, rightDegree, "Normal"));
+		roomData[2].addWarpTile(new WarpTile(1, 6.9f, 0f, leftX, leftY, true, leftDegree, "Normal"));
+		roomData[2].addWarpTile(new WarpTile(3, -6.9f, 0, rightX, rightY, true, rightDegree, "Normal"));
 		roomData[2].db.get(0).setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
 		addItems(2, 3, allOxygen); //add three items from oxygen[] randomly
 
 		
 		/* Room 3 Branching Paths*/
 		roomData[3].setStuff(appWidth, appHeight, appWorldWidth, appWorldHeight);
-		roomData[3].addWarpTile(new WarpTile(2, 7f, 0f, leftX, leftY, true, leftDegree, "Normal"));
+		roomData[3].addWarpTile(new WarpTile(2, 6.9f, 0f, leftX, leftY, true, leftDegree, "Normal"));
 		roomData[3].addWarpTile(new WarpTile(10, 0, -3f, upX, upY, true, upDegree, "Normal"));
 		WarpTile s8 = new WarpTile(4, -7f, 0, rightX, rightY, true, rightDegree, "Challenge");
 		s8.challengeEntrance = true;
@@ -233,7 +233,7 @@ public class Map {
 		
 		//Room 14
 		WarpTile s27 = new WarpTile(5, 0, 4f, downX, downY, true, downDegree, "Normal");
-		WarpTile s28 = new WarpTile(8, 0, -3f, upX, upY, true, upDegree, "Normal");
+		WarpTile s28 = new WarpTile(8, 0, -3.3f, upX, upY, true, upDegree, "Normal");
 
 		roomData[10].setStuff(appWidth, appHeight, appWorldWidth, appWorldHeight);
 		roomData[10].addWarpTile(s19);

@@ -66,6 +66,10 @@ public class Score{
 		combo = 0;
 	}
 	
+	public int getScore(){
+		return score;
+	}
+	
 	/**
 	 * Resets score and combo back to 0
 	 */
