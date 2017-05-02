@@ -11,23 +11,26 @@ public class Map {
 	private int appWidth, appHeight;
 	private float appWorldWidth, appWorldHeight;
 	
-	
 	/*These are variables that are used to place warp tiles on the map*/
-	float upX = 0f;
-	float upY = 4.2f;
-	int upDegree = 0;
+	final private float upX = 0f;
+	final private float upY = 4.2f;
+	final private int upDegree = 0;
 	
-	float downX = 0f;
-	float downY = -4.2f;
-	int downDegree = 180;
+	final private float downX = 0f;
+	final private float downY = -4.2f;
+	final private int downDegree = 180;
 	
-	float leftX = -7.7f;
-	float leftY = 0f;
-	int leftDegree = 270;
+	final private float leftX = -7.7f;
+	final private float leftY = 0f;
+	final private int leftDegree = 270;
 	
-	float rightX = 7.7f;
-	float rightY = 0f;
-	int rightDegree = 90;
+	final private float rightX = 7.7f;
+	final private float rightY = 0f;
+	final private int rightDegree = 90;
+	
+	final private String[] allOxygen = {"Oxygen10", "Oxygen30", "Oxygen50", "Oxygen80", "Oxygen100"};
+	final private String[] allEdibles = {"SmallPasty", "LargePasty", "Chips"};
+	final private String[] allGold = {"GoldCoin", "GoldNugget", "GoldBar"};
 	
 
 	public RoomData[] roomData;
@@ -43,21 +46,23 @@ public class Map {
 	 * in the roomData array.*/
 	public Map() {
 		background = new Background(0f, 0f);
-		roomData = 	new RoomData[] { new RoomData("Images/Background-Normal.png")/*Room 0- Beginning*/,
-					new RoomData("Images/Background-Normal.png", "GoldIntroduction")/*Room 1 - Gold Intro*/,
-					new RoomData("Images/Background-Normal.png", "OxygenIntroduction")/*Room 2 - Oxygen Intro*/,
-					new RoomData("Images/Background-Normal.png", "Room3")/*Room 3 - Branching path 1*/,
-					new RockChallengeRoom("Images/Background-Challenge.png", "FallingRocks")/*Room 4 -Rock room 1*/, 
-					new LavaRoom("Images/Background-Lava.png", "LavaRoom")/*Room 5*/,
-					new QTERoom("Images/Background-Challenge.png", "QTE")/*Room 6 QTE*/,
-					new RoomData("Images/Background-Challenge.png")/*Room 7 Challenge Gold Room*/, 
-					new LavaRoom("Images/Background-Lava.png", "LavaRoom")/*Room 8*/,
-					new RoomData("Images/Background-Arkenstone.png")/*Room 9*/,
-					new RoomData("Images/Background-Normal.png")/*Roomn10*/,
-					new QTERoom("Images/Background-Challenge.png", "QTE")/*Roomn11*/, 
-					new RockChallengeRoom("Images/Background-Challenge.png", "FallingRocks")/*Roomn12*/,
-					new RoomData("Images/Background-Normal.png")/*Roomn13*/,
-					new RockChallengeRoom("Images/Background-Challenge.png")/*Room 14*/};
+		roomData = new RoomData[] { 
+				new RoomData("Images/Background-Normal.png")/*Room 0- Beginning*/,
+				new RoomData("Images/Background-Normal.png", "GoldIntroduction")/*Room 1 - Gold Intro*/,
+				new RoomData("Images/Background-Normal.png", "OxygenIntroduction")/*Room 2 - Oxygen Intro*/,
+				new RoomData("Images/Background-Normal.png", "Room3")/*Room 3 - Branching path 1*/,
+				new RockChallengeRoom("Images/Background-Challenge.png", "FallingRocks")/*Room 4 -Rock room 1*/, 
+				new LavaRoom("Images/Background-Lava.png", "LavaRoom")/*Room 5*/,
+				new QTERoom("Images/Background-Challenge.png", "QTE")/*Room 6 QTE*/,
+				new RoomData("Images/Background-Challenge.png")/*Room 7 Challenge Gold Room*/, 
+				new LavaRoom("Images/Background-Lava.png", "LavaRoom")/*Room 8*/,
+				new RoomData("Images/Background-Arkenstone.png")/*Room 9*/,
+				new RoomData("Images/Background-Normal.png")/*Roomn10*/,
+				new QTERoom("Images/Background-Challenge.png", "QTE")/*Roomn11*/, 
+				new RockChallengeRoom("Images/Background-Challenge.png", "FallingRocks")/*Roomn12*/,
+				new RoomData("Images/Background-Normal.png")/*Roomn13*/,
+				new RockChallengeRoom("Images/Background-Challenge.png")/*Room 14*/
+		};
 	}
 	
 
@@ -102,9 +107,7 @@ public class Map {
 	
 	public void initialize() 
 	{
-		String[] allOxygen = {"Oxygen10", "Oxygen30", "Oxygen50", "Oxygen80", "Oxygen100"};
-		String[] allEdibles = {"SmallPasty", "LargePasty", "Chips"};
-		String[] allGold = {"GoldCoin", "GoldNugget", "GoldBar"};
+		
 				
 
 		background.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
@@ -122,7 +125,7 @@ public class Map {
 		roomData[1].addWarpTile(new WarpTile(0, 0, 3f, downX, downY, true, downDegree, "Normal"));
 		roomData[1].addWarpTile(new WarpTile(2, -6.9f, 0, rightX, rightY, true, rightDegree, "Normal"));
 		roomData[1].db.get(0).setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
-		addItems(1, 50, "GoldCoin");//put 50 GoldCoins in room 1 randomly
+		addItems(1, 5, "GoldCoin");//put 5 GoldCoins in room 1 randomly
 		addItems(1, 3, "GoldNugget");//put 3 GoldNuggets in room 1
 		addItems(1, 2, "GoldBar");//add 2 GoldBars
 		addItems(1, 1, "Diamond");//add 1 Diamond
