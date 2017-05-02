@@ -20,21 +20,18 @@ public class SpriteDemo extends WindowFramework {
 
 	MarioSprite mario;
 	Background background;
-	// HealthBar healthBar;
-	// Score score;
-
 	private Map map;
 
-	boolean gameOver = false;
-	boolean controlLock = false;
-	boolean gameWon = false;
-	int cRoom = 0;
+	private boolean gameOver;
+	private boolean controlLock;
+	private boolean gameWon;
+	private int cRoom;
 	
 	
 	public String finalScore = "Final Score: %d";
 	public String gameOverText = "GAME OVER";
 	
-	AePlayWave bgSong = new AePlayWave("Sounds/Spooky Graveyard Song.wav");
+	AePlayWave bgSong;
 
 	public SpriteDemo() {
 		appBackground = Color.BLACK;
@@ -60,6 +57,11 @@ public class SpriteDemo extends WindowFramework {
 	@Override
 	protected void initialize() {
 		super.initialize();
+		
+		cRoom = 0;
+		gameOver = false;
+		gameWon = false;
+		controlLock = false;
 
 		// Initialization of the Map, rooms, collectibles, warptiles, etc...
 		map = new Map();
@@ -69,6 +71,7 @@ public class SpriteDemo extends WindowFramework {
 		mario.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
 		mario.setSubBox();
 		
+		bgSong = new AePlayWave("Sounds/Spooky Graveyard Song.wav");
 		bgSong.loop();
 	}
 
@@ -76,8 +79,20 @@ public class SpriteDemo extends WindowFramework {
 	@Override
 	protected void processInput(float delta) {
 		super.processInput(delta);
+		
+		
+		if (gameOver || gameWon)
+		{
+			if (keyboard.keyDown(KeyEvent.VK_N))
+			{
+				initialize();
+				return;
+			}
+				
+		}
 
 		int running = 2;
+		float base = 2.4f;
 
 		if (!controlLock) {
 			// Running. Change running to 2 for final release.
@@ -89,12 +104,12 @@ public class SpriteDemo extends WindowFramework {
 				mario.flip = false;
 				mario.setSprite("Up");
 				mario.direction = "Up";
-				mario.setVY(2.4f * running);
+				mario.setVY(base * running);
 			} else if (keyboard.keyDown(KeyEvent.VK_S) || keyboard.keyDown(KeyEvent.VK_DOWN)) {
 				mario.flip = false;
 				mario.setSprite("Down");
 				mario.direction = "Down";
-				mario.setVY(-2.4f * running);
+				mario.setVY(-base * running);
 			} else {
 				mario.setVY(0);
 				//mario.setSprite("");
@@ -104,12 +119,12 @@ public class SpriteDemo extends WindowFramework {
 				mario.flip = true;
 				mario.setSprite("Left");
 				mario.direction = "Left";
-				mario.setVX(-2.4f * running);
+				mario.setVX(-base * running);
 			} else if (keyboard.keyDown(KeyEvent.VK_D) || keyboard.keyDown(KeyEvent.VK_RIGHT)) {
 				mario.flip = false;
 				mario.setSprite("Right");
 				mario.direction = "Right";
-				mario.setVX(2.4f * running);
+				mario.setVX(base * running);
 			} else {
 				//mario.setSprite("");
 				mario.setVX(0);
