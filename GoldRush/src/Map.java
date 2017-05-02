@@ -44,7 +44,7 @@ public class Map {
 
 	/*The map constructor initializes the background and lays the foundation for the types of rooms
 	 * in the roomData array.*/
-	public Map() {
+	public Map(int aW, int aH, float aWW, float aWH) {
 		background = new Background(0f, 0f);
 		roomData = new RoomData[] { 
 				new RoomData("Images/Background-Normal.png")/*Room 0- Beginning*/,
@@ -63,6 +63,11 @@ public class Map {
 				new RoomData("Images/Background-Normal.png")/*Roomn13*/,
 				new RockChallengeRoom("Images/Background-Challenge.png")/*Room 14*/
 		};
+		
+		this.appWidth = aW;
+		this.appHeight = aH;
+		this.appWorldHeight = aWH;
+		this.appWorldWidth = aWW;
 	}
 	
 
@@ -86,22 +91,6 @@ public class Map {
 	{
 		String[] choices = {item};
 		addItems(room, numItems, choices);
-	}
-	
-	public void setAppVals(int aW, int aH, float aWW, float aWH)
-	{
-		this.appWidth = aW;
-		this.appHeight = aH;
-		this.appWorldHeight = aWH;
-		this.appWorldWidth = aWW;
-	}
-	
-	//temporary fix
-	public void initialize(int appWidth, int appHeight, float appWorldWidth, float appWorldHeight) 
-	{
-		setAppVals(appWidth, appHeight, appWorldWidth, appWorldHeight);
-		initialize();
-		
 	}
 	
 	
