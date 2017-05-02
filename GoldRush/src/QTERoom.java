@@ -3,17 +3,19 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 
 public class QTERoom extends RoomData{
-	//public char easy = 't';
-	//public char[] hard = {'r', 'p', 'n'};
+	//Time variables
 	public float timer = 5;
 	public float timeUp = 0;
 	
+	//Timer Text Positions
 	public int timerPosX = 640;
 	public int timerPosY = 100;
 	
+	//Timer and command strings
 	public String timerText = "%.2f";
 	public String buttonText = "Escape: \'T\'             Continue: \'R\'+\'P\'+\'N\'";
 	
+	//Key combinations for the easy route and the hard route
 	public int easy = KeyEvent.VK_T;
 	public int[] hard = {KeyEvent.VK_R, KeyEvent.VK_P, KeyEvent.VK_N};
 	
@@ -24,6 +26,7 @@ public class QTERoom extends RoomData{
 	
 	@Override
 	public void updateRoomData(float delta){
+		//Update the countdown timer when the challenge is active
 		super.updateRoomData(delta);
 		if(challengeActive && timer > 0){
 			timer -= delta;
@@ -32,6 +35,9 @@ public class QTERoom extends RoomData{
 		}
 	}
 	
+	/*Checks the input of the keyboard against the given acceptable button
+	 * combinations to see if the input matches any of them, or if the player
+	 * was able to do anything in time.*/
 	@Override
 	public String passKeyboard(KeyboardInput k){
 		if(challengeActive){
@@ -58,6 +64,9 @@ public class QTERoom extends RoomData{
 		return "";
 	}
 	
+	
+	/*Renders the text for the Timer and the input commands, it prints
+	 * the sprint multiple times to create a boarder effect*/
 	@Override
 	public void renderRoom(Graphics g, Matrix3x3f vp){
 		super.renderRoom(g, vp);
