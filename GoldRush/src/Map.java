@@ -197,7 +197,7 @@ public class Map {
 		
 		//Room 9
 		roomData[9].setStuff(appWidth, appHeight, appWorldWidth, appWorldHeight);
-		WarpTile s18 = new WarpTile(8, 0, 4f, downX, downY, true, downDegree, "Normal");
+		WarpTile s18 = new WarpTile(8, 0, 3.7f, downX, downY, true, downDegree, "Normal");
 		Collectible a1 = new Collectible(0f, 3f, "Arkenstone");
 		a1.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
 		roomData[9].addWarpTile(s18);
