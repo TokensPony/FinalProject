@@ -2,16 +2,17 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 public class Score{
-	private int score = 0;
-
-	private int scoreX = 100;
-	private int scoreY = 23;
-	private int boldness = 2;
+	private int score;
+	
+	private final int scoreX = 100;
+	private final int scoreY = 23;
+	private final int boldness = 2;
 	
 	private static String s = "0";
 	
 	/* Constructor method for the score/Combo */
 	public Score(){
+		score = 0;
 	}
 	
 	/* adds x parameter to score */
