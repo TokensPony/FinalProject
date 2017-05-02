@@ -21,6 +21,7 @@ public class SpriteDemo extends WindowFramework {
 	MarioSprite mario;
 	Background background;
 	private Map map;
+	private Overlay overlay;
 
 	private boolean gameOver;
 	private boolean controlLock;
@@ -58,7 +59,7 @@ public class SpriteDemo extends WindowFramework {
 	protected void initialize() {
 		super.initialize();
 		
-		cRoom = 0;
+		cRoom = 14;
 		gameOver = false;
 		gameWon = false;
 		controlLock = false;
@@ -73,6 +74,8 @@ public class SpriteDemo extends WindowFramework {
 		
 		bgSong = new AePlayWave("Sounds/Spooky Graveyard Song.wav");
 		bgSong.loop();
+		
+		overlay = new Overlay();
 	}
 
 	/* Processes the keyboard input for the various game controls */
@@ -267,6 +270,20 @@ public class SpriteDemo extends WindowFramework {
 		}
 		
 		lock(controlLock, delta);
+		
+		overlay.updateScore(mario.score.getScore());
+		if (gameOver)
+		{
+			overlay.updateMode(GameMode.GAMEOVER);
+		}
+		else if (gameWon)
+		{
+			overlay.updateMode(GameMode.GAMEWON);
+		}
+		else
+		{
+			overlay.updateMode(GameMode.STANDBY);
+		}
 	}
 
 	// Locks the player if it needs to be locked.
@@ -312,33 +329,9 @@ public class SpriteDemo extends WindowFramework {
 				map.roomData[cRoom].renderRoom(g, vp);
 			}
 			
-			if(gameWon){
-				String c2 = "Congratulations!";
-				String c1 = "You've found the Arkenstone!";
-				int cWidth = g.getFontMetrics().stringWidth(c1);
-				g.setColor(Color.BLACK);
-				g.drawString(c1, 640-(cWidth/2), 300-1);
-				g.drawString(c1, 640-(cWidth/2)+1, 300);
-				g.drawString(c1, 640-(cWidth/2), 300+1);
-				g.drawString(c1, 640-(cWidth/2)-1, 300);
-				g.setColor(Color.WHITE);
-				g.drawString(c1, 640-(cWidth/2), 300);
-				String temp = "";
-				temp = temp.format(finalScore, mario.score.getScore());
-				int sWidth = g.getFontMetrics().stringWidth(temp);
-				g.setColor(Color.BLACK);
-				g.drawString(temp, 640-(sWidth/2), 400-1);
-				g.drawString(temp, 640-(sWidth/2)+1, 400);
-				g.drawString(temp, 640-(sWidth/2), 400+1);
-				g.drawString(temp, 640-(sWidth/2)-1, 400);
-				g.setColor(Color.WHITE);
-				g.drawString(temp, 640-(sWidth/2), 400);
-			}
-			
-		} else {
-			g.setColor(Color.RED);
-			g.drawString(gameOverText, 640, 360);
 		}
+		
+		overlay.render(g);
 	}
 
 	@Override
