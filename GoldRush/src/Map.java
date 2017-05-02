@@ -200,7 +200,7 @@ public class Map {
 		//Room 10
 		WarpTile s19 = new WarpTile(3, 0, 4f, downX, downY, true, downDegree, "Normal");
 		WarpTile s20 = new WarpTile(11, 7f, 0f, leftX, leftY, true, leftDegree, "Challenge");
-		WarpTile s21 = new WarpTile(5, 0, -3f, upX, upY, true, upDegree, "Normal");
+		WarpTile s21 = new WarpTile(5, 0, -3.3f, upX, upY, true, upDegree, "Normal");
 		addItems(10, 3, allOxygen);
 		addItems(10, 2, allEdibles);
 		s20.challengeEntrance = true;
