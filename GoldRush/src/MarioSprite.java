@@ -50,11 +50,7 @@ public class MarioSprite extends Sprite{
 		System.out.println("Feet Set");
 	}
 	
-	/*This method controls the various animations for Mario. It uses a cycle value that is increased
-	 * by the value of delta every game loop. The walk animation cycles between 3 different images
-	 * from left to right. Jumping uses only one frame. Climbing while moving uses 2 frames of animation
-	 * while sitting idly on the vine uses only one. THe default sprite is Mario standing still.
-	 * The temp value is calculated and used to determine which frame of animation should be used.*/
+	/*This method controls the various animations for the character*/
 	@Override
 	public void setSprite(String status){
 		cycle += delta;
@@ -95,8 +91,6 @@ public class MarioSprite extends Sprite{
 				//System.out.println("One");
 				currentSprite = spriteSheet.getSubimage(spriteWidth, spriteHeight*2, spriteWidth, spriteHeight);
 			}else if((temp > .2f && temp < .4f)){
-				//28
-				//System.out.println("Two");
 				currentSprite = spriteSheet.getSubimage(spriteWidth*2, spriteHeight*2, spriteWidth, spriteHeight);
 			}else if(temp > .4f){
 				cycle = 0f;
