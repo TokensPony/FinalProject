@@ -65,9 +65,7 @@ public class SpriteDemo extends WindowFramework {
 		controlLock = false;
 
 		// Initialization of the Map, rooms, collectibles, warptiles, etc...
-		map = new Map();
-		map.setAppVals(appWidth, appHeight, appWorldWidth, appWorldHeight);
-		map.initialize();
+		map = new Map(appWidth, appHeight, appWorldWidth, appWorldHeight);
 
 		mario = new MarioSprite();
 		mario.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
