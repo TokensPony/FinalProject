@@ -68,6 +68,8 @@ public class Map {
 		this.appHeight = aH;
 		this.appWorldHeight = aWH;
 		this.appWorldWidth = aWW;
+		
+		initialize();
 	}
 	
 
@@ -94,7 +96,7 @@ public class Map {
 	}
 	
 	
-	public void initialize() 
+	private void initialize() 
 	{
 		
 				
