@@ -53,7 +53,7 @@ public class LavaRoom extends RoomData{
 	}
 	
 	@Override
-	public float onLog(MarioSprite m){
+	public float onLog(DimliSprite m){
 		for(int x = 0; x < logs.size(); x++){
 			if(initialized){
 				if(logs.get(x).rRI(m.subBox.get(0))){
@@ -69,7 +69,7 @@ public class LavaRoom extends RoomData{
 	}
 	
 	@Override
-	public boolean hazardHit(MarioSprite m){
+	public boolean hazardHit(DimliSprite m){
 		boolean hit = false;
 		for(int x = 0; x < logs.size(); x++){
 			//if (!hit) {

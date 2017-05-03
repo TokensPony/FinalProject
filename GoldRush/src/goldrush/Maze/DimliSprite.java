@@ -8,7 +8,7 @@ import goldrush.Util.Sprite;
 import goldrush.Util.Vector2f;
 import goldrush.Util.VectorObject;
 
-public class MarioSprite extends Sprite{
+public class DimliSprite extends Sprite{
 	
 	public String fn = "Images/PlayerSprites.png";
 	final int spriteWidth = 50;
@@ -21,7 +21,7 @@ public class MarioSprite extends Sprite{
 	//public boolean flip = false;
 	
 	/*Two different constructors for default and more customized starting values*/
-	public MarioSprite(){
+	public DimliSprite(){
 		//super();
 		loadFile(fn, spriteWidth, spriteHeight);
 		positions = new Vector2f(0.0f, 0.0f);
@@ -33,7 +33,7 @@ public class MarioSprite extends Sprite{
 		score = new Score();
 	}
 	
-	public MarioSprite(Vector2f pos, Vector2f vel, float ang, float rot){
+	public DimliSprite(Vector2f pos, Vector2f vel, float ang, float rot){
 		loadFile(fn, spriteWidth, spriteHeight);
 		positions = pos;
 		velocity = vel;

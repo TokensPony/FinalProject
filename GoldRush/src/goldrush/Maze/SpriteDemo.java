@@ -1,4 +1,5 @@
 package goldrush.Maze;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -13,7 +14,7 @@ public class SpriteDemo extends WindowFramework {
 
 	Random r = new Random();
 
-	MarioSprite mario;
+	DimliSprite mario;
 	Background background;
 	private Map map;
 	private Overlay overlay;
@@ -22,11 +23,10 @@ public class SpriteDemo extends WindowFramework {
 	private boolean controlLock;
 	private boolean gameWon;
 	private int cRoom;
-	
-	
+
 	public String finalScore = "Final Score: %d";
 	public String gameOverText = "GAME OVER";
-	
+
 	AePlayWave bgSong;
 
 	public SpriteDemo() {
@@ -53,7 +53,7 @@ public class SpriteDemo extends WindowFramework {
 	@Override
 	protected void initialize() {
 		super.initialize();
-		
+
 		cRoom = 0;
 		gameOver = false;
 		gameWon = false;
@@ -62,13 +62,13 @@ public class SpriteDemo extends WindowFramework {
 		// Initialization of the Map, rooms, collectibles, warptiles, etc...
 		map = new Map(appWidth, appHeight, appWorldWidth, appWorldHeight);
 
-		mario = new MarioSprite();
+		mario = new DimliSprite();
 		mario.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
 		mario.setSubBox();
-		
+
 		bgSong = new AePlayWave("Sounds/Spooky Graveyard Song.wav");
 		bgSong.loop();
-		
+
 		overlay = new Overlay();
 	}
 
@@ -76,16 +76,13 @@ public class SpriteDemo extends WindowFramework {
 	@Override
 	protected void processInput(float delta) {
 		super.processInput(delta);
-		
-		
-		if (gameOver || gameWon)
-		{
-			if (keyboard.keyDown(KeyEvent.VK_N))
-			{
+
+		if (gameOver || gameWon) {
+			if (keyboard.keyDown(KeyEvent.VK_N)) {
 				initialize();
 				return;
 			}
-				
+
 		}
 
 		int running = 2;
@@ -109,7 +106,7 @@ public class SpriteDemo extends WindowFramework {
 				mario.setVY(-base * running);
 			} else {
 				mario.setVY(0);
-				//mario.setSprite("");
+				// mario.setSprite("");
 			}
 
 			if (keyboard.keyDown(KeyEvent.VK_A) || keyboard.keyDown(KeyEvent.VK_LEFT)) {
@@ -123,19 +120,19 @@ public class SpriteDemo extends WindowFramework {
 				mario.direction = "Right";
 				mario.setVX(base * running);
 			} else {
-				//mario.setSprite("");
+				// mario.setSprite("");
 				mario.setVX(0);
 			}
 			mario.velocity.x += map.roomData[cRoom].onLog(mario);
-			if(!keyboard.keyDown(KeyEvent.VK_RIGHT) && !keyboard.keyDown(KeyEvent.VK_D) &&
-					!keyboard.keyDown(KeyEvent.VK_UP) && !keyboard.keyDown(KeyEvent.VK_W) &&
-					!keyboard.keyDown(KeyEvent.VK_DOWN) && !keyboard.keyDown(KeyEvent.VK_S)&&
-					!keyboard.keyDown(KeyEvent.VK_LEFT)&& !keyboard.keyDown(KeyEvent.VK_A)){
+			if (!keyboard.keyDown(KeyEvent.VK_RIGHT) && !keyboard.keyDown(KeyEvent.VK_D)
+					&& !keyboard.keyDown(KeyEvent.VK_UP) && !keyboard.keyDown(KeyEvent.VK_W)
+					&& !keyboard.keyDown(KeyEvent.VK_DOWN) && !keyboard.keyDown(KeyEvent.VK_S)
+					&& !keyboard.keyDown(KeyEvent.VK_LEFT) && !keyboard.keyDown(KeyEvent.VK_A)) {
 				mario.setSprite("");
 			}
-			
+
 		} else {
-			//mario.setSprite("");
+			// mario.setSprite("");
 			mario.setVX(0);
 			mario.setVY(0);
 		}
@@ -149,12 +146,12 @@ public class SpriteDemo extends WindowFramework {
 		if (keyboard.keyDownOnce(KeyEvent.VK_B)) {
 			mario.greenBorder = !mario.greenBorder;
 			map.background.greenBorder = !map.background.greenBorder;
-			//for (int i = 0; i < map.roomData.length; i++) {
-			//	map.roomData[cRoom].showStuff();
-			//}
+			// for (int i = 0; i < map.roomData.length; i++) {
+			// map.roomData[cRoom].showStuff();
+			// }
 		}
-		
-		switch(map.roomData[cRoom].passKeyboard(keyboard)){
+
+		switch (map.roomData[cRoom].passKeyboard(keyboard)) {
 		case "Succeeded":
 			for (int x = 0; x < map.roomData[cRoom].wt.size(); x++) {
 				map.roomData[cRoom].wt.get(x).activateTile();
@@ -162,10 +159,9 @@ public class SpriteDemo extends WindowFramework {
 			}
 			break;
 		case "Escaped":
-			if(cRoom == 6){
+			if (cRoom == 6) {
 				cRoom = 3;
-			}
-			else if(cRoom == 11){
+			} else if (cRoom == 11) {
 				cRoom = 10;
 			}
 			map.background.currentSprite = map.roomData[cRoom].getBG();
@@ -177,7 +173,6 @@ public class SpriteDemo extends WindowFramework {
 		default:
 			break;
 		}
-		
 
 		/*
 		 * The following controls are for debugging and testing ONLY! These MUST
@@ -227,17 +222,18 @@ public class SpriteDemo extends WindowFramework {
 		map.update(delta, mario, cRoom);
 
 		mario.update(delta, map);
-		//mario.velocity.x += map.roomData[cRoom].onLog(mario);
+		// mario.velocity.x += map.roomData[cRoom].onLog(mario);
 
 		controlLock = map.lock(cRoom);
 
 		map.updateOnObjects(delta, mario, cRoom);
-		//mario.velocity.x += map.roomData[cRoom].onLog(mario);
+		// mario.velocity.x += map.roomData[cRoom].onLog(mario);
 		for (int x = 0; x < map.roomData[cRoom].wt.size(); x++) {
-			if (mario.rectRectIntersection(map.roomData[cRoom].wt.get(x).tile.getVWorld(), mario.subBox.get(0).getVWorld()) && map.roomData[cRoom].wt.get(x).isActive()) {
+			if (mario.rectRectIntersection(map.roomData[cRoom].wt.get(x).tile.getVWorld(),
+					mario.subBox.get(0).getVWorld()) && map.roomData[cRoom].wt.get(x).isActive()) {
 				mario.positions.x = map.roomData[cRoom].wt.get(x).getWarpToX();
 				mario.positions.y = map.roomData[cRoom].wt.get(x).getWarpToY();
-				if(map.roomData[cRoom].wt.get(x).challengeEntrance){
+				if (map.roomData[cRoom].wt.get(x).challengeEntrance) {
 					map.roomData[cRoom].wt.get(x).active = false;
 					map.roomData[cRoom].wt.get(x).currentSprite = map.roomData[cRoom].wt.get(x).closed;
 				}
@@ -250,32 +246,27 @@ public class SpriteDemo extends WindowFramework {
 		}
 
 		map.roomData[cRoom].rockUpdater(delta);
-		
-		if(map.roomData[cRoom].hazardHit(mario)){
+
+		if (map.roomData[cRoom].hazardHit(mario)) {
 			mario.healthBar.doDamage(25);
 		}
-		
-		//mario.velocity.x += map.roomData[cRoom].onLog(mario);
-		//System.out.printf("Mario Velocity After:%f\n ", mario.velocity.x);
-		
-		if(map.roomData[9].items.isEmpty()){
+
+		// mario.velocity.x += map.roomData[cRoom].onLog(mario);
+		// System.out.printf("Mario Velocity After:%f\n ", mario.velocity.x);
+
+		if (map.roomData[9].items.isEmpty()) {
 			gameWon = true;
 			controlLock = true;
 		}
-		
+
 		lock(controlLock, delta);
-		
+
 		overlay.updateScore(mario.score.getScore());
-		if (gameOver)
-		{
+		if (gameOver) {
 			overlay.updateMode(GameMode.GAMEOVER);
-		}
-		else if (gameWon)
-		{
+		} else if (gameWon) {
 			overlay.updateMode(GameMode.GAMEWON);
-		}
-		else
-		{
+		} else {
 			overlay.updateMode(GameMode.STANDBY);
 		}
 	}
@@ -289,7 +280,7 @@ public class SpriteDemo extends WindowFramework {
 			if (mario.healthBar.getHealthLevel() <= 0) {
 				gameOver = true;
 			}
-		}else{
+		} else {
 			mario.healthBar.setImmune(true);
 		}
 	}
@@ -302,10 +293,10 @@ public class SpriteDemo extends WindowFramework {
 
 		if (!gameOver) {
 			map.background.render(g, vp);
-			if(cRoom == 5 || cRoom == 8){
+			if (cRoom == 5 || cRoom == 8) {
 				map.roomData[cRoom].renderRoom(g, vp);
 			}
-			
+
 			// s1.render(g, getViewportTransform());
 			for (int x = 0; x < map.roomData[cRoom].wt.size(); x++) {
 				map.roomData[cRoom].wt.get(x).render(g, vp);
@@ -316,15 +307,16 @@ public class SpriteDemo extends WindowFramework {
 			}
 			mario.healthBar.render(g, vp);
 			mario.score.render(g);
-			/*if (map.roomData[cRoom].showDB) {
-				map.roomData[cRoom].db.get(0).render(g, vp);
-			}*/
-			if(cRoom != 5 && cRoom != 8){
+			/*
+			 * if (map.roomData[cRoom].showDB) {
+			 * map.roomData[cRoom].db.get(0).render(g, vp); }
+			 */
+			if (cRoom != 5 && cRoom != 8) {
 				map.roomData[cRoom].renderRoom(g, vp);
 			}
-			
+
 		}
-		
+
 		overlay.render(g);
 	}
 

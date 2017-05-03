@@ -106,11 +106,11 @@ public class RoomData{
 		
 	}
 	
-	public boolean hazardHit(MarioSprite m){
+	public boolean hazardHit(DimliSprite m){
 		return false;
 	}
 	
-	public float onLog(MarioSprite m){
+	public float onLog(DimliSprite m){
 		return 0f;
 	}
 	
