@@ -93,7 +93,7 @@ public class RockChallengeRoom extends RoomData {
 	}
 
 	@Override
-	public boolean hazardHit(GimliSprite m) {
+	public boolean hazardHit(DimliSprite m) {
 		Vector2f[] box = m.mainBox.getVWorld();
 		for (int x = 0; x < rocks.size(); x++) {
 			if (m.intersectCircleAABB(rocks.get(x).positions, rocks.get(x).radius, box[3], box[1])) {

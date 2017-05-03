@@ -258,11 +258,11 @@ public class Map {
 
 	}
 
-	public void update(float delta, GimliSprite mario, int cRoom) {
+	public void update(float delta, DimliSprite mario, int cRoom) {
 		background.updateObjects(delta);
 	}
 
-	public void updateOnObjects(float delta, GimliSprite mario, int cRoom) {
+	public void updateOnObjects(float delta, DimliSprite mario, int cRoom) {
 		roomData[cRoom].updateRoomData(delta);
 
 		for (int x = 0; x < roomData[cRoom].items.size(); x++) {

@@ -14,7 +14,7 @@ public class GoldRush extends WindowFramework {
 
 	Random r = new Random();
 
-	GimliSprite mario;
+	DimliSprite mario;
 	Background background;
 	private Map map;
 	private Overlay overlay;
@@ -62,7 +62,7 @@ public class GoldRush extends WindowFramework {
 		// Initialization of the Map, rooms, collectibles, warptiles, etc...
 		map = new Map(appWidth, appHeight, appWorldWidth, appWorldHeight);
 
-		mario = new GimliSprite();
+		mario = new DimliSprite();
 		mario.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
 		mario.setSubBox();
 

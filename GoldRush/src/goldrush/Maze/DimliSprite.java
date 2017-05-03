@@ -8,7 +8,7 @@ import goldrush.Util.Sprite;
 import goldrush.Util.Vector2f;
 import goldrush.Util.VectorObject;
 
-public class GimliSprite extends Sprite {
+public class DimliSprite extends Sprite {
 
 	public String fn = "Images/PlayerSprites.png";
 	final int spriteWidth = 50;
@@ -24,7 +24,7 @@ public class GimliSprite extends Sprite {
 	 * Two different constructors for default and more customized starting
 	 * values
 	 */
-	public GimliSprite() {
+	public DimliSprite() {
 		// super();
 		loadFile(fn, spriteWidth, spriteHeight);
 		positions = new Vector2f(0.0f, 0.0f);
@@ -36,7 +36,7 @@ public class GimliSprite extends Sprite {
 		score = new Score();
 	}
 
-	public GimliSprite(Vector2f pos, Vector2f vel, float ang, float rot) {
+	public DimliSprite(Vector2f pos, Vector2f vel, float ang, float rot) {
 		loadFile(fn, spriteWidth, spriteHeight);
 		positions = pos;
 		velocity = vel;
