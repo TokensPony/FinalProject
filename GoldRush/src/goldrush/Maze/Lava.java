@@ -9,7 +9,7 @@ public class Lava extends Sprite {
 
 	public final int spriteWidth = 1280;
 	public final int spriteHeight = 480;
-
+	//Lava is basically a static sprite with a 200 damage value
 	public Lava() {
 		fn = "Images/LavaTemp.png";
 		loadFile(fn, spriteWidth, spriteHeight);

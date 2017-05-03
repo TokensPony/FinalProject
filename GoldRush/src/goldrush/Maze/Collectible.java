@@ -15,6 +15,7 @@ public class Collectible extends Sprite {
 	int spriteWidth = 32;
 	int spriteHeight = 40;
 
+	/*Constructor sets sprite image, size, value, and sound effects for new collectibles*/
 	public Collectible(float x, float y, String type) {
 		cType = type;
 		switch (cType) {
