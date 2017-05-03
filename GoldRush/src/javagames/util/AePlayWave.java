@@ -12,7 +12,7 @@ import javax.sound.sampled.SourceDataLine;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import java.util.Scanner;
 
-//A utility method used by WavePlayer. Basicaly a single playable wave file.
+//A utility method used by WavePlayer. Basically a single playable wave file.
 public class AePlayWave extends Thread
 {
 

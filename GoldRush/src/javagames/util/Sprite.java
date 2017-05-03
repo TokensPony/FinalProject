@@ -41,8 +41,8 @@ public class Sprite{
 	public float widthCollide;
 	public float heightCollide;
 	
-	final int spriteWidth = 1280;
-	final int spriteHeight = 720;
+	public int spriteWidth = 1280;
+	public int spriteHeight = 720;
 	
 	public int width;
 	public int height;
@@ -100,7 +100,7 @@ public class Sprite{
 			mainBox = new VectorObject(Color.GREEN, new Vector2f[] { new Vector2f(-widthCollide, heightCollide),
 				new Vector2f(widthCollide, heightCollide), new Vector2f(widthCollide, -heightCollide),
 				new Vector2f(-widthCollide, -heightCollide), });
-			System.out.printf("%f, %f\n", widthCollide, heightCollide);
+			//System.out.printf("%f, %f\n", widthCollide, heightCollide);
 		}else{
 			if(heightCollide > widthCollide){
 				radius = heightCollide;
@@ -147,7 +147,7 @@ public class Sprite{
 	 * the borders on and off */
 	public void render(Graphics g, Matrix3x3f vp){
 		Graphics2D g2d = (Graphics2D) g;
-		//g.setColor(Color.GREEN);
+		g.setColor(Color.GREEN);
 		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
 				RenderingHints.VALUE_ANTIALIAS_ON);
 		doAffineTransform(g2d, vp);

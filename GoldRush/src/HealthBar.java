@@ -5,6 +5,7 @@ import javagames.util.Matrix3x3f;
 
 public class HealthBar{
 	
+	int Max = 200;
 	int healthLevel = 200;
 	//Screen coordinates
 	int healthXPos = 25;
@@ -20,6 +21,8 @@ public class HealthBar{
 	int drainValue = 3;
 	
 	float time = 0;
+	
+	boolean immune = false;
 	
 	public HealthBar(){
 		
@@ -51,6 +54,9 @@ public class HealthBar{
 	}
 	
 	public void render(Graphics g, Matrix3x3f vp){
+		g.setColor(Color.BLACK);
+		g.fillRect(25-1, 25-1, 27 , Max+2);
+		g.fillRect(55-1, 25-1, 27 , Max+2);
 		g.setColor(Color.RED);
 		g.fillRect(healthXPos, healthYPos, 25, healthLevel);
 		g.setColor(Color.CYAN);
@@ -59,7 +65,7 @@ public class HealthBar{
 	
 	/*Decreases the healthBar by the given value*/
 	public void doDamage(int hit){
-		if(healthLevel > 0){
+		if(healthLevel > 0 && !immune){
 			healthLevel -= hit;
 			healthYPos += hit;
 		}
