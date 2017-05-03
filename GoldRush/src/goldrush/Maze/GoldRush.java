@@ -76,7 +76,8 @@ public class GoldRush extends WindowFramework {
 	@Override
 	protected void processInput(float delta) {
 		super.processInput(delta);
-
+		
+		//New Game key
 		if (gameOver || gameWon) {
 			if (keyboard.keyDown(KeyEvent.VK_N)) {
 				initialize();
@@ -88,6 +89,8 @@ public class GoldRush extends WindowFramework {
 		int running = 2;
 		float base = 2.4f;
 
+		//If Controls are not locked, allow player to move in any four directions with arrow keys
+		//or the WASD keys
 		if (!controlLock) {
 			// Running. Change running to 2 for final release.
 			// I found it a reasonable value if we want to have it.,,,
@@ -136,21 +139,15 @@ public class GoldRush extends WindowFramework {
 			mario.setVX(0);
 			mario.setVY(0);
 		}
-
+		
+		//The "Use" key for cancelling out of dialog boxes
 		if (keyboard.keyDownOnce(KeyEvent.VK_E)) {
 			map.roomData[cRoom].showDB = false;
 			controlLock = false;
 			map.roomData[cRoom].challengeActive = true;
 		}
-
-		if (keyboard.keyDownOnce(KeyEvent.VK_B)) {
-			mario.greenBorder = !mario.greenBorder;
-			map.background.greenBorder = !map.background.greenBorder;
-			// for (int i = 0; i < map.roomData.length; i++) {
-			// map.roomData[cRoom].showStuff();
-			// }
-		}
-
+		
+		//Switch case specially used for the Quick Time Event inputs and outcomes
 		switch (map.roomData[cRoom].passKeyboard(keyboard)) {
 		case "Succeeded":
 			for (int x = 0; x < map.roomData[cRoom].wt.size(); x++) {
@@ -174,44 +171,50 @@ public class GoldRush extends WindowFramework {
 			break;
 		}
 
-		/*
-		 * The following controls are for debugging and testing ONLY! These MUST
-		 * be removed for final release
+		/* 
+		 * +++***NOTE TO TEACHER***+++
+		 * 
+		 * The following controls were used for testing the game.
+		 * These controls are all mapped to the number keys and are used to
+		 * add/subtract heath and oxygen as well. Feel free to uncomment them
+		 * to use them during grading. 
 		 */
 
-		/* Health bar */
-		if (keyboard.keyDownOnce(KeyEvent.VK_1)) {
+		// Health bar
+		//SUBTRACT
+		/*if (keyboard.keyDownOnce(KeyEvent.VK_1)) {
 			mario.healthBar.doDamage(10);
 		}
-
+		//ADD
 		if (keyboard.keyDownOnce(KeyEvent.VK_2)) {
 			mario.healthBar.addHealth(50);
-		}
+		}*/
 
 		// Oxygen bar
-		if (keyboard.keyDownOnce(KeyEvent.VK_3)) {
+		//SUBTRACT
+		/*if (keyboard.keyDownOnce(KeyEvent.VK_3)) {
 			mario.healthBar.drainOxygen(10);
 		}
-
+		//ADD
 		if (keyboard.keyDownOnce(KeyEvent.VK_4)) {
 			mario.healthBar.addOxygen(50);
-		}
+		}*/
 
-		/* Activates all warp tiles */
-		if (keyboard.keyDownOnce(KeyEvent.VK_5)) {
+		//Activates all warp tiles 
+		/*if (keyboard.keyDownOnce(KeyEvent.VK_5)) {
 			for (int x = 0; x < map.roomData[cRoom].wt.size(); x++) {
 				map.roomData[cRoom].wt.get(x).activateTile();
 				System.out.printf("Activated: %b\n", map.roomData[cRoom].wt.get(x).isActive());
 			}
 		}
 
-		/* Deactivates all warp tiles */
+		//Deactivates all warp tiles
 		if (keyboard.keyDownOnce(KeyEvent.VK_6)) {
 			for (int x = 0; x < map.roomData[cRoom].wt.size(); x++) {
 				map.roomData[cRoom].wt.get(x).deactivateTile();
 				System.out.printf("Activated: %b\n", map.roomData[cRoom].wt.get(x).isActive());
 			}
-		}
+		}*/
 
 	}
 
@@ -228,6 +231,8 @@ public class GoldRush extends WindowFramework {
 
 		map.updateOnObjects(delta, mario, cRoom);
 		// mario.velocity.x += map.roomData[cRoom].onLog(mario);
+		
+		//Update the game to new room Data when a warp tile is activated.
 		for (int x = 0; x < map.roomData[cRoom].wt.size(); x++) {
 			if (mario.rectRectIntersection(map.roomData[cRoom].wt.get(x).tile.getVWorld(),
 					mario.subBox.get(0).getVWorld()) && map.roomData[cRoom].wt.get(x).isActive()) {
@@ -254,6 +259,7 @@ public class GoldRush extends WindowFramework {
 		// mario.velocity.x += map.roomData[cRoom].onLog(mario);
 		// System.out.printf("Mario Velocity After:%f\n ", mario.velocity.x);
 
+		//If the Arkenstone is collected in room 9, trigger win sequence
 		if (map.roomData[9].items.isEmpty()) {
 			gameWon = true;
 			controlLock = true;
@@ -293,6 +299,8 @@ public class GoldRush extends WindowFramework {
 
 		if (!gameOver) {
 			map.background.render(g, vp);
+			
+			//Render the lava rooms under the player
 			if (cRoom == 5 || cRoom == 8) {
 				map.roomData[cRoom].renderRoom(g, vp);
 			}
