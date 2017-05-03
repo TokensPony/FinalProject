@@ -179,8 +179,6 @@ public class Map {
 		addItems(7, 3, allOxygen);
 
 		
-		//TODO: (Brogan) I need to finish going through the rooms below...
-		
 		//Room 8
 		roomData[8].setStuff(appWidth, appHeight, appWorldWidth, appWorldHeight);
 		WarpTile s16 = new WarpTile(14, 0, 4f, downX, downY, true, downDegree, "Challenge");
