@@ -43,7 +43,7 @@ public class Map {
 	};
 
 	/*The map constructor initializes the background and lays the foundation for the types of rooms
-	 * in the roomData array.*/
+	 in the roomData array.*/
 	public Map(int aW, int aH, float aWW, float aWH) {
 		background = new Background(0f, 0f);
 		roomData = new RoomData[] { 
@@ -156,10 +156,10 @@ public class Map {
 
 		/* Room 5 First Lava Room*/
 		roomData[5].setStuff(appWidth, appHeight, appWorldWidth, appWorldHeight);
-		roomData[5].addWarpTile(new WarpTile(10, 0, 3f, downX, downY, true, downDegree, "Normal"));
+		roomData[5].addWarpTile(new WarpTile(10, 0, 3f, downX, downY, true, downDegree, "Challenge"));
 		//roomData[5].setStuff(appWidth, appHeight, appWorldWidth, appWorldHeight);
 		roomData[5].db.get(0).setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
-		roomData[5].addWarpTile(new WarpTile(14, 0, -3f, upX, upY, true, upDegree, "Normal"));
+		roomData[5].addWarpTile(new WarpTile(14, 0, -3f, upX, upY, true, upDegree, "Challenge"));
 		
 		
 		/* Room 6 QTE Demo*/
@@ -183,15 +183,15 @@ public class Map {
 		
 		//Room 8
 		roomData[8].setStuff(appWidth, appHeight, appWorldWidth, appWorldHeight);
-		WarpTile s16 = new WarpTile(14, 0, 4f, downX, downY, true, downDegree, "Normal");
-		WarpTile s17 = new WarpTile(9, 0, -3f, upX, upY, true, upDegree, "Normal");
+		WarpTile s16 = new WarpTile(14, 0, 4f, downX, downY, true, downDegree, "Challenge");
+		WarpTile s17 = new WarpTile(9, 0, -3f, upX, upY, true, upDegree, "Final");
 		roomData[8].addWarpTile(s16);
 		roomData[8].db.get(0).setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
 		roomData[8].addWarpTile(s17);
 		
 		//Room 9
 		roomData[9].setStuff(appWidth, appHeight, appWorldWidth, appWorldHeight);
-		WarpTile s18 = new WarpTile(8, 0, 3.7f, downX, downY, true, downDegree, "Normal");
+		WarpTile s18 = new WarpTile(8, 0, 3.7f, downX, downY, true, downDegree, "Final");
 		Collectible a1 = new Collectible(0f, 3f, "Arkenstone");
 		a1.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
 		roomData[9].addWarpTile(s18);
@@ -200,7 +200,7 @@ public class Map {
 		//Room 10
 		WarpTile s19 = new WarpTile(3, 0, 4f, downX, downY, true, downDegree, "Normal");
 		WarpTile s20 = new WarpTile(11, 7f, 0f, leftX, leftY, true, leftDegree, "Challenge");
-		WarpTile s21 = new WarpTile(5, 0, -3.3f, upX, upY, true, upDegree, "Normal");
+		WarpTile s21 = new WarpTile(5, 0, -3.3f, upX, upY, true, upDegree, "Challenge");
 		addItems(10, 3, allOxygen);
 		addItems(10, 2, allEdibles);
 		s20.challengeEntrance = true;
@@ -226,8 +226,8 @@ public class Map {
 		addItems(13, 3, allOxygen);
 		
 		//Room 14
-		WarpTile s27 = new WarpTile(5, 0, 4f, downX, downY, true, downDegree, "Normal");
-		WarpTile s28 = new WarpTile(8, 0, -3.3f, upX, upY, true, upDegree, "Normal");
+		WarpTile s27 = new WarpTile(5, 0, 4f, downX, downY, true, downDegree, "Challenge");
+		WarpTile s28 = new WarpTile(8, 0, -3.3f, upX, upY, true, upDegree, "Challenge");
 
 		roomData[10].setStuff(appWidth, appHeight, appWorldWidth, appWorldHeight);
 		roomData[10].addWarpTile(s19);
