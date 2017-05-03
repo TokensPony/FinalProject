@@ -1,7 +1,8 @@
 package goldrush.UI;
 
 import java.awt.*;
-import javagames.util.*;
+
+import goldrush.Util.*;
 
 public class DialogBox extends Sprite {
 	String title;

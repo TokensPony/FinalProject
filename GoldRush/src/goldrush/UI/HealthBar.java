@@ -3,7 +3,7 @@ package goldrush.UI;
 import java.awt.Color;
 import java.awt.Graphics;
 
-import javagames.util.Matrix3x3f;
+import goldrush.Util.Matrix3x3f;
 
 public class HealthBar {
 

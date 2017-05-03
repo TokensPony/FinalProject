@@ -1,6 +1,6 @@
 package goldrush.Maze;
 
-import javagames.util.*;
+import goldrush.Util.*;
 
 public class Rock extends Sprite {
 	public Sprite shadow;

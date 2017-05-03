@@ -6,9 +6,9 @@ import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.util.Random;
 
-import javagames.util.AePlayWave;
-import javagames.util.Matrix3x3f;
-import javagames.util.WindowFramework;
+import goldrush.Util.AePlayWave;
+import goldrush.Util.Matrix3x3f;
+import goldrush.Util.WindowFramework;
 
 public class GoldRush extends WindowFramework {
 

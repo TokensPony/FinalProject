@@ -1,9 +1,9 @@
-package BoundingShapes;
+package goldrush.BoundingShapes;
 
 import java.awt.Graphics2D;
 
-import javagames.util.Matrix3x3f;
-import javagames.util.Vector2f;;
+import goldrush.Util.Matrix3x3f;
+import goldrush.Util.Vector2f;;
 
 
 public class AABB extends BoundingShape {

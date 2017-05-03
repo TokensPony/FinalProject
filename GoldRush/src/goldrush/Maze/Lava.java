@@ -1,7 +1,7 @@
 package goldrush.Maze;
 
-import javagames.util.Sprite;
-import javagames.util.Vector2f;
+import goldrush.Util.Sprite;
+import goldrush.Util.Vector2f;
 
 public class Lava extends Sprite {
 

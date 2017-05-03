@@ -2,9 +2,9 @@ package goldrush.Maze;
 
 import java.awt.Color;
 
-import javagames.util.Sprite;
-import javagames.util.Vector2f;
-import javagames.util.VectorObject;
+import goldrush.Util.Sprite;
+import goldrush.Util.Vector2f;
+import goldrush.Util.VectorObject;
 
 // SourceTree test
 

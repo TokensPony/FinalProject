@@ -1,4 +1,4 @@
-package javagames.util;
+package goldrush.Util;
 
 import java.awt.FontMetrics;
 import java.awt.Graphics;

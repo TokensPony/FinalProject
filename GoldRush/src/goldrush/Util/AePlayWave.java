@@ -1,4 +1,4 @@
-package javagames.util;
+package goldrush.Util;
 
 import java.io.File;
 import java.io.IOException;

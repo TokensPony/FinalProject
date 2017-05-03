@@ -1,8 +1,9 @@
 package goldrush.Maze;
 
-import javagames.util.*;
 import java.awt.*;
 import java.util.*;
+
+import goldrush.Util.*;
 
 public class LavaRoom extends RoomData {
 	ArrayList<Log> logs = new ArrayList<Log>();

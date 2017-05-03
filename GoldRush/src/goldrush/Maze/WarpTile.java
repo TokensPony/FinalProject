@@ -7,9 +7,9 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-import java.awt.Graphics;
+import goldrush.Util.*;
 
-import javagames.util.*;
+import java.awt.Graphics;
 
 public class WarpTile extends Sprite {
 

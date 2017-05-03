@@ -1,8 +1,9 @@
 package goldrush.Maze;
 
-import javagames.util.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
+
+import goldrush.Util.*;
 
 public class QTERoom extends RoomData {
 	// Time variables

@@ -1,4 +1,4 @@
-package javagames.util;
+package goldrush.Util;
 
 
 public class FrameRate {

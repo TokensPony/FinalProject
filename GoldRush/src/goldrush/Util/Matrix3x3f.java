@@ -1,4 +1,4 @@
-package javagames.util;
+package goldrush.Util;
 
 public class Matrix3x3f {
 	private float[][] m = new float[3][3];

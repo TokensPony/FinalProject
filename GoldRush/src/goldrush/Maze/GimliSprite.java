@@ -4,10 +4,9 @@ import java.awt.Color;
 
 import goldrush.UI.HealthBar;
 import goldrush.UI.Score;
-import javagames.util.Sprite;
-import javagames.util.Vector2f;
-//import javagames.util.VectorObject;
-import javagames.util.VectorObject;
+import goldrush.Util.Sprite;
+import goldrush.Util.Vector2f;
+import goldrush.Util.VectorObject;
 
 public class GimliSprite extends Sprite {
 
