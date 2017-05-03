@@ -1,3 +1,5 @@
+package goldrush.Maze;
+
 import java.awt.Color;
 import java.awt.image.*;
 import java.io.File;
@@ -9,7 +11,7 @@ import java.awt.Graphics;
 
 import javagames.util.*;
 
-public class WarpTile extends Sprite{
+public class WarpTile extends Sprite {
 
 	public VectorObject tile;
 	public BufferedImage closed;
@@ -19,19 +21,22 @@ public class WarpTile extends Sprite{
 	public int warpX;
 	public float warpToX;
 	public float warpToY;
-	
+
 	public int spriteWidth = 62;
 	public int spriteHeight = 50;
 
-	//Default constructor that sets a default .4x.4 Bounding box as well as it's characteristics
-	//For what tile the room leads to, where the player appears on the screen, and where the tile
-	//Itself physically resides.
-	public WarpTile(int destination, float charPosX, float charPosY, float tilePosX, float tilePosY, boolean status, int degrees, String type) {
-		switch(type){
-		case("Normal"):
+	// Default constructor that sets a default .4x.4 Bounding box as well as
+	// it's characteristics
+	// For what tile the room leads to, where the player appears on the screen,
+	// and where the tile
+	// Itself physically resides.
+	public WarpTile(int destination, float charPosX, float charPosY, float tilePosX, float tilePosY, boolean status,
+			int degrees, String type) {
+		switch (type) {
+		case ("Normal"):
 			fn = "Images/Door-Normal.png";
 			break;
-		case("Challenge"):
+		case ("Challenge"):
 			fn = "Images/Door-ChallengeO.png";
 			try {
 				closed = ImageIO.read(new File("Images/Door-ChallengeC.png"));
@@ -40,14 +45,14 @@ public class WarpTile extends Sprite{
 				e.printStackTrace();
 			}
 			break;
-		case("Final"):
+		case ("Final"):
 			fn = "Images/Door-Final.png";
 			break;
 		default:
 			fn = "Images/Door-Normal.png";
 			break;
 		}
-		loadFile(fn,spriteWidth, spriteHeight);
+		loadFile(fn, spriteWidth, spriteHeight);
 		temp = currentSprite;
 		positions = new Vector2f(tilePosX, tilePosY);
 		velocity = new Vector2f(0f, 0f);
@@ -62,8 +67,8 @@ public class WarpTile extends Sprite{
 		tile.setTY(tilePosY);
 		active = status;
 	}
-	
-	//Overstuffed method which allows for a custom tile size
+
+	// Overstuffed method which allows for a custom tile size
 	public WarpTile(VectorObject t, int destination, float charPosX, float charPosY, float tilePosX, float tilePosY) {
 		tile = t;
 		warpX = destination;
@@ -73,23 +78,23 @@ public class WarpTile extends Sprite{
 		tile.setTY(tilePosY);
 	}
 
-	//Gets vworld of the tile
+	// Gets vworld of the tile
 	public Vector2f[] getVWorld() {
 		return tile.getVWorld();
 	}
 
-	//update
+	// update
 	@Override
 	public void updateObjects(float delta) {
 		super.updateObjects(delta);
 		tile.updateWorld();
 	}
 
-	//Render
+	// Render
 	@Override
 	public void render(Graphics g, Matrix3x3f vp) {
 		super.render(g, vp);
-		//tile.render(vp, g);
+		// tile.render(vp, g);
 	}
 
 	public int getWarpMap() {
@@ -103,16 +108,16 @@ public class WarpTile extends Sprite{
 	public float getWarpToY() {
 		return warpToY;
 	}
-	
-	public void activateTile(){
+
+	public void activateTile() {
 		active = true;
 	}
-	
-	public void deactivateTile(){
+
+	public void deactivateTile() {
 		active = false;
 	}
-	
-	public boolean isActive(){
+
+	public boolean isActive() {
 		return active;
 	}
 }

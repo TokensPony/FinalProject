@@ -1,3 +1,5 @@
+package goldrush.Maze;
+
 import java.awt.Color;
 
 import javagames.util.Sprite;

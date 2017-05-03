@@ -1,12 +1,13 @@
+package goldrush.Maze;
+
 import javagames.util.*;
 
+public class Log extends Sprite {
 
-public class Log extends Sprite{
-	
 	public int spriteWidth = 320;
 	public int spriteHeight = 120;
-	
-	public Log(float posX, float posY, float direction){
+
+	public Log(float posX, float posY, float direction) {
 		fn = "Images/LavaLog.png";
 		loadFile(fn, spriteWidth, spriteHeight);
 		positions = new Vector2f(posX, posY);
@@ -14,6 +15,5 @@ public class Log extends Sprite{
 		angle = (float) Math.toRadians(0);
 		rotation = 0f;
 	}
-	
-	
+
 }

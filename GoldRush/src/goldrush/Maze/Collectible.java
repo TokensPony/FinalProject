@@ -1,21 +1,23 @@
+package goldrush.Maze;
+
 import javagames.util.*;
 
-public class Collectible extends Sprite{
-	
+public class Collectible extends Sprite {
+
 	public String fn = "Images/OTankTemp.png";
 	public int decrease;
 	public int increase = 50;
-	
+
 	AePlayWave collectSFX = new AePlayWave("Sounds/Oxygen Tank Pickup.wav");
-	
+
 	String cType;
-	
+
 	int spriteWidth = 32;
 	int spriteHeight = 40;
-	
-	public Collectible(float x, float y, String type){
+
+	public Collectible(float x, float y, String type) {
 		cType = type;
-		switch(cType){
+		switch (cType) {
 		case "LargePasty":
 			fn = "Images/PastyLarge.png";
 			spriteWidth = 44;
@@ -124,11 +126,11 @@ public class Collectible extends Sprite{
 		rotation = 0f;
 	}
 
-	public int getIncrease(){
+	public int getIncrease() {
 		return increase;
 	}
-	
-	public String getType(){
+
+	public String getType() {
 		return cType;
 	}
 }

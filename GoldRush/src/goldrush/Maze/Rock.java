@@ -1,3 +1,5 @@
+package goldrush.Maze;
+
 import javagames.util.*;
 
 public class Rock extends Sprite {
@@ -8,7 +10,7 @@ public class Rock extends Sprite {
 
 	AePlayWave hit = new AePlayWave("Sounds/PlayerDamage.wav");
 	AePlayWave rumble = new AePlayWave("Sounds/Rumble.wav");
-	
+
 	public Rock(float x, float y) {
 		circle = true;
 

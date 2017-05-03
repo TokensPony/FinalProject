@@ -1,3 +1,5 @@
+package goldrush.Maze;
+
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -7,10 +9,11 @@ import javagames.util.*;
 
 import javax.imageio.ImageIO;
 
+import goldrush.UI.DialogBox;
 import javagames.util.Matrix3x3f;
 
-public class RoomData{
-	
+public class RoomData {
+
 	ArrayList<WarpTile> wt = new ArrayList<WarpTile>();
 	ArrayList<Collectible> items = new ArrayList<Collectible>();
 	public String fn;
@@ -19,109 +22,110 @@ public class RoomData{
 	public boolean showDB = false;
 	public int currentDB = 0;
 	public boolean challengeActive = false;
-	
+
 	public int appWidth;
 	public int appHeight;
 	public float appWorldWidth;
 	public float appWorldHeight;
-	
+
 	public String type;
-	
-	public RoomData(String filename){
+
+	public RoomData(String filename) {
 		fn = filename;
 		type = "Normal";
-		try{
+		try {
 			bg = ImageIO.read(new File(filename));
-		}catch (IOException e){
+		} catch (IOException e) {
 			e.printStackTrace();
 			bg = null;
 		}
 	}
-	
-	public RoomData(String filename, String dbType){
+
+	public RoomData(String filename, String dbType) {
 		fn = filename;
 		type = "Normal";
 		showDB = true;
 		db = new ArrayList<DialogBox>();
 		db.add(new DialogBox(dbType));
-		try{
+		try {
 			bg = ImageIO.read(new File(filename));
-		}catch (IOException e){
+		} catch (IOException e) {
 			e.printStackTrace();
 			bg = null;
 		}
 	}
-	
-	public void addWarpTile(WarpTile w){
+
+	public void addWarpTile(WarpTile w) {
 		w.setBB(appWidth, appHeight, appWorldWidth, appWorldHeight);
-		if(!w.active){
+		if (!w.active) {
 			w.currentSprite = w.closed;
 		}
 		wt.add(w);
 	}
-	
-	public void addCollectible(Collectible c){
+
+	public void addCollectible(Collectible c) {
 		items.add(c);
 	}
-	
-	public void setStuff(int aW, int aH, float aWW, float aWH){
+
+	public void setStuff(int aW, int aH, float aWW, float aWH) {
 		appWidth = aW;
 		appHeight = aH;
 		appWorldWidth = aWW;
 		appWorldHeight = aWH;
 	}
-	
-	public void updateRoomData(float delta){
-		if(db != null){
+
+	public void updateRoomData(float delta) {
+		if (db != null) {
 			db.get(currentDB).updateObjects(delta);
 		}
-		for(int x = 0; x < wt.size(); x++){
+		for (int x = 0; x < wt.size(); x++) {
 			wt.get(x).updateObjects(delta);
 		}
-		
-		for(int x = 0; x < items.size(); x++){
+
+		for (int x = 0; x < items.size(); x++) {
 			items.get(x).updateObjects(delta);
 		}
-		/*SpriteDemo.test++;
-		System.out.println(SpriteDemo.test);*/
-		
+		/*
+		 * SpriteDemo.test++; System.out.println(SpriteDemo.test);
+		 */
+
 	}
-	
-	public void renderRoom(Graphics g, Matrix3x3f vp){
+
+	public void renderRoom(Graphics g, Matrix3x3f vp) {
 		if (showDB) {
 			db.get(currentDB).render(g, vp);
 		}
 	}
-	
-	public boolean doDamage(){
+
+	public boolean doDamage() {
 		return false;
 	}
-	
-	public BufferedImage getBG(){
+
+	public BufferedImage getBG() {
 		return bg;
 	}
-	
-	public void showStuff(){
-		
+
+	public void showStuff() {
+
 	}
-	
-	public boolean hazardHit(MarioSprite m){
+
+	public boolean hazardHit(GimliSprite m) {
 		return false;
 	}
-	
-	public float onLog(MarioSprite m){
+
+	public float onLog(GimliSprite m) {
 		return 0f;
 	}
-	
-	public void rockUpdater(float delta){
-		//System.out.println("Normal Room");
+
+	public void rockUpdater(float delta) {
+		// System.out.println("Normal Room");
 	}
-	
-	public String passKeyboard(KeyboardInput k){
+
+	public String passKeyboard(KeyboardInput k) {
 		return "";
 	}
-	
-	public void showNextDB(){
+
+	public void showNextDB() {
 		currentDB++;
 		showDB = true;
 	}

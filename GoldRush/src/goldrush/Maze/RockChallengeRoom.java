@@ -1,3 +1,5 @@
+package goldrush.Maze;
+
 import javagames.util.*;
 import java.awt.*;
 import java.util.*;
@@ -60,8 +62,8 @@ public class RockChallengeRoom extends RoomData {
 				wt.get(x).active = true;
 				wt.get(x).currentSprite = wt.get(x).temp;
 			}
-			if(db != null){
-				if(currentDB < db.size()-1){
+			if (db != null) {
+				if (currentDB < db.size() - 1) {
 					showNextDB();
 				}
 			}
@@ -90,7 +92,7 @@ public class RockChallengeRoom extends RoomData {
 	}
 
 	@Override
-	public boolean hazardHit(MarioSprite m) {
+	public boolean hazardHit(GimliSprite m) {
 		Vector2f[] box = m.mainBox.getVWorld();
 		for (int x = 0; x < rocks.size(); x++) {
 			if (m.intersectCircleAABB(rocks.get(x).positions, rocks.get(x).radius, box[3], box[1])) {

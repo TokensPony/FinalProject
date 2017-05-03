@@ -1,15 +1,16 @@
-import javagames.util.*;
-import java.awt.*;
-import java.util.*;
+package goldrush.Maze;
 
-public class Lava extends Sprite{
+import javagames.util.Sprite;
+import javagames.util.Vector2f;
+
+public class Lava extends Sprite {
 
 	public final int damage = 200;
-	
+
 	public final int spriteWidth = 1280;
 	public final int spriteHeight = 480;
-	
-	public Lava(){
+
+	public Lava() {
 		fn = "Images/LavaTemp.png";
 		loadFile(fn, spriteWidth, spriteHeight);
 		positions = new Vector2f(0, 0);
