@@ -31,8 +31,7 @@ public class RockChallengeRoom extends RoomData {
 		return r;
 	}
 
-	// Need values for appWorld Width and height passed in so
-	// That the random generation of the rocks will work efficiently
+	/*Manges the updating and creating of new rocks. Once the challenge is completed, the rocks stop spawning*/
 	@Override
 	public void updateRoomData(float delta) {
 		super.updateRoomData(delta);

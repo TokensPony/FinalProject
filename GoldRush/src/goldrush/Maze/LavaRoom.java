@@ -10,7 +10,9 @@ public class LavaRoom extends RoomData {
 	public Lava lava = new Lava();
 
 	boolean initialized = false;
-
+	
+	
+	/*Constructors create new logs with or without a dialog box*/
 	public LavaRoom(String filename) {
 		super(filename);
 		logs.add(new Log(-10f, -2.3f, 1.5f));
@@ -41,6 +43,7 @@ public class LavaRoom extends RoomData {
 	public void updateRoomData(float delta) {
 		super.updateRoomData(delta);
 		lava.updateObjects(delta);
+		/*Manages the logs movement and respawns them in a loop once they leave the screen*/
 		for (int x = 0; x < logs.size(); x++) {
 			logs.get(x).updateObjects(delta);
 			if (logs.get(x).velocity.x > 0 && logs.get(x).positions.x > 10f) {
@@ -51,6 +54,7 @@ public class LavaRoom extends RoomData {
 		}
 	}
 
+	//Checks to see if the player is on a log
 	@Override
 	public float onLog(DimliSprite m) {
 		for (int x = 0; x < logs.size(); x++) {
@@ -68,6 +72,7 @@ public class LavaRoom extends RoomData {
 		return 0f;
 	}
 
+	//Checks if player is touching the lava completely and is not on a log
 	@Override
 	public boolean hazardHit(DimliSprite m) {
 		boolean hit = false;

@@ -10,7 +10,8 @@ public class Rock extends Sprite {
 
 	AePlayWave hit = new AePlayWave("Sounds/PlayerDamage.wav");
 	AePlayWave rumble = new AePlayWave("Sounds/Rumble.wav");
-
+	
+	//Rocks are always set to rotate
 	public Rock(float x, float y) {
 		circle = true;
 
